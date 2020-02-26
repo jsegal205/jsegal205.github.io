@@ -1,0 +1,9 @@
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  font-family: Consolas, monaco, monospace;
+  background-color: #efefef;
+  color: #444444;
+}
