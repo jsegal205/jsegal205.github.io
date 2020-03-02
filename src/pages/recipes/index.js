@@ -29,8 +29,8 @@ const data = [
 ];
 
 const Recipes = () => (
-  <main>
-    <h1>Recipe INDEX</h1>
+  <section>
+    <h1>Recipes</h1>
     <ul>
       {data.map(recipe => (
         <li key={recipe.slug}>
@@ -45,7 +45,7 @@ const Recipes = () => (
         </li>
       ))}
     </ul>
-  </main>
+  </section>
 );
 
 export default Recipes;

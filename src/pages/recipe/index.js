@@ -12,13 +12,13 @@ const Recipe = props => {
   const { title, referenceUrl, ingredients, directions } = state;
 
   return (
-    <main>
-      <section>
+    <section>
+      <div>
         <h1>{title}</h1>
         <small>
           <a href={referenceUrl}>Original Reference</a>
         </small>
-      </section>
+      </div>
       <div>
         <h2>Ingredients</h2>
         <ReactMarkdown source={ingredients} />
@@ -27,7 +27,7 @@ const Recipe = props => {
         <h2>Directions</h2>
         <ReactMarkdown source={directions} />
       </div>
-    </main>
+    </section>
   );
 };
 

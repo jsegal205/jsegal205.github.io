@@ -10,10 +10,12 @@ import NotFound from "./pages/not-found";
 
 export default function App() {
   return (
-    <main>
-      <h1>Jim Segal Projects</h1>
+    <>
+      <header>
+        <h1>Jim Segal Projects</h1>
+      </header>
       <Router>
-        <div>
+        <article>
           <nav>
             <ul>
               <li>
@@ -29,11 +31,10 @@ export default function App() {
             <Route exact path="/" component={Home} />
             <Route path="/recipes" component={Recipes} />
             <Route path="/recipe/:recipeSlug" component={Recipe} />
-
             <Route path="*" component={NotFound} />
           </Switch>
-        </div>
+        </article>
       </Router>
-    </main>
+    </>
   );
 }
