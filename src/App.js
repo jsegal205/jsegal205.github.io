@@ -26,19 +26,11 @@ export default function App() {
           </nav>
 
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/recipes">
-              <Recipes />
-            </Route>
-            <Route path="/recipe/:recipeSlug">
-              <Recipe />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route path="/recipes" component={Recipes} />
+            <Route path="/recipe/:recipeSlug" component={Recipe} />
 
-            <Route path="*">
-              <NotFound />
-            </Route>
+            <Route path="*" component={NotFound} />
           </Switch>
         </div>
       </Router>
