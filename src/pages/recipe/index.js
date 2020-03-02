@@ -1,9 +1,15 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import "../../App.css";
+import NotFound from "../not-found";
 
 const Recipe = props => {
-  const { title, referenceUrl, ingredients, directions } = props.location.state;
+  const { state } = props.location;
+  if (!state) {
+    return <NotFound />;
+  }
+
+  const { title, referenceUrl, ingredients, directions } = state;
 
   return (
     <main>
