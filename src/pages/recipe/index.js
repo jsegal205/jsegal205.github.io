@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import "../../App.css";
 
 import { useParams } from "react-router-dom";
@@ -6,8 +7,8 @@ import { useParams } from "react-router-dom";
 const data = {
   title: "jimtitle",
   slug: "jimslug",
-  ingredients: "jimingredients",
-  description: "jimdescription",
+  ingredients: "- 1 scoop of thing\n- 1/2 teaspoon of love",
+  directions: "1. preheat oven to 325\n1. mix things\n",
   referenceUrl: "http://example.com"
 };
 
@@ -17,15 +18,23 @@ const Recipe = () => {
   return (
     <main>
       <section>
-        <h1>title - {data.title}</h1>
+        <h1>{data.title}</h1>
         <small>
           <a href={data.referenceUrl}>Original Reference</a>
         </small>
       </section>
+      <div>
+        <h2>Ingredients</h2>
+        <ReactMarkdown source={data.ingredients} />
+      </div>
+      <div>
+        <h2>Directions</h2>
+        <ReactMarkdown source={data.directions} />
+      </div>
+      <hr />
+      Do something with this crap:
       <div>routeSlug - {recipeSlug}</div>
       <div>slug - {data.slug}</div>
-      <div>ingredients - {data.ingredients}</div>
-      <div>description - {data.description}</div>
     </main>
   );
 };
