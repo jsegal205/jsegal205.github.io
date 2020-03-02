@@ -6,17 +6,18 @@ import NotFound from "../not-found";
 const Recipe = props => {
   const { state } = props.location;
   if (!state) {
+    // add endpoint for recipe SHOW, make call here if it's not set.
     return <NotFound />;
   }
 
-  const { title, referenceUrl, ingredients, directions } = state;
+  const { title, referenceLink, ingredients, directions } = state;
 
   return (
     <section>
       <div>
         <h1>{title}</h1>
         <small>
-          <a href={referenceUrl}>Original Reference</a>
+          <a href={referenceLink}>Original Reference</a>
         </small>
       </div>
       <div>
