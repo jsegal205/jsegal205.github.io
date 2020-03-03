@@ -15,17 +15,19 @@ const Recipe = props => {
   return (
     <section>
       <div>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <small>
-          <a href={referenceLink}>Original Reference</a>
+          <a href={referenceLink} target="_blank" rel="noopener noreferrer">
+            Original Reference
+          </a>
         </small>
       </div>
       <div>
-        <h2>Ingredients</h2>
+        <h3>Ingredients</h3>
         <ReactMarkdown source={ingredients} />
       </div>
       <div>
-        <h2>Directions</h2>
+        <h3>Directions</h3>
         <ReactMarkdown source={directions} />
       </div>
     </section>
