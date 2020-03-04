@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <header>
+    <h1>
+      Jim Segal Projects
+    </h1>
+  </header>
+  <article>
+    <nav>
+      <ul>
+        <li>
+          <a
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/recipes"
+          >
+            Recipes
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <h1>
+      Home
+    </h1>
+  </article>
+</DocumentFragment>
+`;

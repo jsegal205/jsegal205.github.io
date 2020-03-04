@@ -13,7 +13,7 @@ const Recipes = () => {
     });
   }, []);
 
-  return recipes ? (
+  return recipes && recipes.length ? (
     <section>
       <h1>Recipes</h1>
       <ul>
