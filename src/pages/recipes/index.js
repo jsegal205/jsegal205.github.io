@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { apiUrlBase } from "../../utils";
 import "../../App.css";
 
 import { Link } from "react-router-dom";
@@ -7,7 +8,7 @@ import axios from "axios";
 const Recipes = () => {
   const [recipes, setRecipes] = useState();
   useEffect(() => {
-    axios.get("https://api.jimsegal.com/recipes").then(({ data }) => {
+    axios.get(`${apiUrlBase}/recipes`).then(({ data }) => {
       setRecipes(data);
     });
   }, []);
