@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import "../../App.css";
+import "./recipe.css";
 import NotFound from "../not-found";
 
 const Recipe = props => {
@@ -14,20 +15,18 @@ const Recipe = props => {
 
   return (
     <section>
-      <div>
-        <h2>{title}</h2>
-        <small>
-          <a href={referenceLink} target="_blank" rel="noopener noreferrer">
-            Original Reference
-          </a>
-        </small>
-      </div>
-      <div>
-        <h3>Ingredients</h3>
+      <h2>{title}</h2>
+      <small>
+        <a href={referenceLink} target="_blank" rel="noopener noreferrer">
+          Original Reference
+        </a>
+      </small>
+      <h3>Ingredients</h3>
+      <div className="ingredients">
         <ReactMarkdown source={ingredients} />
       </div>
-      <div>
-        <h3>Directions</h3>
+      <h3>Directions</h3>
+      <div className="directions">
         <ReactMarkdown source={directions} />
       </div>
     </section>
