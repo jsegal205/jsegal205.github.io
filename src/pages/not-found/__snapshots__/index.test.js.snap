@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`NotFound Component renders correctly 1`] = `
 <DocumentFragment>
   <h1>
     Not Found

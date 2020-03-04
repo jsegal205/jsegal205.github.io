@@ -4,7 +4,9 @@ import NotFound from "./index";
 
 afterEach(cleanup);
 
-it("renders correctly", () => {
-  const { asFragment } = render(<NotFound />);
-  expect(asFragment()).toMatchSnapshot();
+describe("NotFound Component", () => {
+  it("renders correctly", () => {
+    const { asFragment } = render(<NotFound />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

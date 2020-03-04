@@ -4,7 +4,9 @@ import Home from "./index";
 
 afterEach(cleanup);
 
-it("renders correctly", () => {
-  const { asFragment } = render(<Home />);
-  expect(asFragment()).toMatchSnapshot();
+describe("Home Component", () => {
+  it("renders correctly", () => {
+    const { asFragment } = render(<Home />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

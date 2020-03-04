@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe Component when props contain \`state\` renders correctly 1`] = `
+<DocumentFragment>
+  <section>
+    <h2>
+      title
+    </h2>
+    <small>
+      <a
+        href="referenceLink"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Original Reference
+      </a>
+    </small>
+    <h3>
+      Ingredients
+    </h3>
+    <div
+      class="ingredients"
+    >
+      <p>
+        ingredients
+      </p>
+    </div>
+    <h3>
+      Directions
+    </h3>
+    <div
+      class="directions"
+    >
+      <p>
+        directions
+      </p>
+    </div>
+  </section>
+</DocumentFragment>
+`;
