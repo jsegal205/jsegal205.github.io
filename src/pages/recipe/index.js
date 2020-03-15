@@ -21,8 +21,6 @@ const getSlug = ({ pathname, state }) => {
 
 const Recipe = props => {
   const [recipe, setRecipe] = useState();
-
-  // How to pass things to `useEffect`
   const slug = getSlug(props.location);
 
   useEffect(() => {
@@ -36,7 +34,7 @@ const Recipe = props => {
           setRecipe({ status: response.status });
         }
       });
-  }, []);
+  }, [slug]);
 
   if (!recipe) {
     return <section>Loading...</section>;
