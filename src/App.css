@@ -12,3 +12,13 @@ body {
 main {
   flex: 1 1 auto;
 }
+
+nav {
+  margin-bottom: 1em;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

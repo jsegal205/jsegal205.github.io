@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Recipes from "./pages/recipes";
 import Recipe from "./pages/recipe";
-import Home from "./pages/home";
 import NotFound from "./pages/not-found";
 
 export default function App() {
@@ -19,16 +18,13 @@ export default function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/recipes">Recipes</Link>
+                <Link to="/recipes">All Recipes</Link>
               </li>
             </ul>
           </nav>
-
+          <hr />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Recipes} />
             <Route path="/recipes" component={Recipes} />
             <Route path="/recipe/:recipeSlug" component={Recipe} />
             <Route path="*" component={NotFound} />
