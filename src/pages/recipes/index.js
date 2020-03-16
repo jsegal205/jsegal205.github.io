@@ -15,7 +15,7 @@ const Recipes = () => {
 
   return recipes && recipes.length ? (
     <section>
-      <h1>Recipes</h1>
+      <h2>Recipes</h2>
       <ul>
         {recipes.map(recipe => (
           <li key={recipe.slug}>
