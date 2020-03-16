@@ -44,7 +44,7 @@ const Recipe = props => {
     return <NotFound />;
   }
 
-  const { title, referenceLink, ingredients, directions } = recipe;
+  const { title, referenceLink, ingredients, directions, notes } = recipe;
 
   return (
     <section>
@@ -62,6 +62,12 @@ const Recipe = props => {
       <div className="directions">
         <ReactMarkdown source={directions} />
       </div>
+      {notes && [
+        <h3 key="notes-header">Notes</h3>,
+        <div key="notes-desc">
+          <ReactMarkdown source={notes} />
+        </div>
+      ]}
     </section>
   );
 };
