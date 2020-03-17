@@ -2,12 +2,13 @@ import React from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import withTracker from "./GoogleAnalyticsTracker";
 
 import Recipes from "./pages/recipes";
 import Recipe from "./pages/recipe";
 import NotFound from "./pages/not-found";
 
-export default function App() {
+const App = () => {
   return (
     <>
       <header>
@@ -24,13 +25,14 @@ export default function App() {
           </nav>
           <hr />
           <Switch>
-            <Route exact path="/" component={Recipes} />
-            <Route path="/recipes" component={Recipes} />
-            <Route path="/recipe/:recipeSlug" component={Recipe} />
-            <Route path="*" component={NotFound} />
+            <Route exact path="/" component={withTracker(Recipes)} />
+            <Route path="/recipes" component={withTracker(Recipes)} />
+            <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
+            <Route path="*" component={withTracker(NotFound)} />
           </Switch>
         </article>
       </Router>
     </>
   );
-}
+};
+export default App;
