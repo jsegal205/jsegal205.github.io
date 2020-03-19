@@ -1,38 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+
 import { apiUrlBase } from "../../utils";
+import useFetch from "../../utils/useFetch";
 import "../../App.css";
 
-import { Link } from "react-router-dom";
-import axios from "axios";
-
 const Recipes = () => {
-  const [recipes, setRecipes] = useState();
-  useEffect(() => {
-    axios.get(`${apiUrlBase}/recipes`).then(({ data }) => {
-      setRecipes(data);
-    });
-  }, []);
+  const { loading, data: recipes } = useFetch(`${apiUrlBase}/recipes`);
 
-  return recipes && recipes.length ? (
+  return (
     <section>
       <h2>Recipes</h2>
-      <ul>
-        {recipes.map(recipe => (
-          <li key={recipe.slug}>
-            <Link
-              to={{
-                pathname: `/recipe/${recipe.slug}`,
-                state: { ...recipe }
-              }}
-            >
-              {recipe.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {loading && <section>Loading...</section>}
+      {recipes && recipes.length && (
+        <ul>
+          {recipes.map(recipe => (
+            <li key={recipe.slug}>
+              <Link
+                to={{
+                  pathname: `/recipe/${recipe.slug}`,
+                  state: { ...recipe }
+                }}
+              >
+                {recipe.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
-  ) : (
-    <section>Loading...</section>
   );
 };
 
