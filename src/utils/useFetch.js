@@ -13,8 +13,10 @@ const useFetch = (url, initialValue) => {
         if (response.status === 200) {
           setData(response.data);
         }
-      } catch (error) {
-        throw error;
+      } catch ({ response }) {
+        if (response.status === 404) {
+          setData({ status: response.status });
+        }
       } finally {
         setLoading(false);
       }

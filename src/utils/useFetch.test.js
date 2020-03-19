@@ -8,7 +8,7 @@ test("useFetch performs GET request", async () => {
   const initialValue = [];
   const mock = new MockAdapter(axios);
 
-  const mockData = "response";
+  const mockData = { message: "response" };
   const url = "http://mock";
   mock.onGet(url).reply(200, mockData);
 
@@ -21,6 +21,6 @@ test("useFetch performs GET request", async () => {
 
   await waitForNextUpdate();
 
-  expect(result.current.data).toEqual("response");
+  expect(result.current.data).toEqual({ message: "response" });
   expect(result.current.loading).toBeFalsy();
 });
