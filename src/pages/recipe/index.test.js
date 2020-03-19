@@ -1,40 +1,150 @@
 import React from "react";
-import { act, render, cleanup } from "@testing-library/react";
+import renderer from "react-test-renderer";
+
+import { apiUrlBase } from "../../utils";
+import useFetch from "../../utils/useFetch";
 import Recipe from "./index";
 
-afterEach(cleanup);
+jest.mock("../../utils/useFetch", () => jest.fn());
 
 describe("Recipe Component", () => {
-  describe("when props do not contain `state`", () => {
-    it("displays text `Loading...` while fetching data", async () => {
-      await act(async () => {
+  describe("when `useFetch` is awaiting promise to resolve", () => {
+    it("displays `Loading...`", () => {
+      const slug = "doesNotExist";
+      const props = {
+        location: {
+          pathname: slug
+        }
+      };
+
+      useFetch.mockReturnValue({
+        loading: true,
+        data: {}
+      });
+
+      const tree = renderer.create(<Recipe {...props} />);
+      expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe("when `useFetch` returns data", () => {
+    describe("with 404 status", () => {
+      it("displays `Not Found`", () => {
+        const slug = "doesNotExist";
         const props = {
           location: {
-            pathname: "/does/not/exist"
+            pathname: slug
           }
         };
-        const { getByText } = render(<Recipe {...props} />);
 
-        getByText("Loading...");
+        useFetch.mockReturnValue({
+          loading: false,
+          data: { status: 404 }
+        });
+
+        const tree = renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(tree.toJSON()).toMatchSnapshot();
+      });
+    });
+
+    describe("with 200 status", () => {
+      it("displays data", () => {
+        const slug = "valid-slug";
+        const props = {
+          location: {
+            pathname: slug
+          }
+        };
+
+        useFetch.mockReturnValue({
+          loading: false,
+          data: {
+            title: "title",
+            slug,
+            referenceLink: "referenceLink",
+            ingredients: "ingredients",
+            directions: "directions",
+            notes: "notes",
+            status: 200
+          }
+        });
+
+        const tree = renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(tree.toJSON()).toMatchSnapshot();
       });
     });
   });
 
-  // describe("when props contain `state`", () => {
-  //   it("renders correctly", () => {
-  //     const props = {
-  //       location: {
-  //         state: {
-  //           title: "title",
-  //           slug: "slug",
-  //           referenceLink: "referenceLink",
-  //           ingredients: "ingredients",
-  //           directions: "directions"
-  //         }
-  //       }
-  //     };
-  //     const { asFragment } = render(<Recipe {...props} />);
-  //     expect(asFragment()).toMatchSnapshot();
-  //   });
-  // });
+  describe("getSlug", () => {
+    describe("when props contain state.slug", () => {
+      it("pulls slug from state", () => {
+        const props = {
+          location: {
+            state: {
+              slug: "state-slug"
+            },
+            pathname: "pathname-slug"
+          }
+        };
+
+        useFetch.mockReturnValue({
+          loading: true,
+          data: {}
+        });
+
+        renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(
+          `${apiUrlBase}/recipe/state-slug`
+        );
+      });
+    });
+    describe("when props do not contain state.slug", () => {
+      it("pulls slug from pathname", () => {
+        const props = {
+          location: {
+            state: {
+              "not-a-slug": "state-slug"
+            },
+            pathname: "pathname-slug"
+          }
+        };
+
+        useFetch.mockReturnValue({
+          loading: true,
+          data: {}
+        });
+
+        renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(
+          `${apiUrlBase}/recipe/pathname-slug`
+        );
+      });
+    });
+
+    describe("when pathname contains `/`", () => {
+      it("splits on `/` and takes last value", () => {
+        const props = {
+          location: {
+            state: {
+              "not-a-slug": "state-slug"
+            },
+            pathname: "/this/is/a/slash-slug"
+          }
+        };
+
+        useFetch.mockReturnValue({
+          loading: true,
+          data: {}
+        });
+
+        renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(
+          `${apiUrlBase}/recipe/slash-slug`
+        );
+      });
+    });
+  });
 });
