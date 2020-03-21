@@ -1,0 +1,26 @@
+.recipes-filter-container,
+.recipes-no-results {
+  margin-left: 20px;
+}
+
+.recipes-filter-container > label {
+  display: block;
+}
+
+.recipes-filter-input,
+.recipes-filter-reset {
+  border: 2px solid #444444;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.recipes-no-results {
+  margin-top: 20px;
+}
+
+.recipes-filter-reset {
+  margin-left: 10px;
+}

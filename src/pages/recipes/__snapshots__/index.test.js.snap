@@ -1,39 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Recipes Component Search filtering when input matches none of the data only shows data to match 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -14,28 +14,26 @@
+        <input
+          class=\\"recipes-filter-input\\"
+          data-testid=\\"recipes-filter\\"
+          id=\\"recipes-filter\\"
+          type=\\"text\\"
+-         value=\\"\\"
++         value=\\"mno\\"
+        />
++       <button
++         class=\\"recipes-filter-reset\\"
++         data-testid=\\"recipes-filter-reset\\"
++       >
++         reset
++       </button>
+      </section>
+-     <ul
+-       data-testid=\\"recipes-list\\"
++     <div
++       class=\\"recipes-no-results\\"
+      >
+-       <li>
+-         <a
+-           href=\\"/recipe/abc\\"
+-         >
+-           abc
+-         </a>
+-       </li>
+-       <li>
+-         <a
+-           href=\\"/recipe/xyz\\"
+-         >
+-           xyz
+-         </a>
+-       </li>
+-     </ul>
++       No results for 
++       <strong>
++         <em>
++           mno
++         </em>
++       </strong>
++     </div>
+    </section>
+  </DocumentFragment>"
+`;
+
+exports[`Recipes Component Search filtering when input matches subset of the data only shows data to match 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -14,28 +14,27 @@
+        <input
+          class=\\"recipes-filter-input\\"
+          data-testid=\\"recipes-filter\\"
+          id=\\"recipes-filter\\"
+          type=\\"text\\"
+-         value=\\"\\"
++         value=\\"a\\"
+        />
++       <button
++         class=\\"recipes-filter-reset\\"
++         data-testid=\\"recipes-filter-reset\\"
++       >
++         reset
++       </button>
+      </section>
+      <ul
+        data-testid=\\"recipes-list\\"
+      >
+        <li>
+          <a
+            href=\\"/recipe/abc\\"
+          >
+            abc
+-         </a>
+-       </li>
+-       <li>
+-         <a
+-           href=\\"/recipe/xyz\\"
+-         >
+-           xyz
+          </a>
+        </li>
+      </ul>
+    </section>
+  </DocumentFragment>"
+`;
+
 exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
-<section>
-  <h2>
-    Recipes
-  </h2>
+<div>
   <section>
-    Loading...
+    <h2>
+      Recipes
+    </h2>
+    <section>
+      Loading...
+    </section>
+    0
   </section>
-  0
-</section>
+</div>
 `;
 
 exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
-<section>
-  <h2>
-    Recipes
-  </h2>
-  <ul>
-    <li>
-      <a
-        href="/recipe/slug"
-        onClick={[Function]}
+<div>
+  <section>
+    <h2>
+      Recipes
+    </h2>
+    <section
+      class="recipes-filter-container"
+    >
+      <label
+        for="recipes-filter"
       >
-        title
-      </a>
-    </li>
-    <li>
-      <a
-        href="/recipe/slug2"
-        onClick={[Function]}
-      >
-        title2
-      </a>
-    </li>
-  </ul>
-</section>
+        Search
+      </label>
+      <input
+        class="recipes-filter-input"
+        data-testid="recipes-filter"
+        id="recipes-filter"
+        type="text"
+        value=""
+      />
+      
+    </section>
+    <ul
+      data-testid="recipes-list"
+    >
+      <li>
+        <a
+          href="/recipe/slug"
+        >
+          title
+        </a>
+      </li>
+      <li>
+        <a
+          href="/recipe/slug2"
+        >
+          title2
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
+`;
+
+exports[`Recipes Component when \`useFetch\` returns data when no data returned displays no data 1`] = `
+<div>
+  <section>
+    <h2>
+      Recipes
+    </h2>
+    0
+  </section>
+</div>
 `;
