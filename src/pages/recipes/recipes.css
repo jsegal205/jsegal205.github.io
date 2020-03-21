@@ -7,7 +7,8 @@
   display: block;
 }
 
-.recipes-filter-container > input {
+.recipes-filter-input,
+.recipes-filter-reset {
   border: 2px solid #444444;
   border-radius: 5px;
   cursor: pointer;
@@ -18,4 +19,8 @@
 
 .recipes-no-results {
   margin-top: 20px;
+}
+
+.recipes-filter-reset {
+  margin-left: 10px;
 }

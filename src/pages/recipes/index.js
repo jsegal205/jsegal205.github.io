@@ -13,6 +13,9 @@ const Recipes = () => {
   const handleSearchChange = event => {
     setRecipeSearch(event.target.value);
   };
+  const handleResetClick = () => {
+    setRecipeSearch("");
+  };
 
   const [recipeList, setRecipeList] = useState(recipes || []);
   useEffect(() => {
@@ -35,9 +38,18 @@ const Recipes = () => {
             <input
               type="text"
               id="recipes-filter"
+              className="recipes-filter-input"
               value={recipeSearch}
               onChange={handleSearchChange}
             />
+            {recipeSearch && (
+              <button
+                className="recipes-filter-reset"
+                onClick={handleResetClick}
+              >
+                reset
+              </button>
+            )}
           </section>
           {recipeList.length ? (
             <ul>
