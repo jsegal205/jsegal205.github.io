@@ -76,6 +76,32 @@ describe("Recipe Component", () => {
         expect(tree.toJSON()).toMatchSnapshot();
       });
     });
+
+    it("displays data with valid null fields", () => {
+      const slug = "valid-null-fields-slug";
+      const props = {
+        location: {
+          pathname: slug
+        }
+      };
+
+      useFetch.mockReturnValue({
+        loading: false,
+        data: {
+          title: "title",
+          slug,
+          referenceLink: null,
+          ingredients: "ingredients",
+          directions: "directions",
+          notes: null,
+          status: 200
+        }
+      });
+
+      const tree = renderer.create(<Recipe {...props} />);
+      expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
   });
 
   describe("getSlug", () => {
