@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { apiUrlBase } from "../../utils";
 
 import ReactMarkdown from "react-markdown";
-import axios from "axios";
 
 import "../../App.css";
 import "./recipe.css";
 import NotFound from "../not-found";
+import useFetch from "../../utils/useFetch";
 
 const getSlug = ({ pathname, state }) => {
   if (state && state.slug) {
@@ -20,23 +20,10 @@ const getSlug = ({ pathname, state }) => {
 };
 
 const Recipe = props => {
-  const [recipe, setRecipe] = useState();
   const slug = getSlug(props.location);
+  const { loading, data: recipe } = useFetch(`${apiUrlBase}/recipe/${slug}`);
 
-  useEffect(() => {
-    axios
-      .get(`${apiUrlBase}/recipe/${slug}`)
-      .then(({ data }) => {
-        setRecipe(data);
-      })
-      .catch(({ response }) => {
-        if (response.status === 404) {
-          setRecipe({ status: response.status });
-        }
-      });
-  }, [slug]);
-
-  if (!recipe) {
+  if (loading) {
     return <section>Loading...</section>;
   }
 

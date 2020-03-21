@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<section>
+  Loading...
+</section>
+`;
+
+exports[`Recipe Component when \`useFetch\` returns data with 200 status displays data 1`] = `
+<section>
+  <h2>
+    title
+  </h2>
+  <small>
+    <a
+      href="referenceLink"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Original Reference
+    </a>
+  </small>
+  <h3>
+    Ingredients
+  </h3>
+  <div
+    className="ingredients"
+  >
+    <p>
+      ingredients
+    </p>
+  </div>
+  <h3>
+    Directions
+  </h3>
+  <div
+    className="directions"
+  >
+    <p>
+      directions
+    </p>
+  </div>
+  <h3>
+    Notes
+  </h3>
+  <div>
+    <p>
+      notes
+    </p>
+  </div>
+</section>
+`;
+
+exports[`Recipe Component when \`useFetch\` returns data with 404 status displays \`Not Found\` 1`] = `
+<h1>
+  Not Found
+</h1>
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<section>
+  <h2>
+    Recipes
+  </h2>
+  <section>
+    Loading...
+  </section>
+  0
+</section>
+`;
+
+exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
+<section>
+  <h2>
+    Recipes
+  </h2>
+  <ul>
+    <li>
+      <a
+        href="/recipe/slug"
+        onClick={[Function]}
+      >
+        title
+      </a>
+    </li>
+    <li>
+      <a
+        href="/recipe/slug2"
+        onClick={[Function]}
+      >
+        title2
+      </a>
+    </li>
+  </ul>
+</section>
+`;
