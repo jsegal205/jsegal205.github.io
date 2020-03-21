@@ -133,17 +133,6 @@ describe("Recipes Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const recipesList = getByTestId(container, "recipes-list");
-        const recipesListItems = recipesList.querySelectorAll("li");
-
-        expect(recipesListItems.length).toEqual(apiData.length);
-        expect(recipesListItems[0].querySelector("a").innerHTML).toEqual(
-          apiData[0].title
-        );
-        expect(recipesListItems[1].querySelector("a").innerHTML).toEqual(
-          apiData[1].title
-        );
-
         const recipeFilter = getByTestId(container, "recipes-filter");
         fireEvent.change(recipeFilter, { target: { value: "mno" } });
 
