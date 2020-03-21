@@ -17,7 +17,7 @@ const Recipes = () => {
     setRecipeSearch("");
   };
 
-  const [recipeList, setRecipeList] = useState(recipes || []);
+  const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
     if (!loading) {
       const results = recipes.filter(recipe =>
@@ -41,18 +41,20 @@ const Recipes = () => {
               className="recipes-filter-input"
               value={recipeSearch}
               onChange={handleSearchChange}
+              data-testid="recipes-filter"
             />
             {recipeSearch && (
               <button
                 className="recipes-filter-reset"
                 onClick={handleResetClick}
+                data-testid="recipes-filter-reset"
               >
                 reset
               </button>
             )}
           </section>
           {recipeList.length ? (
-            <ul>
+            <ul data-testid="recipes-list">
               {recipeList.map(recipe => (
                 <li key={recipe.slug}>
                   <Link
