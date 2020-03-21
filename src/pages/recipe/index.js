@@ -36,11 +36,13 @@ const Recipe = props => {
   return (
     <section>
       <h2>{title}</h2>
-      <small>
-        <a href={referenceLink} target="_blank" rel="noopener noreferrer">
-          Original Reference
-        </a>
-      </small>
+      {referenceLink && (
+        <small>
+          <a href={referenceLink} target="_blank" rel="noopener noreferrer">
+            Original Reference
+          </a>
+        </small>
+      )}
       <h3>Ingredients</h3>
       <div className="ingredients">
         <ReactMarkdown source={ingredients} />

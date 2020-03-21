@@ -6,6 +6,34 @@ exports[`Recipe Component when \`useFetch\` is awaiting promise to resolve displ
 </section>
 `;
 
+exports[`Recipe Component when \`useFetch\` returns data displays data with valid null fields 1`] = `
+<section>
+  <h2>
+    title
+  </h2>
+  <h3>
+    Ingredients
+  </h3>
+  <div
+    className="ingredients"
+  >
+    <p>
+      ingredients
+    </p>
+  </div>
+  <h3>
+    Directions
+  </h3>
+  <div
+    className="directions"
+  >
+    <p>
+      directions
+    </p>
+  </div>
+</section>
+`;
+
 exports[`Recipe Component when \`useFetch\` returns data with 200 status displays data 1`] = `
 <section>
   <h2>
