@@ -10,13 +10,9 @@ const useFetch = (url, initialValue) => {
       try {
         setLoading(true);
         const response = await axios.get(url);
-        if (response.status === 200) {
-          setData(response.data);
-        }
+        setData(response.data);
       } catch ({ response }) {
-        if (response.status === 404) {
-          setData({ status: response.status });
-        }
+        setData({ status: response.status });
       } finally {
         setLoading(false);
       }

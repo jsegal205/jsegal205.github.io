@@ -4,23 +4,69 @@ import MockAdapter from "axios-mock-adapter";
 
 import useFetch from "./useFetch";
 
-test("useFetch performs GET request", async () => {
+describe("UTILS - useFetch", () => {
   const initialValue = [];
   const mock = new MockAdapter(axios);
-
-  const mockData = { message: "response" };
   const url = "http://mock";
-  mock.onGet(url).reply(200, mockData);
 
-  const { result, waitForNextUpdate } = renderHook(() =>
-    useFetch(url, initialValue)
-  );
+  describe("performs GET request", () => {
+    describe("with 200 response", () => {
+      it("updates loading value, returns data", async () => {
+        const mockData = { message: "response" };
+        mock.onGet(url).reply(200, mockData);
 
-  expect(result.current.data).toEqual([]);
-  expect(result.current.loading).toBeTruthy();
+        const { result, waitForNextUpdate } = renderHook(() =>
+          useFetch(url, initialValue)
+        );
 
-  await waitForNextUpdate();
+        expect(result.current.data).toEqual([]);
+        expect(result.current.loading).toBeTruthy();
 
-  expect(result.current.data).toEqual({ message: "response" });
-  expect(result.current.loading).toBeFalsy();
+        await waitForNextUpdate();
+
+        expect(result.current.data).toEqual({ message: "response" });
+        expect(result.current.loading).toBeFalsy();
+      });
+    });
+
+    describe("with 4XX response", () => {
+      it("updates loading value, returns status", async () => {
+        const mockData = { error: "not found" };
+
+        mock.onGet(url).reply(404, mockData);
+
+        const { result, waitForNextUpdate } = renderHook(() =>
+          useFetch(url, initialValue)
+        );
+
+        expect(result.current.data).toEqual([]);
+        expect(result.current.loading).toBeTruthy();
+
+        await waitForNextUpdate();
+
+        expect(result.current.data).toEqual({ status: 404 });
+        expect(result.current.loading).toBeFalsy();
+      });
+    });
+
+    describe("with 5XX response", () => {
+      it("updates loading value, returns status", async () => {
+        const mockData = { error: "server broke" };
+
+        mock.onGet(url).reply(500, mockData);
+
+        const { result, waitForNextUpdate } = renderHook(() =>
+          useFetch(url, initialValue)
+        );
+
+        expect(result.current.data).toEqual([]);
+        expect(result.current.loading).toBeTruthy();
+
+        await waitForNextUpdate();
+
+        expect(result.current.data).toEqual({ status: 500 });
+        expect(result.current.loading).toBeFalsy();
+      });
+    });
+  });
 });
