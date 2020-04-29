@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "prettier": "prettier --write '**/*.{js,css,html}'"
+    "prettier": "prettier --write '**/*.{js,css,html}'",
+    "check-prettier": "prettier --check '**/*.{js,css,html}'"
   },
   "eslintConfig": {
     "extends": "react-app"
