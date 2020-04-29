@@ -13,13 +13,13 @@ describe("Recipe Component", () => {
       const slug = "doesNotExist";
       const props = {
         location: {
-          pathname: slug
-        }
+          pathname: slug,
+        },
       };
 
       useFetch.mockReturnValue({
         loading: true,
-        data: {}
+        data: {},
       });
 
       const tree = renderer.create(<Recipe {...props} />);
@@ -34,13 +34,13 @@ describe("Recipe Component", () => {
         const slug = "doesNotExist";
         const props = {
           location: {
-            pathname: slug
-          }
+            pathname: slug,
+          },
         };
 
         useFetch.mockReturnValue({
           loading: false,
-          data: { status: 404 }
+          data: { status: 404 },
         });
 
         const tree = renderer.create(<Recipe {...props} />);
@@ -54,8 +54,8 @@ describe("Recipe Component", () => {
         const slug = "valid-slug";
         const props = {
           location: {
-            pathname: slug
-          }
+            pathname: slug,
+          },
         };
 
         useFetch.mockReturnValue({
@@ -67,8 +67,8 @@ describe("Recipe Component", () => {
             ingredients: "ingredients",
             directions: "directions",
             notes: "notes",
-            status: 200
-          }
+            status: 200,
+          },
         });
 
         const tree = renderer.create(<Recipe {...props} />);
@@ -81,8 +81,8 @@ describe("Recipe Component", () => {
       const slug = "valid-null-fields-slug";
       const props = {
         location: {
-          pathname: slug
-        }
+          pathname: slug,
+        },
       };
 
       useFetch.mockReturnValue({
@@ -94,8 +94,8 @@ describe("Recipe Component", () => {
           ingredients: "ingredients",
           directions: "directions",
           notes: null,
-          status: 200
-        }
+          status: 200,
+        },
       });
 
       const tree = renderer.create(<Recipe {...props} />);
@@ -110,15 +110,15 @@ describe("Recipe Component", () => {
         const props = {
           location: {
             state: {
-              slug: "state-slug"
+              slug: "state-slug",
             },
-            pathname: "pathname-slug"
-          }
+            pathname: "pathname-slug",
+          },
         };
 
         useFetch.mockReturnValue({
           loading: true,
-          data: {}
+          data: {},
         });
 
         renderer.create(<Recipe {...props} />);
@@ -132,15 +132,15 @@ describe("Recipe Component", () => {
         const props = {
           location: {
             state: {
-              "not-a-slug": "state-slug"
+              "not-a-slug": "state-slug",
             },
-            pathname: "pathname-slug"
-          }
+            pathname: "pathname-slug",
+          },
         };
 
         useFetch.mockReturnValue({
           loading: true,
-          data: {}
+          data: {},
         });
 
         renderer.create(<Recipe {...props} />);
@@ -155,15 +155,15 @@ describe("Recipe Component", () => {
         const props = {
           location: {
             state: {
-              "not-a-slug": "state-slug"
+              "not-a-slug": "state-slug",
             },
-            pathname: "/this/is/a/slash-slug"
-          }
+            pathname: "/this/is/a/slash-slug",
+          },
         };
 
         useFetch.mockReturnValue({
           loading: true,
-          data: {}
+          data: {},
         });
 
         renderer.create(<Recipe {...props} />);

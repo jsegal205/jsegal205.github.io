@@ -20,7 +20,8 @@
     "test": "jest --colors --verbose --no-cache -u",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prettier": "prettier --write '**/*.{js,css,html}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +45,7 @@
     "@testing-library/user-event": "^10.1.0",
     "axios-mock-adapter": "^1.18.1",
     "gh-pages": "^2.2.0",
+    "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
     "snapshot-diff": "^0.7.0"
   },

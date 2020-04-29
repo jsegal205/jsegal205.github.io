@@ -15,7 +15,7 @@ describe("Recipes Component", () => {
     it("displays `Loading...`", () => {
       useFetch.mockReturnValue({
         loading: true,
-        data: []
+        data: [],
       });
 
       const { container } = render(
@@ -38,7 +38,7 @@ describe("Recipes Component", () => {
             referenceLink: "referenceLink",
             ingredients: "ingredients",
             directions: "directions",
-            notes: "notes"
+            notes: "notes",
           },
           {
             title: "title2",
@@ -46,9 +46,9 @@ describe("Recipes Component", () => {
             referenceLink: "referenceLink2",
             ingredients: "ingredients2",
             directions: "directions2",
-            notes: "notes2"
-          }
-        ]
+            notes: "notes2",
+          },
+        ],
       });
 
       const { container } = render(
@@ -63,7 +63,7 @@ describe("Recipes Component", () => {
       it("displays no data", () => {
         useFetch.mockReturnValue({
           loading: false,
-          data: []
+          data: [],
         });
 
         const { container } = render(
@@ -80,17 +80,17 @@ describe("Recipes Component", () => {
     const apiData = [
       {
         title: "abc",
-        slug: "abc"
+        slug: "abc",
       },
       {
         title: "xyz",
-        slug: "xyz"
-      }
+        slug: "xyz",
+      },
     ];
     const setup = () => {
       useFetch.mockReturnValue({
         loading: false,
-        data: apiData
+        data: apiData,
       });
 
       return render(

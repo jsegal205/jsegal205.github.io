@@ -19,7 +19,7 @@ const getSlug = ({ pathname, state }) => {
   return pathNameSplit[pathNameSplit.length - 1];
 };
 
-const Recipe = props => {
+const Recipe = (props) => {
   const slug = getSlug(props.location);
   const { loading, data: recipe } = useFetch(`${apiUrlBase}/recipe/${slug}`);
 
@@ -55,7 +55,7 @@ const Recipe = props => {
         <h3 key="notes-header">Notes</h3>,
         <div key="notes-desc">
           <ReactMarkdown source={notes} />
-        </div>
+        </div>,
       ]}
     </section>
   );
