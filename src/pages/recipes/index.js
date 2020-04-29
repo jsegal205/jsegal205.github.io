@@ -10,7 +10,7 @@ const Recipes = () => {
   const { loading, data: recipes } = useFetch(`${apiUrlBase}/recipes`);
 
   const [recipeSearch, setRecipeSearch] = useState("");
-  const handleSearchChange = event => {
+  const handleSearchChange = (event) => {
     setRecipeSearch(event.target.value);
   };
   const handleResetClick = () => {
@@ -20,7 +20,7 @@ const Recipes = () => {
   const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
     if (!loading) {
-      const results = recipes.filter(recipe =>
+      const results = recipes.filter((recipe) =>
         recipe.title.toLowerCase().includes(recipeSearch.toLowerCase())
       );
       setRecipeList(results);
@@ -55,12 +55,12 @@ const Recipes = () => {
           </section>
           {recipeList.length ? (
             <ul data-testid="recipes-list">
-              {recipeList.map(recipe => (
+              {recipeList.map((recipe) => (
                 <li key={recipe.slug}>
                   <Link
                     to={{
                       pathname: `/recipe/${recipe.slug}`,
-                      state: { ...recipe }
+                      state: { ...recipe },
                     }}
                   >
                     {recipe.title}
