@@ -17,6 +17,13 @@ exports[`renders correctly 1`] = `
             All Recipes
           </a>
         </li>
+        <li>
+          <a
+            href="/spacex"
+          >
+            Space X
+          </a>
+        </li>
       </ul>
     </nav>
     <hr />
