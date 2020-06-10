@@ -1,0 +1,25 @@
+.spacex-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.spacex-mega {
+  font-size: 3em;
+}
+
+.spacex-item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.spacex-item label {
+  font-weight: 900;
+}
+
+.spacex-details {
+  margin-top: 2em;
+}
