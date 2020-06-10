@@ -34,6 +34,16 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
       class="spacex-item"
     >
       <label>
+        When:
+      </label>
+      <span>
+        Wed Dec 31 1969 18:00:00 GMT-0600 (Central Standard Time)
+      </span>
+    </div>
+    <div
+      class="spacex-item"
+    >
+      <label>
         Rocket:
       </label>
       <span>
