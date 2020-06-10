@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 
 import useFetch from "../../utils/useFetch";
 import "../../App.css";
@@ -26,7 +26,6 @@ const SpaceX = () => {
   };
 
   const [timeToLaunch, setTimeToLaunch] = useState(calcTimeToLaunch());
-
   useEffect(() => {
     if (!loading) {
       setTimeout(() => {
@@ -38,14 +37,14 @@ const SpaceX = () => {
   const timerComponents = [];
 
   Object.keys(timeToLaunch).forEach((interval) => {
-    if (!timeToLaunch[interval]) {
+    if (interval !== "seconds" && !timeToLaunch[interval]) {
       return;
     }
 
     timerComponents.push(
-      <span>
+      <div key={interval}>
         {timeToLaunch[interval]} {interval}{" "}
-      </span>
+      </div>
     );
   });
 
@@ -56,19 +55,27 @@ const SpaceX = () => {
 
       {upcomingLaunch && upcomingLaunch.length && (
         <>
-          <div className="spacex-mega">{timerComponents}</div>
+          {upcomingLaunch.map((launch) => (
+            <Fragment key={launch["mission_name"]}>
+              <div className="spacex-mega">{timerComponents}</div>
 
-          <h3>{upcomingLaunch[0]["mission_name"]}</h3>
-          <div className="spacex-item">
-            <label>Rocket:</label>
-            <span>{upcomingLaunch[0]["rocket"]["rocket_name"]}</span>
-          </div>
-          <div className="spacex-item">
-            <label>Launch Site:</label>
-            <span>{upcomingLaunch[0]["launch_site"]["site_name_long"]}</span>
-          </div>
+              <h3>{launch["mission_name"]}</h3>
+              <div className="spacex-item">
+                <label>When:</label>
+                <span>{new Date(launch["launch_date_utc"]).toString()}</span>
+              </div>
+              <div className="spacex-item">
+                <label>Rocket:</label>
+                <span>{launch["rocket"]["rocket_name"]}</span>
+              </div>
+              <div className="spacex-item">
+                <label>Launch Site:</label>
+                <span>{launch["launch_site"]["site_name_long"]}</span>
+              </div>
 
-          <div className="spacex-details">{upcomingLaunch[0]["details"]}</div>
+              <div className="spacex-details">{launch["details"]}</div>
+            </Fragment>
+          ))}
         </>
       )}
     </section>
