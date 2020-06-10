@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import useFetch from "../../utils/useFetch";
 import SpaceX from "./index";
-import { render, fireEvent, getByTestId } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { toMatchDiffSnapshot } from "snapshot-diff";
 
 expect.extend({ toMatchDiffSnapshot });
