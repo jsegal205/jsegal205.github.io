@@ -31,6 +31,15 @@ const Recipe = (props) => {
     return <NotFound />;
   }
 
+  if (recipe.error) {
+    return (
+      <section>
+        <h3>Whoops! There was a problem loading Recipe.</h3>
+        <p>Please reload browser to try again in a little bit.</p>
+      </section>
+    );
+  }
+
   const { title, referenceLink, ingredients, directions, notes } = recipe;
 
   return (

@@ -28,11 +28,16 @@ const SpaceX = () => {
   const [timeToLaunch, setTimeToLaunch] = useState(calcTimeToLaunch());
   useEffect(() => {
     if (!loading) {
+      if (upcomingLaunch.error) {
+        setTimeToLaunch(0);
+        return;
+      }
+
       setTimeout(() => {
         setTimeToLaunch(calcTimeToLaunch(upcomingLaunch[0]["launch_date_utc"]));
       }, 1000);
     }
-  });
+  }, [loading, upcomingLaunch]);
 
   const timerComponents = [];
 
@@ -52,6 +57,12 @@ const SpaceX = () => {
     <section className="spacex-container">
       <h2>Next Space X Launch</h2>
       {loading && <section>Loading...</section>}
+      {upcomingLaunch && upcomingLaunch.error && (
+        <section>
+          <h3>Whoops! There was a problem loading SpaceX data.</h3>
+          <p>Please reload browser to try again in a little bit.</p>
+        </section>
+      )}
 
       {upcomingLaunch && upcomingLaunch.length && (
         <>

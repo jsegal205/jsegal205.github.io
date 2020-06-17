@@ -19,7 +19,12 @@ const Recipes = () => {
 
   const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
-    if (!loading) {
+    if (!loading && recipes) {
+      if (recipes.error) {
+        setRecipeList([]);
+        return;
+      }
+
       const results = recipes.filter((recipe) =>
         recipe.title.toLowerCase().includes(recipeSearch.toLowerCase())
       );
@@ -31,6 +36,12 @@ const Recipes = () => {
     <section>
       <h2>Recipes</h2>
       {loading && <section>Loading...</section>}
+      {recipes && recipes.error && (
+        <section>
+          <h3>Whoops! There was a problem loading Recipe.</h3>
+          <p>Please reload browser to try again in a little bit.</p>
+        </section>
+      )}
       {recipes && recipes.length && (
         <>
           <section className="recipes-filter-container">
