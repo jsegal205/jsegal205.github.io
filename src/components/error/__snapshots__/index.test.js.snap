@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Component renders correctly 1`] = `
+<DocumentFragment>
+  <section>
+    <h3>
+      Whoops! There was a problem loading data.
+    </h3>
+    <p>
+      Please reload browser to try again in a little bit.
+    </p>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Error Component with prop renders correctly 1`] = `
+<DocumentFragment>
+  <section>
+    <h3>
+      Whoops! There was a problem loading ERROR data.
+    </h3>
+    <p>
+      Please reload browser to try again in a little bit.
+    </p>
+  </section>
+</DocumentFragment>
+`;
