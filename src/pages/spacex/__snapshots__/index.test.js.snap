@@ -69,6 +69,26 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
 </div>
 `;
 
+exports[`SpaceX Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
+<div>
+  <section
+    class="spacex-container"
+  >
+    <h2>
+      Next Space X Launch
+    </h2>
+    <section>
+      <h3>
+        Whoops! There was a problem loading SpaceX data.
+      </h3>
+      <p>
+        Please reload browser to try again in a little bit.
+      </p>
+    </section>
+  </section>
+</div>
+`;
+
 exports[`SpaceX Component when \`useFetch\` returns data when no data returned displays no data 1`] = `
 <div>
   <section
