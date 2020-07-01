@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
+import Error from "../../components/error";
+
 import "../../App.css";
 import "./recipes.css";
 
@@ -36,12 +38,7 @@ const Recipes = () => {
     <section>
       <h2>Recipes</h2>
       {loading && <section>Loading...</section>}
-      {recipes && recipes.error && (
-        <section>
-          <h3>Whoops! There was a problem loading Recipe.</h3>
-          <p>Please reload browser to try again in a little bit.</p>
-        </section>
-      )}
+      {recipes && recipes.error && <Error componentName="Recipes" />}
       {recipes && recipes.length && (
         <>
           <section className="recipes-filter-container">

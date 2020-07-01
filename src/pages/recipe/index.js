@@ -3,10 +3,12 @@ import { apiUrlBase } from "../../utils";
 
 import ReactMarkdown from "react-markdown";
 
+import useFetch from "../../utils/useFetch";
+import NotFound from "../not-found";
+import Error from "../../components/error";
+
 import "../../App.css";
 import "./recipe.css";
-import NotFound from "../not-found";
-import useFetch from "../../utils/useFetch";
 
 const getSlug = ({ pathname, state }) => {
   if (state && state.slug) {
@@ -32,12 +34,7 @@ const Recipe = (props) => {
   }
 
   if (recipe.error) {
-    return (
-      <section>
-        <h3>Whoops! There was a problem loading Recipe.</h3>
-        <p>Please reload browser to try again in a little bit.</p>
-      </section>
-    );
+    return <Error componentName="Recipe" />;
   }
 
   const { title, referenceLink, ingredients, directions, notes } = recipe;

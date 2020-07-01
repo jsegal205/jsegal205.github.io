@@ -1,6 +1,8 @@
 import React, { useEffect, useState, Fragment } from "react";
 
 import useFetch from "../../utils/useFetch";
+import Error from "../../components/error";
+
 import "../../App.css";
 import "./spacex.css";
 
@@ -58,10 +60,7 @@ const SpaceX = () => {
       <h2>Next Space X Launch</h2>
       {loading && <section>Loading...</section>}
       {upcomingLaunch && upcomingLaunch.error && (
-        <section>
-          <h3>Whoops! There was a problem loading SpaceX data.</h3>
-          <p>Please reload browser to try again in a little bit.</p>
-        </section>
+        <Error componentName="SpaceX" />
       )}
 
       {upcomingLaunch && upcomingLaunch.length && (

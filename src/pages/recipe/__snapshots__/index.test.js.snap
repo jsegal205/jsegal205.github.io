@@ -88,7 +88,9 @@ exports[`Recipe Component when \`useFetch\` returns data with 404 status display
 exports[`Recipe Component when \`useFetch\` returns data with 500 status displays error message 1`] = `
 <section>
   <h3>
-    Whoops! There was a problem loading Recipe.
+    Whoops! There was a problem loading
+     
+    Recipe data.
   </h3>
   <p>
     Please reload browser to try again in a little bit.

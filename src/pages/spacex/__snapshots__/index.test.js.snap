@@ -79,7 +79,9 @@ exports[`SpaceX Component when \`useFetch\` returns data when 500 status returne
     </h2>
     <section>
       <h3>
-        Whoops! There was a problem loading SpaceX data.
+        Whoops! There was a problem loading
+         
+        SpaceX data.
       </h3>
       <p>
         Please reload browser to try again in a little bit.
