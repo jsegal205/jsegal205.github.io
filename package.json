@@ -40,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/compat-data": "^7.9.0",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.3.0",

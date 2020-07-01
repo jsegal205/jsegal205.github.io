@@ -74,6 +74,25 @@ describe("Recipes Component", () => {
         expect(container).toMatchSnapshot();
       });
     });
+
+    describe("when 500 status returned", () => {
+      it("displays error messaging", () => {
+        useFetch.mockReturnValue({
+          loading: false,
+          data: {
+            error: "server likely on fire",
+            status: 500,
+          },
+        });
+
+        const { container } = render(
+          <Router>
+            <Recipes />
+          </Router>
+        );
+        expect(container).toMatchSnapshot();
+      });
+    });
   });
 
   describe("Search filtering", () => {

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
+import Error from "../../components/error";
+
 import "../../App.css";
 import "./recipes.css";
 
@@ -19,7 +21,12 @@ const Recipes = () => {
 
   const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
-    if (!loading) {
+    if (!loading && recipes) {
+      if (recipes.error) {
+        setRecipeList([]);
+        return;
+      }
+
       const results = recipes.filter((recipe) =>
         recipe.title.toLowerCase().includes(recipeSearch.toLowerCase())
       );
@@ -31,6 +38,7 @@ const Recipes = () => {
     <section>
       <h2>Recipes</h2>
       {loading && <section>Loading...</section>}
+      {recipes && recipes.error && <Error componentName="Recipes" />}
       {recipes && recipes.length && (
         <>
           <section className="recipes-filter-container">

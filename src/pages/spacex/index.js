@@ -1,6 +1,8 @@
 import React, { useEffect, useState, Fragment } from "react";
 
 import useFetch from "../../utils/useFetch";
+import Error from "../../components/error";
+
 import "../../App.css";
 import "./spacex.css";
 
@@ -28,11 +30,16 @@ const SpaceX = () => {
   const [timeToLaunch, setTimeToLaunch] = useState(calcTimeToLaunch());
   useEffect(() => {
     if (!loading) {
+      if (upcomingLaunch.error) {
+        setTimeToLaunch(0);
+        return;
+      }
+
       setTimeout(() => {
         setTimeToLaunch(calcTimeToLaunch(upcomingLaunch[0]["launch_date_utc"]));
       }, 1000);
     }
-  });
+  }, [loading, upcomingLaunch]);
 
   const timerComponents = [];
 
@@ -52,6 +59,9 @@ const SpaceX = () => {
     <section className="spacex-container">
       <h2>Next Space X Launch</h2>
       {loading && <section>Loading...</section>}
+      {upcomingLaunch && upcomingLaunch.error && (
+        <Error componentName="SpaceX" />
+      )}
 
       {upcomingLaunch && upcomingLaunch.length && (
         <>

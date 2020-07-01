@@ -44,7 +44,10 @@ describe("UTILS - useFetch", () => {
 
         await waitForNextUpdate();
 
-        expect(result.current.data).toEqual({ status: 404 });
+        expect(result.current.data).toEqual({
+          error: "Request failed with status code 404",
+          status: 404,
+        });
         expect(result.current.loading).toBeFalsy();
       });
     });
@@ -64,7 +67,10 @@ describe("UTILS - useFetch", () => {
 
         await waitForNextUpdate();
 
-        expect(result.current.data).toEqual({ status: 500 });
+        expect(result.current.data).toEqual({
+          error: "Request failed with status code 500",
+          status: 500,
+        });
         expect(result.current.loading).toBeFalsy();
       });
     });

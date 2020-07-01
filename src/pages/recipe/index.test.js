@@ -49,6 +49,26 @@ describe("Recipe Component", () => {
       });
     });
 
+    describe("with 500 status", () => {
+      it("displays error message", () => {
+        const slug = "serverError";
+        const props = {
+          location: {
+            pathname: slug,
+          },
+        };
+
+        useFetch.mockReturnValue({
+          loading: false,
+          data: { error: "server likely on fire", status: 500 },
+        });
+
+        const tree = renderer.create(<Recipe {...props} />);
+        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(tree.toJSON()).toMatchSnapshot();
+      });
+    });
+
     describe("with 200 status", () => {
       it("displays data", () => {
         const slug = "valid-slug";
