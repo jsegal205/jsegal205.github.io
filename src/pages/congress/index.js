@@ -117,7 +117,7 @@ const Congress = () => {
       <h2 className="congress-header">Congressional Information</h2>
       {loading && <section className="congress-header">Loading...</section>}
       {congress && congress.error && <Error componentName="Congress" />}
-      {congress && (
+      {congress && !congress.error && (
         <>
           <div className="congress-subheader">Session #{congress.session}</div>
           <div className="congress">

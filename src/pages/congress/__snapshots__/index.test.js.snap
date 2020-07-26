@@ -1,105 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SpaceX Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
 <div>
-  <section
-    class="spacex-container"
-  >
-    <h2>
-      Next Space X Launch
+  <section>
+    <h2
+      class="congress-header"
+    >
+      Congressional Information
     </h2>
-    <section>
+    <section
+      class="congress-header"
+    >
       Loading...
     </section>
-    0
   </section>
 </div>
 `;
 
-exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
+exports[`Recipes Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
 <div>
-  <section
-    class="spacex-container"
-  >
-    <h2>
-      Next Space X Launch
-    </h2>
-    <div
-      class="spacex-mega"
-    />
-    <h3>
-      mission_name
-    </h3>
-    <div
-      class="spacex-item"
+  <section>
+    <h2
+      class="congress-header"
     >
-      <label>
-        When:
-      </label>
-      <span>
-        Wed Dec 31 1969 18:00:00 GMT-0600 (Central Standard Time)
-      </span>
-    </div>
-    <div
-      class="spacex-item"
-    >
-      <label>
-        Rocket:
-      </label>
-      <span>
-        rocket_name
-      </span>
-    </div>
-    <div
-      class="spacex-item"
-    >
-      <label>
-        Launch Site:
-      </label>
-      <span>
-        site_name_long
-      </span>
-    </div>
-    <div
-      class="spacex-details"
-    >
-      details
-    </div>
-  </section>
-</div>
-`;
-
-exports[`SpaceX Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
-<div>
-  <section
-    class="spacex-container"
-  >
-    <h2>
-      Next Space X Launch
+      Congressional Information
     </h2>
     <section>
       <h3>
         Whoops! There was a problem loading
          
-        SpaceX data.
+        Congress data.
       </h3>
       <p>
         Please reload browser to try again in a little bit.
       </p>
     </section>
-  </section>
-</div>
-`;
-
-exports[`SpaceX Component when \`useFetch\` returns data when no data returned displays no data 1`] = `
-<div>
-  <section
-    class="spacex-container"
-  >
-    <h2>
-      Next Space X Launch
-    </h2>
-    0
   </section>
 </div>
 `;

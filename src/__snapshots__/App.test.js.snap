@@ -12,9 +12,16 @@ exports[`renders correctly 1`] = `
       <ul>
         <li>
           <a
+            href="/congress"
+          >
+            Congress
+          </a>
+        </li>
+        <li>
+          <a
             href="/recipes"
           >
-            All Recipes
+            Recipes
           </a>
         </li>
         <li>
