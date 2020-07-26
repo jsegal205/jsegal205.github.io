@@ -20,7 +20,7 @@ const Congress = () => {
   const properCase = (value) => value.charAt(0).toUpperCase() + value.slice(1);
   const genericLabel = (label, value) => (
     <div>
-      {label ? <label>{label}: </label> : ""}
+      {<label>{label}: </label>}
       <span>{value}</span>
     </div>
   );

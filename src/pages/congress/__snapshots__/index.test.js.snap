@@ -17,6 +17,586 @@ exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve disp
 </div>
 `;
 
+exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
+<div>
+  <section>
+    <h2
+      class="congress-header"
+    >
+      Congressional Information
+    </h2>
+    <div
+      class="congress-subheader"
+    >
+      Session #
+      116
+    </div>
+    <div
+      class="congress"
+    >
+      <article>
+        <h3>
+          House
+        </h3>
+        <hr />
+        <section
+          class="chamber"
+        >
+          <section>
+            <h4>
+              Average Age
+            </h4>
+            <div>
+              
+              <span>
+                58.52
+                 years old
+              </span>
+            </div>
+            <section>
+              <h5>
+                By Party
+              </h5>
+              <div>
+                <label>
+                  Democrat
+                  : 
+                </label>
+                <span>
+                  59.39
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Republican
+                  : 
+                </label>
+                <span>
+                  57.62
+                   years old
+                </span>
+              </div>
+            </section>
+            <section>
+              <h5>
+                By Gender
+              </h5>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  58.93
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  58.4
+                   years old
+                </span>
+              </div>
+            </section>
+          </section>
+          <section>
+            <h4>
+              Youngest
+               Member
+            </h4>
+            <label>
+              Alexandria Ocasio-Cortez
+            </label>
+            <div>
+              <label>
+                Age
+                : 
+              </label>
+              <span>
+                30
+                 years old
+              </span>
+            </div>
+            <div>
+              <label>
+                Date of Birth
+                : 
+              </label>
+              <span>
+                1989-10-13
+              </span>
+            </div>
+            <div>
+              <label>
+                State Representation
+                : 
+              </label>
+              <span>
+                NY
+              </span>
+            </div>
+            <div>
+              <label>
+                Gender
+                : 
+              </label>
+              <span>
+                Female
+              </span>
+            </div>
+            <div>
+              <label>
+                Party
+                : 
+              </label>
+              <span>
+                Democrat
+              </span>
+            </div>
+          </section>
+          <section>
+            <h4>
+              Oldest
+               Member
+            </h4>
+            <label>
+              Don Young
+            </label>
+            <div>
+              <label>
+                Age
+                : 
+              </label>
+              <span>
+                87
+                 years old
+              </span>
+            </div>
+            <div>
+              <label>
+                Date of Birth
+                : 
+              </label>
+              <span>
+                1933-06-09
+              </span>
+            </div>
+            <div>
+              <label>
+                State Representation
+                : 
+              </label>
+              <span>
+                AK
+              </span>
+            </div>
+            <div>
+              <label>
+                Gender
+                : 
+              </label>
+              <span>
+                Male
+              </span>
+            </div>
+            <div>
+              <label>
+                Party
+                : 
+              </label>
+              <span>
+                Republican
+              </span>
+            </div>
+          </section>
+          <section>
+            <h4>
+              Number of Members by Gender
+            </h4>
+          </section>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              449
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              106 (23.61%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              343 (76.39%)
+            </span>
+          </div>
+          <section>
+            <h4>
+              Number of Members by Party
+            </h4>
+          </section>
+          <h5>
+            Democrat
+          </h5>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              239
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              91 (38.08%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              148 (61.92%)
+            </span>
+          </div>
+          <h5>
+            Republican
+          </h5>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              209
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              15 (7.18%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              194 (92.82%)
+            </span>
+          </div>
+        </section>
+      </article>
+      <article>
+        <h3>
+          Senate
+        </h3>
+        <hr />
+        <section
+          class="chamber"
+        >
+          <section>
+            <h4>
+              Average Age
+            </h4>
+            <div>
+              
+              <span>
+                63.89
+                 years old
+              </span>
+            </div>
+            <section>
+              <h5>
+                By Party
+              </h5>
+              <div>
+                <label>
+                  Democrat
+                  : 
+                </label>
+                <span>
+                  63.87
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Republican
+                  : 
+                </label>
+                <span>
+                  63.43
+                   years old
+                </span>
+              </div>
+            </section>
+            <section>
+              <h5>
+                By Gender
+              </h5>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  62.08
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  64.52
+                   years old
+                </span>
+              </div>
+            </section>
+          </section>
+          <section>
+            <h4>
+              Youngest
+               Member
+            </h4>
+            <label>
+              Joshua Hawley
+            </label>
+            <div>
+              <label>
+                Age
+                : 
+              </label>
+              <span>
+                40
+                 years old
+              </span>
+            </div>
+            <div>
+              <label>
+                Date of Birth
+                : 
+              </label>
+              <span>
+                1979-12-31
+              </span>
+            </div>
+            <div>
+              <label>
+                State Representation
+                : 
+              </label>
+              <span>
+                MO
+              </span>
+            </div>
+            <div>
+              <label>
+                Gender
+                : 
+              </label>
+              <span>
+                Male
+              </span>
+            </div>
+            <div>
+              <label>
+                Party
+                : 
+              </label>
+              <span>
+                Republican
+              </span>
+            </div>
+          </section>
+          <section>
+            <h4>
+              Oldest
+               Member
+            </h4>
+            <label>
+              Dianne Feinstein
+            </label>
+            <div>
+              <label>
+                Age
+                : 
+              </label>
+              <span>
+                87
+                 years old
+              </span>
+            </div>
+            <div>
+              <label>
+                Date of Birth
+                : 
+              </label>
+              <span>
+                1933-06-22
+              </span>
+            </div>
+            <div>
+              <label>
+                State Representation
+                : 
+              </label>
+              <span>
+                CA
+              </span>
+            </div>
+            <div>
+              <label>
+                Gender
+                : 
+              </label>
+              <span>
+                Female
+              </span>
+            </div>
+            <div>
+              <label>
+                Party
+                : 
+              </label>
+              <span>
+                Democrat
+              </span>
+            </div>
+          </section>
+          <section>
+            <h4>
+              Number of Members by Gender
+            </h4>
+          </section>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              101
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              26 (25.74%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              75 (74.26%)
+            </span>
+          </div>
+          <section>
+            <h4>
+              Number of Members by Party
+            </h4>
+          </section>
+          <h5>
+            Democrat
+          </h5>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              45
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              17 (37.78%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              28 (62.22%)
+            </span>
+          </div>
+          <h5>
+            Republican
+          </h5>
+          <div>
+            <label>
+              Total
+              : 
+            </label>
+            <span>
+              54
+            </span>
+          </div>
+          <div>
+            <label>
+              Female
+              : 
+            </label>
+            <span>
+              9 (16.67%)
+            </span>
+          </div>
+          <div>
+            <label>
+              Male
+              : 
+            </label>
+            <span>
+              45 (83.33%)
+            </span>
+          </div>
+        </section>
+      </article>
+    </div>
+  </section>
+</div>
+`;
+
 exports[`Recipes Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
 <div>
   <section>

@@ -132,7 +132,7 @@ describe("Recipes Component", () => {
   });
 
   describe("when `useFetch` returns data", () => {
-    xit("displays data", () => {
+    it("displays data", () => {
       useFetch.mockReturnValue({
         loading: false,
         data: returnData,
