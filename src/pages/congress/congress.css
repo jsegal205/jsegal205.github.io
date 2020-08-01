@@ -5,16 +5,26 @@
 
 .congress {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
-.chamber {
+.chamber-data {
   margin: 0 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.chamber-data > section {
+  margin: 0 1em;
 }
 
 @media screen and (max-width: 740px) {
-  .congress {
-    flex-direction: column;
+  .chamber-chart {
+    margin: 0 -1em;
+  }
+  .chamber-data > section {
+    margin: initial;
   }
 }

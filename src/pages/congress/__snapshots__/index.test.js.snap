@@ -42,54 +42,789 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
         <section
           class="chamber"
         >
-          <section>
-            <h4>
-              Average Age
-            </h4>
-            <div>
-              
-              <span>
-                58.52
-                 years old
-              </span>
+          <section
+            class="chamber-chart"
+          >
+            <div
+              class="recharts-wrapper"
+              style="position: relative; cursor: default; width: 921.6px; height: 400px;"
+            >
+              <svg
+                class="recharts-surface"
+                height="400"
+                version="1.1"
+                viewBox="0 0 921.6 400"
+                width="921.6"
+              >
+                <defs>
+                  <clippath
+                    id="recharts1-clip"
+                  >
+                    <rect
+                      height="330"
+                      width="841.6"
+                      x="70"
+                      y="20"
+                    />
+                  </clippath>
+                </defs>
+                <g
+                  class="recharts-cartesian-grid"
+                >
+                  <g
+                    class="recharts-cartesian-grid-horizontal"
+                  >
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="911.6"
+                      y="20"
+                      y1="350"
+                      y2="350"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="911.6"
+                      y="20"
+                      y1="267.5"
+                      y2="267.5"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="911.6"
+                      y="20"
+                      y1="185"
+                      y2="185"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="911.6"
+                      y="20"
+                      y1="102.5"
+                      y2="102.5"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="911.6"
+                      y="20"
+                      y1="20"
+                      y2="20"
+                    />
+                  </g>
+                  <g
+                    class="recharts-cartesian-grid-vertical"
+                  >
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="490.8"
+                      x2="490.8"
+                      y="20"
+                      y1="20"
+                      y2="350"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="70"
+                      x2="70"
+                      y="20"
+                      y1="20"
+                      y2="350"
+                    />
+                    <line
+                      fill="none"
+                      height="330"
+                      stroke="#ccc"
+                      stroke-dasharray="3 3"
+                      width="841.6"
+                      x="70"
+                      x1="911.6"
+                      x2="911.6"
+                      y="20"
+                      y1="20"
+                      y2="350"
+                    />
+                  </g>
+                </g>
+                <g
+                  class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+                >
+                  <line
+                    class="recharts-cartesian-axis-line"
+                    fill="none"
+                    height="30"
+                    stroke="#666"
+                    width="841.6"
+                    x="70"
+                    x1="70"
+                    x2="911.6"
+                    y="350"
+                    y1="350"
+                    y2="350"
+                  />
+                  <g
+                    class="recharts-cartesian-axis-ticks"
+                  >
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="30"
+                        stroke="#666"
+                        width="841.6"
+                        x="70"
+                        x1="490.8"
+                        x2="490.8"
+                        y="350"
+                        y1="356"
+                        y2="350"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="30"
+                        stroke="none"
+                        text-anchor="middle"
+                        width="841.6"
+                        x="490.8"
+                        y="358"
+                      >
+                        <tspan
+                          dy="0.71em"
+                          x="490.8"
+                        >
+                          50
+                        </tspan>
+                      </text>
+                    </g>
+                  </g>
+                  <text
+                    class="recharts-text recharts-label"
+                    text-anchor="middle"
+                    x="490.8"
+                    y="385"
+                  >
+                    <tspan
+                      dy="0.71em"
+                      x="490.8"
+                    >
+                      Age
+                    </tspan>
+                  </text>
+                </g>
+                <g
+                  class="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"
+                >
+                  <line
+                    class="recharts-cartesian-axis-line"
+                    fill="none"
+                    height="330"
+                    stroke="#666"
+                    width="60"
+                    x="10"
+                    x1="70"
+                    x2="70"
+                    y="20"
+                    y1="20"
+                    y2="350"
+                  />
+                  <g
+                    class="recharts-cartesian-axis-ticks"
+                  >
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="330"
+                        stroke="#666"
+                        width="60"
+                        x="10"
+                        x1="64"
+                        x2="70"
+                        y="20"
+                        y1="350"
+                        y2="350"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="330"
+                        stroke="none"
+                        text-anchor="end"
+                        width="60"
+                        x="62"
+                        y="350"
+                      >
+                        <tspan
+                          dy="0.355em"
+                          x="62"
+                        >
+                          0
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="330"
+                        stroke="#666"
+                        width="60"
+                        x="10"
+                        x1="64"
+                        x2="70"
+                        y="20"
+                        y1="267.5"
+                        y2="267.5"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="330"
+                        stroke="none"
+                        text-anchor="end"
+                        width="60"
+                        x="62"
+                        y="267.5"
+                      >
+                        <tspan
+                          dy="0.355em"
+                          x="62"
+                        >
+                          1
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="330"
+                        stroke="#666"
+                        width="60"
+                        x="10"
+                        x1="64"
+                        x2="70"
+                        y="20"
+                        y1="185"
+                        y2="185"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="330"
+                        stroke="none"
+                        text-anchor="end"
+                        width="60"
+                        x="62"
+                        y="185"
+                      >
+                        <tspan
+                          dy="0.355em"
+                          x="62"
+                        >
+                          2
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="330"
+                        stroke="#666"
+                        width="60"
+                        x="10"
+                        x1="64"
+                        x2="70"
+                        y="20"
+                        y1="102.5"
+                        y2="102.5"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="330"
+                        stroke="none"
+                        text-anchor="end"
+                        width="60"
+                        x="62"
+                        y="102.5"
+                      >
+                        <tspan
+                          dy="0.355em"
+                          x="62"
+                        >
+                          3
+                        </tspan>
+                      </text>
+                    </g>
+                    <g
+                      class="recharts-layer recharts-cartesian-axis-tick"
+                    >
+                      <line
+                        class="recharts-cartesian-axis-tick-line"
+                        fill="none"
+                        height="330"
+                        stroke="#666"
+                        width="60"
+                        x="10"
+                        x1="64"
+                        x2="70"
+                        y="20"
+                        y1="20"
+                        y2="20"
+                      />
+                      <text
+                        class="recharts-text recharts-cartesian-axis-tick-value"
+                        fill="#666"
+                        height="330"
+                        stroke="none"
+                        text-anchor="end"
+                        width="60"
+                        x="62"
+                        y="20"
+                      >
+                        <tspan
+                          dy="0.355em"
+                          x="62"
+                        >
+                          4
+                        </tspan>
+                      </text>
+                    </g>
+                  </g>
+                </g>
+                <g
+                  class="recharts-layer recharts-bar"
+                >
+                  <g
+                    class="recharts-layer recharts-bar-rectangles"
+                  >
+                    <g
+                      class="recharts-layer"
+                    >
+                      <g
+                        class="recharts-layer recharts-bar-rectangle"
+                      />
+                    </g>
+                  </g>
+                </g>
+                <g
+                  class="recharts-layer recharts-bar"
+                >
+                  <g
+                    class="recharts-layer recharts-bar-rectangles"
+                  >
+                    <g
+                      class="recharts-layer"
+                    >
+                      <g
+                        class="recharts-layer recharts-bar-rectangle"
+                      />
+                    </g>
+                  </g>
+                </g>
+                <g
+                  class="recharts-layer recharts-bar"
+                >
+                  <g
+                    class="recharts-layer recharts-bar-rectangles"
+                  >
+                    <g
+                      class="recharts-layer"
+                    >
+                      <g
+                        class="recharts-layer recharts-bar-rectangle"
+                      />
+                    </g>
+                  </g>
+                </g>
+                <g
+                  class="recharts-layer recharts-bar"
+                >
+                  <g
+                    class="recharts-layer recharts-bar-rectangles"
+                  >
+                    <g
+                      class="recharts-layer"
+                    >
+                      <g
+                        class="recharts-layer recharts-bar-rectangle"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <div
+                class="recharts-legend-wrapper"
+                style="position: absolute; width: 901.6px; height: auto; left: 10px; top: 20px;"
+              >
+                <ul
+                  class="recharts-default-legend"
+                  style="padding: 0px; margin: 0px; text-align: center;"
+                >
+                  <li
+                    class="recharts-legend-item legend-item-0"
+                    style="display: inline-block; margin-right: 10px;"
+                  >
+                    <svg
+                      class="recharts-surface"
+                      height="14"
+                      style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                      version="1.1"
+                      viewBox="0 0 32 32"
+                      width="14"
+                    >
+                      <path
+                        class="recharts-legend-icon"
+                        d="M0,4h32v24h-32z"
+                        fill="#0015BC"
+                        stroke="none"
+                      />
+                    </svg>
+                    <span
+                      class="recharts-legend-item-text"
+                    >
+                      Democrat
+                    </span>
+                  </li>
+                  <li
+                    class="recharts-legend-item legend-item-1"
+                    style="display: inline-block; margin-right: 10px;"
+                  >
+                    <svg
+                      class="recharts-surface"
+                      height="14"
+                      style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                      version="1.1"
+                      viewBox="0 0 32 32"
+                      width="14"
+                    >
+                      <path
+                        class="recharts-legend-icon"
+                        d="M0,4h32v24h-32z"
+                        fill="#E9141D"
+                        stroke="none"
+                      />
+                    </svg>
+                    <span
+                      class="recharts-legend-item-text"
+                    >
+                      Republican
+                    </span>
+                  </li>
+                  <li
+                    class="recharts-legend-item legend-item-2"
+                    style="display: inline-block; margin-right: 10px;"
+                  >
+                    <svg
+                      class="recharts-surface"
+                      height="14"
+                      style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                      version="1.1"
+                      viewBox="0 0 32 32"
+                      width="14"
+                    >
+                      <path
+                        class="recharts-legend-icon"
+                        d="M0,4h32v24h-32z"
+                        fill="#00D136"
+                        stroke="none"
+                      />
+                    </svg>
+                    <span
+                      class="recharts-legend-item-text"
+                    >
+                      Male
+                    </span>
+                  </li>
+                  <li
+                    class="recharts-legend-item legend-item-3"
+                    style="display: inline-block; margin-right: 10px;"
+                  >
+                    <svg
+                      class="recharts-surface"
+                      height="14"
+                      style="display: inline-block; vertical-align: middle; margin-right: 4px;"
+                      version="1.1"
+                      viewBox="0 0 32 32"
+                      width="14"
+                    >
+                      <path
+                        class="recharts-legend-icon"
+                        d="M0,4h32v24h-32z"
+                        fill="#B533FF"
+                        stroke="none"
+                      />
+                    </svg>
+                    <span
+                      class="recharts-legend-item-text"
+                    >
+                      Female
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="recharts-tooltip-wrapper"
+                style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px;"
+              >
+                <div
+                  class="recharts-default-tooltip"
+                  style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid #ccc; white-space: nowrap;"
+                >
+                  <p
+                    class="recharts-tooltip-label"
+                    style="margin: 0px;"
+                  />
+                </div>
+              </div>
             </div>
+          </section>
+          <section
+            class="chamber-data"
+          >
             <section>
-              <h5>
-                By Party
-              </h5>
+              <h4>
+                Average Age
+              </h4>
+              <div>
+                
+                <span>
+                  58.52
+                   years old
+                </span>
+              </div>
+              <section>
+                <h5>
+                  By Party
+                </h5>
+                <div>
+                  <label>
+                    Democrat
+                    : 
+                  </label>
+                  <span>
+                    59.39
+                     years old
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Republican
+                    : 
+                  </label>
+                  <span>
+                    57.62
+                     years old
+                  </span>
+                </div>
+              </section>
+              <section>
+                <h5>
+                  By Gender
+                </h5>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    58.93
+                     years old
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    58.4
+                     years old
+                  </span>
+                </div>
+              </section>
+            </section>
+            <section>
+              <h4>
+                Youngest
+                 Member
+              </h4>
+              <label>
+                Alexandria Ocasio-Cortez
+              </label>
               <div>
                 <label>
-                  Democrat
+                  Age
                   : 
                 </label>
                 <span>
-                  59.39
+                  30
                    years old
                 </span>
               </div>
               <div>
                 <label>
-                  Republican
+                  Date of Birth
                   : 
                 </label>
                 <span>
-                  57.62
-                   years old
+                  1989-10-13
+                </span>
+              </div>
+              <div>
+                <label>
+                  State Representation
+                  : 
+                </label>
+                <span>
+                  NY
+                </span>
+              </div>
+              <div>
+                <label>
+                  Gender
+                  : 
+                </label>
+                <span>
+                  Female
+                </span>
+              </div>
+              <div>
+                <label>
+                  Party
+                  : 
+                </label>
+                <span>
+                  Democrat
                 </span>
               </div>
             </section>
             <section>
-              <h5>
-                By Gender
-              </h5>
+              <h4>
+                Oldest
+                 Member
+              </h4>
+              <label>
+                Don Young
+              </label>
+              <div>
+                <label>
+                  Age
+                  : 
+                </label>
+                <span>
+                  87
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Date of Birth
+                  : 
+                </label>
+                <span>
+                  1933-06-09
+                </span>
+              </div>
+              <div>
+                <label>
+                  State Representation
+                  : 
+                </label>
+                <span>
+                  AK
+                </span>
+              </div>
+              <div>
+                <label>
+                  Gender
+                  : 
+                </label>
+                <span>
+                  Male
+                </span>
+              </div>
+              <div>
+                <label>
+                  Party
+                  : 
+                </label>
+                <span>
+                  Republican
+                </span>
+              </div>
+            </section>
+            <section>
+              <h4>
+                Number of Members by Gender
+              </h4>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  449
+                </span>
+              </div>
               <div>
                 <label>
                   Female
                   : 
                 </label>
                 <span>
-                  58.93
-                   years old
+                  106 (23.61%)
                 </span>
               </div>
               <div>
@@ -98,219 +833,76 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                   : 
                 </label>
                 <span>
-                  58.4
-                   years old
+                  343 (76.39%)
+                </span>
+              </div>
+            </section>
+            <section>
+              <h4>
+                Number of Members by Party
+              </h4>
+              <h5>
+                Democrat
+              </h5>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  239
+                </span>
+              </div>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  91 (38.08%)
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  148 (61.92%)
+                </span>
+              </div>
+              <h5>
+                Republican
+              </h5>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  209
+                </span>
+              </div>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  15 (7.18%)
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  194 (92.82%)
                 </span>
               </div>
             </section>
           </section>
-          <section>
-            <h4>
-              Youngest
-               Member
-            </h4>
-            <label>
-              Alexandria Ocasio-Cortez
-            </label>
-            <div>
-              <label>
-                Age
-                : 
-              </label>
-              <span>
-                30
-                 years old
-              </span>
-            </div>
-            <div>
-              <label>
-                Date of Birth
-                : 
-              </label>
-              <span>
-                1989-10-13
-              </span>
-            </div>
-            <div>
-              <label>
-                State Representation
-                : 
-              </label>
-              <span>
-                NY
-              </span>
-            </div>
-            <div>
-              <label>
-                Gender
-                : 
-              </label>
-              <span>
-                Female
-              </span>
-            </div>
-            <div>
-              <label>
-                Party
-                : 
-              </label>
-              <span>
-                Democrat
-              </span>
-            </div>
-          </section>
-          <section>
-            <h4>
-              Oldest
-               Member
-            </h4>
-            <label>
-              Don Young
-            </label>
-            <div>
-              <label>
-                Age
-                : 
-              </label>
-              <span>
-                87
-                 years old
-              </span>
-            </div>
-            <div>
-              <label>
-                Date of Birth
-                : 
-              </label>
-              <span>
-                1933-06-09
-              </span>
-            </div>
-            <div>
-              <label>
-                State Representation
-                : 
-              </label>
-              <span>
-                AK
-              </span>
-            </div>
-            <div>
-              <label>
-                Gender
-                : 
-              </label>
-              <span>
-                Male
-              </span>
-            </div>
-            <div>
-              <label>
-                Party
-                : 
-              </label>
-              <span>
-                Republican
-              </span>
-            </div>
-          </section>
-          <section>
-            <h4>
-              Number of Members by Gender
-            </h4>
-          </section>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              449
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              106 (23.61%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              343 (76.39%)
-            </span>
-          </div>
-          <section>
-            <h4>
-              Number of Members by Party
-            </h4>
-          </section>
-          <h5>
-            Democrat
-          </h5>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              239
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              91 (38.08%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              148 (61.92%)
-            </span>
-          </div>
-          <h5>
-            Republican
-          </h5>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              209
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              15 (7.18%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              194 (92.82%)
-            </span>
-          </div>
         </section>
       </article>
       <article>
@@ -321,54 +913,201 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
         <section
           class="chamber"
         >
-          <section>
-            <h4>
-              Average Age
-            </h4>
-            <div>
-              
-              <span>
-                63.89
-                 years old
-              </span>
-            </div>
+          <section
+            class="chamber-data"
+          >
             <section>
-              <h5>
-                By Party
-              </h5>
+              <h4>
+                Average Age
+              </h4>
+              <div>
+                
+                <span>
+                  63.89
+                   years old
+                </span>
+              </div>
+              <section>
+                <h5>
+                  By Party
+                </h5>
+                <div>
+                  <label>
+                    Democrat
+                    : 
+                  </label>
+                  <span>
+                    63.87
+                     years old
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Republican
+                    : 
+                  </label>
+                  <span>
+                    63.43
+                     years old
+                  </span>
+                </div>
+              </section>
+              <section>
+                <h5>
+                  By Gender
+                </h5>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    62.08
+                     years old
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    64.52
+                     years old
+                  </span>
+                </div>
+              </section>
+            </section>
+            <section>
+              <h4>
+                Youngest
+                 Member
+              </h4>
+              <label>
+                Joshua Hawley
+              </label>
               <div>
                 <label>
-                  Democrat
+                  Age
                   : 
                 </label>
                 <span>
-                  63.87
+                  40
                    years old
                 </span>
               </div>
               <div>
                 <label>
-                  Republican
+                  Date of Birth
                   : 
                 </label>
                 <span>
-                  63.43
-                   years old
+                  1979-12-31
+                </span>
+              </div>
+              <div>
+                <label>
+                  State Representation
+                  : 
+                </label>
+                <span>
+                  MO
+                </span>
+              </div>
+              <div>
+                <label>
+                  Gender
+                  : 
+                </label>
+                <span>
+                  Male
+                </span>
+              </div>
+              <div>
+                <label>
+                  Party
+                  : 
+                </label>
+                <span>
+                  Republican
                 </span>
               </div>
             </section>
             <section>
-              <h5>
-                By Gender
-              </h5>
+              <h4>
+                Oldest
+                 Member
+              </h4>
+              <label>
+                Dianne Feinstein
+              </label>
+              <div>
+                <label>
+                  Age
+                  : 
+                </label>
+                <span>
+                  87
+                   years old
+                </span>
+              </div>
+              <div>
+                <label>
+                  Date of Birth
+                  : 
+                </label>
+                <span>
+                  1933-06-22
+                </span>
+              </div>
+              <div>
+                <label>
+                  State Representation
+                  : 
+                </label>
+                <span>
+                  CA
+                </span>
+              </div>
+              <div>
+                <label>
+                  Gender
+                  : 
+                </label>
+                <span>
+                  Female
+                </span>
+              </div>
+              <div>
+                <label>
+                  Party
+                  : 
+                </label>
+                <span>
+                  Democrat
+                </span>
+              </div>
+            </section>
+            <section>
+              <h4>
+                Number of Members by Gender
+              </h4>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  101
+                </span>
+              </div>
               <div>
                 <label>
                   Female
                   : 
                 </label>
                 <span>
-                  62.08
-                   years old
+                  26 (25.74%)
                 </span>
               </div>
               <div>
@@ -377,219 +1116,76 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                   : 
                 </label>
                 <span>
-                  64.52
-                   years old
+                  75 (74.26%)
+                </span>
+              </div>
+            </section>
+            <section>
+              <h4>
+                Number of Members by Party
+              </h4>
+              <h5>
+                Democrat
+              </h5>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  45
+                </span>
+              </div>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  17 (37.78%)
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  28 (62.22%)
+                </span>
+              </div>
+              <h5>
+                Republican
+              </h5>
+              <div>
+                <label>
+                  Total
+                  : 
+                </label>
+                <span>
+                  54
+                </span>
+              </div>
+              <div>
+                <label>
+                  Female
+                  : 
+                </label>
+                <span>
+                  9 (16.67%)
+                </span>
+              </div>
+              <div>
+                <label>
+                  Male
+                  : 
+                </label>
+                <span>
+                  45 (83.33%)
                 </span>
               </div>
             </section>
           </section>
-          <section>
-            <h4>
-              Youngest
-               Member
-            </h4>
-            <label>
-              Joshua Hawley
-            </label>
-            <div>
-              <label>
-                Age
-                : 
-              </label>
-              <span>
-                40
-                 years old
-              </span>
-            </div>
-            <div>
-              <label>
-                Date of Birth
-                : 
-              </label>
-              <span>
-                1979-12-31
-              </span>
-            </div>
-            <div>
-              <label>
-                State Representation
-                : 
-              </label>
-              <span>
-                MO
-              </span>
-            </div>
-            <div>
-              <label>
-                Gender
-                : 
-              </label>
-              <span>
-                Male
-              </span>
-            </div>
-            <div>
-              <label>
-                Party
-                : 
-              </label>
-              <span>
-                Republican
-              </span>
-            </div>
-          </section>
-          <section>
-            <h4>
-              Oldest
-               Member
-            </h4>
-            <label>
-              Dianne Feinstein
-            </label>
-            <div>
-              <label>
-                Age
-                : 
-              </label>
-              <span>
-                87
-                 years old
-              </span>
-            </div>
-            <div>
-              <label>
-                Date of Birth
-                : 
-              </label>
-              <span>
-                1933-06-22
-              </span>
-            </div>
-            <div>
-              <label>
-                State Representation
-                : 
-              </label>
-              <span>
-                CA
-              </span>
-            </div>
-            <div>
-              <label>
-                Gender
-                : 
-              </label>
-              <span>
-                Female
-              </span>
-            </div>
-            <div>
-              <label>
-                Party
-                : 
-              </label>
-              <span>
-                Democrat
-              </span>
-            </div>
-          </section>
-          <section>
-            <h4>
-              Number of Members by Gender
-            </h4>
-          </section>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              101
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              26 (25.74%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              75 (74.26%)
-            </span>
-          </div>
-          <section>
-            <h4>
-              Number of Members by Party
-            </h4>
-          </section>
-          <h5>
-            Democrat
-          </h5>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              45
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              17 (37.78%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              28 (62.22%)
-            </span>
-          </div>
-          <h5>
-            Republican
-          </h5>
-          <div>
-            <label>
-              Total
-              : 
-            </label>
-            <span>
-              54
-            </span>
-          </div>
-          <div>
-            <label>
-              Female
-              : 
-            </label>
-            <span>
-              9 (16.67%)
-            </span>
-          </div>
-          <div>
-            <label>
-              Male
-              : 
-            </label>
-            <span>
-              45 (83.33%)
-            </span>
-          </div>
         </section>
       </article>
     </div>

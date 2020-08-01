@@ -21,6 +21,15 @@ const returnData = {
         male: 58.4,
         republican: 57.62,
       },
+      distribution: {
+        "50": {
+          total: 0,
+          D: 0,
+          R: 0,
+          M: 0,
+          F: 0,
+        },
+      },
       oldest: {
         age: 87,
         date_of_birth: "1933-06-09",
