@@ -42,7 +42,7 @@
   "devDependencies": {
     "@babel/compat-data": "^7.9.0",
     "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.4",
+    "@testing-library/react": "^10.4.7",
     "@testing-library/react-hooks": "^3.3.0",
     "@testing-library/user-event": "^12.0.11",
     "axios-mock-adapter": "^1.18.1",
