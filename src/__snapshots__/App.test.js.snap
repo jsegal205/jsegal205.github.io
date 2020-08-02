@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
       >
         <li
           class="project-list-item"
-          style="border-color: #11dbde;"
+          style="border-color: #ffffff;"
         >
           <a
             class="project-list-item-link"
@@ -24,11 +24,11 @@ exports[`renders correctly 1`] = `
           >
             <div
               class="project-list-item-placeholder"
-              style="background-color: rgb(238, 36, 33);"
+              style="background-color: rgb(0, 0, 0);"
             >
               <h2
                 class="project-list-item-title"
-                style="color: rgb(239, 239, 239);"
+                style="color: rgb(68, 68, 68);"
               >
                 Congress
               </h2>
@@ -40,7 +40,7 @@ exports[`renders correctly 1`] = `
         </li>
         <li
           class="project-list-item"
-          style="border-color: #7066c5;"
+          style="border-color: #ffffff;"
         >
           <a
             class="project-list-item-link"
@@ -48,7 +48,7 @@ exports[`renders correctly 1`] = `
           >
             <div
               class="project-list-item-placeholder"
-              style="background-color: rgb(143, 153, 58);"
+              style="background-color: rgb(0, 0, 0);"
             >
               <h2
                 class="project-list-item-title"
@@ -64,7 +64,7 @@ exports[`renders correctly 1`] = `
         </li>
         <li
           class="project-list-item"
-          style="border-color: #d0e01e;"
+          style="border-color: #ffffff;"
         >
           <a
             class="project-list-item-link"
@@ -72,11 +72,11 @@ exports[`renders correctly 1`] = `
           >
             <div
               class="project-list-item-placeholder"
-              style="background-color: rgb(47, 31, 225);"
+              style="background-color: rgb(0, 0, 0);"
             >
               <h2
                 class="project-list-item-title"
-                style="color: rgb(239, 239, 239);"
+                style="color: rgb(68, 68, 68);"
               >
                 Space X
               </h2>
