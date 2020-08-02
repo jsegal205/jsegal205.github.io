@@ -10,42 +10,40 @@ import {
   textColor,
 } from "../../utils/color";
 
-const Home = () => {
-  return (
-    <section>
-      <ul className="project-list">
-        {projectInfo.map((project) => {
-          const borderColor = randomHexColor();
-          const complementaryBorderColor = complementaryColor(borderColor);
-          return (
-            <li
-              key={project.title}
-              className="project-list-item"
-              style={{ borderColor: `#${borderColor}` }}
-            >
-              <Link className="project-list-item-link" to={project.link}>
-                <div
-                  className="project-list-item-placeholder"
-                  style={{
-                    backgroundColor: `#${complementaryBorderColor}`,
-                  }}
+const Home = () => (
+  <section>
+    <ul className="project-list">
+      {projectInfo.map((project) => {
+        const borderColor = randomHexColor();
+        const complementaryBorderColor = complementaryColor(borderColor);
+        return (
+          <li
+            key={project.title}
+            className="project-list-item"
+            style={{ borderColor: `#${borderColor}` }}
+          >
+            <Link className="project-list-item-link" to={project.link}>
+              <div
+                className="project-list-item-placeholder"
+                style={{
+                  backgroundColor: `#${complementaryBorderColor}`,
+                }}
+              >
+                <h2
+                  className="project-list-item-title"
+                  style={{ color: `#${textColor(complementaryBorderColor)}` }}
                 >
-                  <h2
-                    className="project-list-item-title"
-                    style={{ color: `#${textColor(complementaryBorderColor)}` }}
-                  >
-                    {project.title}
-                  </h2>
-                </div>
+                  {project.title}
+                </h2>
+              </div>
 
-                <p>{project.subtitle}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-};
+              <p>{project.subtitle}</p>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+);
 
 export default Home;
