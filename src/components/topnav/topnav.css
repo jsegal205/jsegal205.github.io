@@ -1,9 +1,9 @@
 .topnav-list {
   display: flex;
+  justify-content: space-evenly;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  justify-content: space-evenly;
 }
 .topnav-list-item {
   border: 2px solid #444444;
