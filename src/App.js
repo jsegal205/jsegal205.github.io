@@ -10,19 +10,19 @@ import SpaceX from "./pages/spacex";
 import NotFound from "./pages/not-found";
 import Congress from "./pages/congress";
 import TopNav from "./components/topnav";
+import Home from "./pages/home";
 
 const App = () => {
   return (
     <>
       <header>
-        <h1>Jim Segal Projects</h1>
+        <h1 className="app-header">Jim Segal Projects</h1>
       </header>
       <Router>
         <article>
           <TopNav />
-          <hr />
           <Switch>
-            <Route exact path="/" component={withTracker(Recipes)} />
+            <Route exact path="/" component={withTracker(Home)} />
             <Route path="/congress" component={withTracker(Congress)} />
             <Route path="/recipes" component={withTracker(Recipes)} />
             <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
