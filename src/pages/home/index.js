@@ -1,34 +1,14 @@
 import React from "react";
-import "./home.css";
-import { projectInfo } from "../../utils";
 import { Link } from "react-router-dom";
 
-const randomHexColor = () => Math.floor(Math.random() * 16777215).toString(16);
-const complementaryColor = (hex) => {
-  const padZero = (str) => {
-    const zeros = new Array(2).join("0");
-    return (zeros + str).slice(-2);
-  };
-  const invertColor = (digit) => padZero((255 - digit).toString(16));
-  const { r, g, b } = getRGB(hex);
+import "./home.css";
 
-  return invertColor(r) + invertColor(g) + invertColor(b);
-};
-
-const textColor = (hex) => {
-  const { r, g, b } = getRGB(hex);
-  const brightness = Math.round((r * 299 + g * 587 + b * 114) / 1000);
-
-  return brightness > 125 ? "444444" : "efefef";
-};
-
-const getRGB = (hex) => {
-  return {
-    r: parseInt(hex.slice(0, 2), 16),
-    g: parseInt(hex.slice(2, 4), 16),
-    b: parseInt(hex.slice(4, 6), 16),
-  };
-};
+import { projectInfo } from "../../utils";
+import {
+  complementaryColor,
+  randomHexColor,
+  textColor,
+} from "../../utils/color";
 
 const Home = () => {
   return (
