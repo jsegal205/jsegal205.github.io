@@ -15,6 +15,7 @@ describe("UTILS - Color", () => {
   describe("complementaryColor", () => {
     it("outputs oppisite hex code", () => {
       expect(complementaryColor("ffffff")).toEqual("000000");
+      expect(complementaryColor("000000")).toEqual("ffffff");
     });
   });
 

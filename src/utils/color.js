@@ -10,10 +10,7 @@ export const randomHexColor = () =>
   Math.floor(Math.random() * 16777215).toString(16);
 
 export const complementaryColor = (hex) => {
-  const padZero = (str) => {
-    const zeros = new Array(2).join("0");
-    return (zeros + str).slice(-2);
-  };
+  const padZero = (str) => ("00" + str).slice(-2);
   const invertColor = (digit) => padZero((255 - digit).toString(16));
   const { r, g, b } = getRGB(hex);
 
