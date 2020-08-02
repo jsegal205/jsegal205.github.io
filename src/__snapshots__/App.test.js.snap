@@ -3,44 +3,90 @@
 exports[`renders correctly 1`] = `
 <DocumentFragment>
   <header>
-    <h1>
+    <h1
+      class="app-header"
+    >
       Jim Segal Projects
     </h1>
   </header>
   <article>
-    <nav>
-      <ul>
-        <li>
+    <section>
+      <ul
+        class="project-list"
+      >
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
           <a
+            class="project-list-item-link"
             href="/congress"
           >
-            Congress
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                Congress
+              </h2>
+            </div>
+            <p>
+              Some fun data surrounding the current congressional sesssion
+            </p>
           </a>
         </li>
-        <li>
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
           <a
+            class="project-list-item-link"
             href="/recipes"
           >
-            Recipes
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                Recipes
+              </h2>
+            </div>
+            <p>
+              A bunch of recipes that I frequent and wanted to show off
+            </p>
           </a>
         </li>
-        <li>
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
           <a
+            class="project-list-item-link"
             href="/spacex"
           >
-            Space X
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                Space X
+              </h2>
+            </div>
+            <p>
+              A countdown timer until the next launch of a Space X rocket
+            </p>
           </a>
         </li>
       </ul>
-    </nav>
-    <hr />
-    <section>
-      <h2>
-        Recipes
-      </h2>
-      <section>
-        Loading...
-      </section>
     </section>
   </article>
 </DocumentFragment>

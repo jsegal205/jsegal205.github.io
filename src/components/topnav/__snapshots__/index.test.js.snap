@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopNav Component Does not render on root route 1`] = `<div />`;
+
+exports[`TopNav Component Renders on all other routes 1`] = `
+<div>
+  <nav>
+    <ul
+      class="topnav-list"
+    >
+      <li
+        class="topnav-list-item"
+      >
+        <a
+          href="/congress"
+        >
+          Congress
+        </a>
+      </li>
+      <li
+        class="topnav-list-item"
+      >
+        <a
+          href="/recipes"
+        >
+          Recipes
+        </a>
+      </li>
+      <li
+        class="topnav-list-item"
+      >
+        <a
+          href="/spacex"
+        >
+          Space X
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <hr />
+</div>
+`;

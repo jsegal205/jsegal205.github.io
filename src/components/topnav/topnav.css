@@ -1,0 +1,18 @@
+.topnav-list {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.topnav-list-item {
+  border: 2px solid #444444;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+nav {
+  margin-bottom: 1em;
+}
