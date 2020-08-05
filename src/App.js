@@ -22,7 +22,7 @@ const App = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          vote.org test to break travis
+          vote.org
         </a>
       </div>
       <header>
