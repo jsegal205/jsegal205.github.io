@@ -35,7 +35,7 @@ describe("SpaceX Component", () => {
           {
             mission_name: "mission_name",
             details: "details",
-            launch_date_utc: new Date().getDate() + 1, //tomorrow
+            launch_date_utc: 1,
             rocket: { rocket_name: "rocket_name" },
             launch_site: { site_name_long: "site_name_long" },
           },
