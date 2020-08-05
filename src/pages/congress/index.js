@@ -27,6 +27,8 @@ const Congress = () => {
     F: "female",
     M: "male",
     R: "republican",
+    house: "House of Representatives",
+    senate: "Senate",
   };
 
   const properCase = (value) => value.charAt(0).toUpperCase() + value.slice(1);
@@ -39,7 +41,7 @@ const Congress = () => {
 
   const chamberSection = (data, chamber) => (
     <article key={chamber}>
-      <h3>{properCase(chamber)}</h3>
+      <h3>{keyMap[chamber]}</h3>
       <hr />
       <section className="chamber">
         {!!data[chamber].age.distribution &&
@@ -180,17 +182,24 @@ const Congress = () => {
   return (
     <section>
       <h2 className="congress-header">Congressional Information</h2>
+      <article className="congress-citation">
+        <span>Data provided by </span>
+        <a
+          href="https://projects.propublica.org/api-docs/congress-api/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Propublica Congress API
+        </a>
+      </article>
       {loading && <section className="congress-header">Loading...</section>}
       {congress && congress.error && <Error componentName="Congress" />}
       {congress && !congress.error && (
-        <>
-          <div className="congress-subheader">Session #{congress.session}</div>
-          <div className="congress">
-            {["house", "senate"].map((chamber) =>
-              chamberSection(congress, chamber)
-            )}
-          </div>
-        </>
+        <div className="congress">
+          {["house", "senate"].map((chamber) =>
+            chamberSection(congress, chamber)
+          )}
+        </div>
       )}
     </section>
   );
