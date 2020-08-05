@@ -18,16 +18,18 @@ const SpaceX = () => {
         return timeLeft;
       }
 
-      const difference =
-        +new Date(upcomingLaunch[0]["launch_date_utc"]) - +new Date();
+      if (upcomingLaunch[0]) {
+        const difference =
+          +new Date(upcomingLaunch[0]["launch_date_utc"]) - +new Date();
 
-      if (difference > 0) {
-        timeLeft = {
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        };
+        if (difference > 0) {
+          timeLeft = {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60),
+          };
+        }
       }
     }
     return timeLeft;
