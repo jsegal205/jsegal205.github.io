@@ -2,6 +2,19 @@
 
 exports[`renders correctly 1`] = `
 <DocumentFragment>
+  <div
+    class="vote-banner"
+    role="banner"
+  >
+    Vote on November 3, 2020. More information at 
+    <a
+      href="https://www.vote.org/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      vote.org
+    </a>
+  </div>
   <header>
     <h1
       class="app-header"
