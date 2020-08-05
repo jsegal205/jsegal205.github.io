@@ -9,6 +9,10 @@
   justify-content: space-evenly;
 }
 
+.congress h3 {
+  text-align: center;
+}
+
 .chamber-data {
   margin: 0 2em;
   display: flex;
@@ -18,6 +22,14 @@
 
 .chamber-data > section {
   margin: 0 1em;
+}
+
+.congress-citation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 @media screen and (max-width: 740px) {

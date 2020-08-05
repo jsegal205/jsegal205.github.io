@@ -7,4 +7,4 @@ jobs:
     - stage: prettier
       script: yarn check-prettier
     - stage: test
-      script: yarn test
+      script: yarn ci-test

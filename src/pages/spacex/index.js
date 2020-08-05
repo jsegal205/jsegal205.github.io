@@ -11,35 +11,37 @@ const SpaceX = () => {
     `https://api.spacexdata.com/v3/launches/upcoming?limit=1`
   );
 
-  const calcTimeToLaunch = (nextLaunch) => {
-    const difference = +new Date(nextLaunch) - +new Date();
+  const calcTimeToLaunch = () => {
     let timeLeft = {};
+    if (!loading) {
+      if (upcomingLaunch.error) {
+        return timeLeft;
+      }
 
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
+      if (upcomingLaunch[0]) {
+        const difference =
+          +new Date(upcomingLaunch[0]["launch_date_utc"]) - +new Date();
+
+        if (difference > 0) {
+          timeLeft = {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60),
+          };
+        }
+      }
     }
-
     return timeLeft;
   };
 
   const [timeToLaunch, setTimeToLaunch] = useState(calcTimeToLaunch());
   useEffect(() => {
-    if (!loading) {
-      if (upcomingLaunch.error) {
-        setTimeToLaunch(0);
-        return;
-      }
-
-      setTimeout(() => {
-        setTimeToLaunch(calcTimeToLaunch(upcomingLaunch[0]["launch_date_utc"]));
-      }, 1000);
-    }
-  }, [loading, upcomingLaunch]);
+    const timer = setTimeout(() => {
+      setTimeToLaunch(calcTimeToLaunch());
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
 
   const timerComponents = [];
 
@@ -65,27 +67,41 @@ const SpaceX = () => {
 
       {upcomingLaunch && upcomingLaunch.length && (
         <>
-          {upcomingLaunch.map((launch) => (
-            <Fragment key={launch["mission_name"]}>
-              <div className="spacex-mega">{timerComponents}</div>
+          {upcomingLaunch.map((launch) => {
+            const options = {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+            };
 
-              <h3>{launch["mission_name"]}</h3>
-              <div className="spacex-item">
-                <label>When:</label>
-                <span>{new Date(launch["launch_date_utc"]).toString()}</span>
-              </div>
-              <div className="spacex-item">
-                <label>Rocket:</label>
-                <span>{launch["rocket"]["rocket_name"]}</span>
-              </div>
-              <div className="spacex-item">
-                <label>Launch Site:</label>
-                <span>{launch["launch_site"]["site_name_long"]}</span>
-              </div>
+            const launchDate = new Date(
+              launch["launch_date_utc"]
+            ).toLocaleString("en-US", options);
+            return (
+              <Fragment key={launch["mission_name"]}>
+                <div className="spacex-mega">{timerComponents}</div>
 
-              <div className="spacex-details">{launch["details"]}</div>
-            </Fragment>
-          ))}
+                <h3>{launch["mission_name"]}</h3>
+                <div className="spacex-item">
+                  <label>When:</label>
+                  <span>{launchDate}</span>
+                </div>
+                <div className="spacex-item">
+                  <label>Rocket:</label>
+                  <span>{launch["rocket"]["rocket_name"]}</span>
+                </div>
+                <div className="spacex-item">
+                  <label>Launch Site:</label>
+                  <span>{launch["launch_site"]["site_name_long"]}</span>
+                </div>
+
+                <div className="spacex-details">{launch["details"]}</div>
+              </Fragment>
+            );
+          })}
         </>
       )}
     </section>

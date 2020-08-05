@@ -8,6 +8,20 @@ exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve disp
     >
       Congressional Information
     </h2>
+    <article
+      class="congress-citation"
+    >
+      <span>
+        Data provided by 
+      </span>
+      <a
+        href="https://projects.propublica.org/api-docs/congress-api/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Propublica Congress API
+      </a>
+    </article>
     <section
       class="congress-header"
     >
@@ -25,18 +39,26 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
     >
       Congressional Information
     </h2>
-    <div
-      class="congress-subheader"
+    <article
+      class="congress-citation"
     >
-      Session #
-      116
-    </div>
+      <span>
+        Data provided by 
+      </span>
+      <a
+        href="https://projects.propublica.org/api-docs/congress-api/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Propublica Congress API
+      </a>
+    </article>
     <div
       class="congress"
     >
       <article>
         <h3>
-          House
+          House of Representatives
         </h3>
         <hr />
         <section
@@ -1201,6 +1223,20 @@ exports[`Recipes Component when \`useFetch\` returns data when 500 status return
     >
       Congressional Information
     </h2>
+    <article
+      class="congress-citation"
+    >
+      <span>
+        Data provided by 
+      </span>
+      <a
+        href="https://projects.propublica.org/api-docs/congress-api/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Propublica Congress API
+      </a>
+    </article>
     <section>
       <h3>
         Whoops! There was a problem loading
