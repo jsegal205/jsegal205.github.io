@@ -15,6 +15,16 @@ import Home from "./pages/home";
 const App = () => {
   return (
     <>
+      <div role="banner" className="vote-banner">
+        Vote on November 3, 2020. More information at{" "}
+        <a
+          href="https://www.vote.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          vote.org
+        </a>
+      </div>
       <header>
         <h1 className="app-header">Jim Segal Projects</h1>
       </header>
