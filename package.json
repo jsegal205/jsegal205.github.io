@@ -19,7 +19,7 @@
     "start": "PORT=8100 react-scripts start",
     "build": "react-scripts build",
     "test": "jest --colors --verbose --no-cache -u",
-    "ci-test": "jest --colors --verbose --no-cache",
+    "ci-test": "jest --colors --verbose --no-cache --ci",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
