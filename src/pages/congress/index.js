@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
@@ -13,6 +13,9 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
 import "../../App.css";
@@ -61,6 +64,7 @@ const Congress = () => {
 
     return (
       <section className="chamber-chart">
+        <h3>Distrobution of age</h3>
         <BarChart
           width={width * 0.9}
           height={400}
@@ -170,14 +174,92 @@ const Congress = () => {
   const partySection = (party) => (
     <section>
       <h4>Number of Members by Party</h4>
-      {["D", "R"].map((partyKey) => (
+      {partyChart(party)}
+      {/* {["D", "R"].map((partyKey) => (
         <Fragment key={partyKey}>
           <h5>{properCase(keyMap[partyKey])}</h5>
           {genderData(party[partyKey])}
         </Fragment>
-      ))}
+      ))} */}
     </section>
   );
+
+  const partyChart = (party) => {
+    const democrat = [
+      { name: "men", value: party.D.men, color: "#00D136" },
+      { name: "women", value: party.D.women, color: "#B533FF" },
+    ];
+    const republican = [
+      { name: "men", value: party.R.men, color: "#00D136" },
+      { name: "women", value: party.R.women, color: "#B533FF" },
+    ];
+
+    return (
+      <>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <span
+            style={{
+              background: "#00D136",
+              color: "#00D136",
+              height: "1em",
+              width: "1em",
+              marginRight: "1em",
+            }}
+          >
+            .
+          </span>
+          <span>Male</span>
+          <span
+            style={{
+              background: "#B533FF",
+              color: "#B533FF",
+              height: "1em",
+              width: "1em",
+              marginLeft: "1em",
+              marginRight: "1em",
+            }}
+          >
+            .
+          </span>
+          <span>Female</span>
+        </div>
+        <section style={{ display: "inline-block" }}>
+          <h4 style={{ textAlign: "center" }}>Democrats</h4>
+          <PieChart width={200} height={200}>
+            <Pie
+              dataKey="value"
+              data={democrat}
+              innerRadius={60}
+              outerRadius={80}
+            >
+              {democrat.map((entry, index) => (
+                <Cell fill={entry.color} key={entry.name} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+          {genderData(party.D)}
+        </section>
+        <section style={{ display: "inline-block" }}>
+          <h4 style={{ textAlign: "center" }}>Republicans</h4>
+          <PieChart width={200} height={200}>
+            <Pie
+              dataKey="value"
+              data={republican}
+              innerRadius={60}
+              outerRadius={80}
+            >
+              {republican.map((entry, index) => (
+                <Cell fill={entry.color} key={entry.name} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+          {genderData(party.R)}
+        </section>
+      </>
+    );
+  };
 
   return (
     <section>
