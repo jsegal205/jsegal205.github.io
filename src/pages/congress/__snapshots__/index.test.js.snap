@@ -867,10 +867,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 Number of Members by Party
               </h4>
               <div
-                style="display: flex; justify-content: center;"
+                class="congress-party-chart-legend"
               >
                 <span
-                  style="background: rgb(0, 209, 54); color: rgb(0, 209, 54); height: 1em; width: 1em; margin-right: 1em;"
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-male"
                 >
                   .
                 </span>
@@ -878,7 +878,7 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                   Male
                 </span>
                 <span
-                  style="background: rgb(181, 51, 255); color: rgb(181, 51, 255); height: 1em; width: 1em; margin-left: 1em; margin-right: 1em;"
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-female"
                 >
                   .
                 </span>
@@ -887,10 +887,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
               <section
-                style="display: inline-block;"
+                class="congress-party-chart-section"
               >
                 <h4
-                  style="text-align: center;"
+                  class="congress-party-chart-section-header"
                 >
                   Democrats
                 </h4>
@@ -976,10 +976,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </div>
               </section>
               <section
-                style="display: inline-block;"
+                class="congress-party-chart-section"
               >
                 <h4
-                  style="text-align: center;"
+                  class="congress-party-chart-section-header"
                 >
                   Republicans
                 </h4>
@@ -1288,10 +1288,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 Number of Members by Party
               </h4>
               <div
-                style="display: flex; justify-content: center;"
+                class="congress-party-chart-legend"
               >
                 <span
-                  style="background: rgb(0, 209, 54); color: rgb(0, 209, 54); height: 1em; width: 1em; margin-right: 1em;"
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-male"
                 >
                   .
                 </span>
@@ -1299,7 +1299,7 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                   Male
                 </span>
                 <span
-                  style="background: rgb(181, 51, 255); color: rgb(181, 51, 255); height: 1em; width: 1em; margin-left: 1em; margin-right: 1em;"
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-female"
                 >
                   .
                 </span>
@@ -1308,10 +1308,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
               <section
-                style="display: inline-block;"
+                class="congress-party-chart-section"
               >
                 <h4
-                  style="text-align: center;"
+                  class="congress-party-chart-section-header"
                 >
                   Democrats
                 </h4>
@@ -1397,10 +1397,10 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </div>
               </section>
               <section
-                style="display: inline-block;"
+                class="congress-party-chart-section"
               >
                 <h4
-                  style="text-align: center;"
+                  class="congress-party-chart-section-header"
                 >
                   Republicans
                 </h4>
