@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
@@ -13,6 +13,9 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
 import "../../App.css";
@@ -61,6 +64,7 @@ const Congress = () => {
 
     return (
       <section className="chamber-chart">
+        <h3>Distrobution of age</h3>
         <BarChart
           width={width * 0.9}
           height={400}
@@ -168,16 +172,61 @@ const Congress = () => {
   );
 
   const partySection = (party) => (
-    <section>
+    <section className="congress-party-section">
       <h4>Number of Members by Party</h4>
-      {["D", "R"].map((partyKey) => (
-        <Fragment key={partyKey}>
-          <h5>{properCase(keyMap[partyKey])}</h5>
-          {genderData(party[partyKey])}
-        </Fragment>
-      ))}
+      {partyChart(party)}
     </section>
   );
+
+  const partyChart = (party) => {
+    const democrat = [
+      { name: "Male", value: party.D.men, color: "#00D136" },
+      { name: "Female", value: party.D.women, color: "#B533FF" },
+    ];
+    const republican = [
+      { name: "Male", value: party.R.men, color: "#00D136" },
+      { name: "Female", value: party.R.women, color: "#B533FF" },
+    ];
+
+    return (
+      <>
+        <div className="congress-party-chart-legend">
+          <span className="congress-party-chart-legend-item congress-party-chart-legend-item-male">
+            .
+          </span>
+          <span>Male</span>
+          <span className="congress-party-chart-legend-item congress-party-chart-legend-item-female">
+            .
+          </span>
+          <span>Female</span>
+        </div>
+        <section className="congress-party-chart-section">
+          <h4 className="congress-party-chart-section-header">Democrats</h4>
+          <PieChart width={200} height={200}>
+            <Pie dataKey="value" data={democrat} outerRadius={80}>
+              {democrat.map((entry) => (
+                <Cell fill={entry.color} key={entry.name} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+          {genderData(party.D)}
+        </section>
+        <section className="congress-party-chart-section">
+          <h4 className="congress-party-chart-section-header">Republicans</h4>
+          <PieChart width={200} height={200}>
+            <Pie dataKey="value" data={republican} outerRadius={80}>
+              {republican.map((entry) => (
+                <Cell fill={entry.color} key={entry.name} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+          {genderData(party.R)}
+        </section>
+      </>
+    );
+  };
 
   return (
     <section>

@@ -67,6 +67,9 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
           <section
             class="chamber-chart"
           >
+            <h3>
+              Distrobution of age
+            </h3>
             <div
               class="recharts-wrapper"
               style="position: relative; cursor: default; width: 921.6px; height: 400px;"
@@ -859,70 +862,210 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
             </section>
-            <section>
+            <section
+              class="congress-party-section"
+            >
               <h4>
                 Number of Members by Party
               </h4>
-              <h5>
-                Democrat
-              </h5>
-              <div>
-                <label>
-                  Total
-                  : 
-                </label>
-                <span>
-                  239
+              <div
+                class="congress-party-chart-legend"
+              >
+                <span
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-male"
+                >
+                  .
                 </span>
-              </div>
-              <div>
-                <label>
-                  Female
-                  : 
-                </label>
                 <span>
-                  91 (38.08%)
-                </span>
-              </div>
-              <div>
-                <label>
                   Male
-                  : 
-                </label>
-                <span>
-                  148 (61.92%)
                 </span>
-              </div>
-              <h5>
-                Republican
-              </h5>
-              <div>
-                <label>
-                  Total
-                  : 
-                </label>
-                <span>
-                  209
+                <span
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-female"
+                >
+                  .
                 </span>
-              </div>
-              <div>
-                <label>
+                <span>
                   Female
-                  : 
-                </label>
-                <span>
-                  15 (7.18%)
                 </span>
               </div>
-              <div>
-                <label>
-                  Male
-                  : 
-                </label>
-                <span>
-                  194 (92.82%)
-                </span>
-              </div>
+              <section
+                class="congress-party-chart-section"
+              >
+                <h4
+                  class="congress-party-chart-section-header"
+                >
+                  Democrats
+                </h4>
+                <div
+                  class="recharts-wrapper"
+                  style="position: relative; cursor: default; width: 200px; height: 200px;"
+                >
+                  <svg
+                    class="recharts-surface"
+                    height="200"
+                    version="1.1"
+                    viewBox="0 0 200 200"
+                    width="200"
+                  >
+                    <defs>
+                      <clippath
+                        id="recharts6-clip"
+                      >
+                        <rect
+                          height="190"
+                          width="190"
+                          x="5"
+                          y="5"
+                        />
+                      </clippath>
+                    </defs>
+                    <g
+                      class="recharts-layer recharts-pie"
+                    >
+                      <g
+                        class="recharts-layer"
+                      >
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <div
+                    class="recharts-tooltip-wrapper"
+                    style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px;"
+                  >
+                    <div
+                      class="recharts-default-tooltip"
+                      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid #ccc; white-space: nowrap;"
+                    >
+                      <p
+                        class="recharts-tooltip-label"
+                        style="margin: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label>
+                    Total
+                    : 
+                  </label>
+                  <span>
+                    239
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    91 (38.08%)
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    148 (61.92%)
+                  </span>
+                </div>
+              </section>
+              <section
+                class="congress-party-chart-section"
+              >
+                <h4
+                  class="congress-party-chart-section-header"
+                >
+                  Republicans
+                </h4>
+                <div
+                  class="recharts-wrapper"
+                  style="position: relative; cursor: default; width: 200px; height: 200px;"
+                >
+                  <svg
+                    class="recharts-surface"
+                    height="200"
+                    version="1.1"
+                    viewBox="0 0 200 200"
+                    width="200"
+                  >
+                    <defs>
+                      <clippath
+                        id="recharts8-clip"
+                      >
+                        <rect
+                          height="190"
+                          width="190"
+                          x="5"
+                          y="5"
+                        />
+                      </clippath>
+                    </defs>
+                    <g
+                      class="recharts-layer recharts-pie"
+                    >
+                      <g
+                        class="recharts-layer"
+                      >
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <div
+                    class="recharts-tooltip-wrapper"
+                    style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px;"
+                  >
+                    <div
+                      class="recharts-default-tooltip"
+                      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid #ccc; white-space: nowrap;"
+                    >
+                      <p
+                        class="recharts-tooltip-label"
+                        style="margin: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label>
+                    Total
+                    : 
+                  </label>
+                  <span>
+                    209
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    15 (7.18%)
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    194 (92.82%)
+                  </span>
+                </div>
+              </section>
             </section>
           </section>
         </section>
@@ -1142,70 +1285,210 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
             </section>
-            <section>
+            <section
+              class="congress-party-section"
+            >
               <h4>
                 Number of Members by Party
               </h4>
-              <h5>
-                Democrat
-              </h5>
-              <div>
-                <label>
-                  Total
-                  : 
-                </label>
-                <span>
-                  45
+              <div
+                class="congress-party-chart-legend"
+              >
+                <span
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-male"
+                >
+                  .
                 </span>
-              </div>
-              <div>
-                <label>
-                  Female
-                  : 
-                </label>
                 <span>
-                  17 (37.78%)
-                </span>
-              </div>
-              <div>
-                <label>
                   Male
-                  : 
-                </label>
-                <span>
-                  28 (62.22%)
                 </span>
-              </div>
-              <h5>
-                Republican
-              </h5>
-              <div>
-                <label>
-                  Total
-                  : 
-                </label>
-                <span>
-                  54
+                <span
+                  class="congress-party-chart-legend-item congress-party-chart-legend-item-female"
+                >
+                  .
                 </span>
-              </div>
-              <div>
-                <label>
+                <span>
                   Female
-                  : 
-                </label>
-                <span>
-                  9 (16.67%)
                 </span>
               </div>
-              <div>
-                <label>
-                  Male
-                  : 
-                </label>
-                <span>
-                  45 (83.33%)
-                </span>
-              </div>
+              <section
+                class="congress-party-chart-section"
+              >
+                <h4
+                  class="congress-party-chart-section-header"
+                >
+                  Democrats
+                </h4>
+                <div
+                  class="recharts-wrapper"
+                  style="position: relative; cursor: default; width: 200px; height: 200px;"
+                >
+                  <svg
+                    class="recharts-surface"
+                    height="200"
+                    version="1.1"
+                    viewBox="0 0 200 200"
+                    width="200"
+                  >
+                    <defs>
+                      <clippath
+                        id="recharts10-clip"
+                      >
+                        <rect
+                          height="190"
+                          width="190"
+                          x="5"
+                          y="5"
+                        />
+                      </clippath>
+                    </defs>
+                    <g
+                      class="recharts-layer recharts-pie"
+                    >
+                      <g
+                        class="recharts-layer"
+                      >
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <div
+                    class="recharts-tooltip-wrapper"
+                    style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px;"
+                  >
+                    <div
+                      class="recharts-default-tooltip"
+                      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid #ccc; white-space: nowrap;"
+                    >
+                      <p
+                        class="recharts-tooltip-label"
+                        style="margin: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label>
+                    Total
+                    : 
+                  </label>
+                  <span>
+                    45
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    17 (37.78%)
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    28 (62.22%)
+                  </span>
+                </div>
+              </section>
+              <section
+                class="congress-party-chart-section"
+              >
+                <h4
+                  class="congress-party-chart-section-header"
+                >
+                  Republicans
+                </h4>
+                <div
+                  class="recharts-wrapper"
+                  style="position: relative; cursor: default; width: 200px; height: 200px;"
+                >
+                  <svg
+                    class="recharts-surface"
+                    height="200"
+                    version="1.1"
+                    viewBox="0 0 200 200"
+                    width="200"
+                  >
+                    <defs>
+                      <clippath
+                        id="recharts12-clip"
+                      >
+                        <rect
+                          height="190"
+                          width="190"
+                          x="5"
+                          y="5"
+                        />
+                      </clippath>
+                    </defs>
+                    <g
+                      class="recharts-layer recharts-pie"
+                    >
+                      <g
+                        class="recharts-layer"
+                      >
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                        <g
+                          class="recharts-layer recharts-pie-sector"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <div
+                    class="recharts-tooltip-wrapper"
+                    style="transform: translate(undefinedpx, undefinedpx); pointer-events: none; visibility: hidden; position: absolute; top: 0px;"
+                  >
+                    <div
+                      class="recharts-default-tooltip"
+                      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid #ccc; white-space: nowrap;"
+                    >
+                      <p
+                        class="recharts-tooltip-label"
+                        style="margin: 0px;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label>
+                    Total
+                    : 
+                  </label>
+                  <span>
+                    54
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Female
+                    : 
+                  </label>
+                  <span>
+                    9 (16.67%)
+                  </span>
+                </div>
+                <div>
+                  <label>
+                    Male
+                    : 
+                  </label>
+                  <span>
+                    45 (83.33%)
+                  </span>
+                </div>
+              </section>
             </section>
           </section>
         </section>

@@ -32,11 +32,47 @@
   text-align: center;
 }
 
+.congress-party-chart-legend {
+  display: flex;
+  justify-content: center;
+}
+
+.congress-party-chart-legend-item {
+  height: 1em;
+  width: 1em;
+  margin-right: 1em;
+}
+
+.congress-party-chart-legend-item-male {
+  background: #00d136;
+  color: #00d136;
+}
+
+.congress-party-chart-legend-item-female {
+  background: #b533ff;
+  color: #b533ff;
+  margin-left: 1em;
+}
+
+.congress-party-chart-section {
+  display: inline-block;
+}
+
+.congress-party-chart-section-header {
+  text-align: center;
+}
+
 @media screen and (max-width: 740px) {
   .chamber-chart {
     margin: 0 -1em;
   }
   .chamber-data > section {
     margin: initial;
+  }
+
+  .congress-party-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 }
