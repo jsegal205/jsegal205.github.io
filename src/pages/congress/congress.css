@@ -69,4 +69,10 @@
   .chamber-data > section {
     margin: initial;
   }
+
+  .congress-party-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }

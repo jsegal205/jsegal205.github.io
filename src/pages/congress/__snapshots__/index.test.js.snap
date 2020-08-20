@@ -862,7 +862,9 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
             </section>
-            <section>
+            <section
+              class="congress-party-section"
+            >
               <h4>
                 Number of Members by Party
               </h4>
@@ -1283,7 +1285,9 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                 </span>
               </div>
             </section>
-            <section>
+            <section
+              class="congress-party-section"
+            >
               <h4>
                 Number of Members by Party
               </h4>

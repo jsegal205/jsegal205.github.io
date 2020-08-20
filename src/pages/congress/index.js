@@ -172,7 +172,7 @@ const Congress = () => {
   );
 
   const partySection = (party) => (
-    <section>
+    <section className="congress-party-section">
       <h4>Number of Members by Party</h4>
       {partyChart(party)}
     </section>
