@@ -23,9 +23,16 @@ exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve disp
       </a>
     </article>
     <section
-      class="congress-header"
+      class="loader"
     >
-      Loading...
+      <div
+        class="loader-wheel"
+      />
+      <div
+        class="loader-text"
+      >
+        Loading
+      </div>
     </section>
   </section>
 </div>
