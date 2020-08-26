@@ -7,6 +7,7 @@ import Error from "../../components/error";
 
 import "../../App.css";
 import "./recipes.css";
+import Loading from "../../components/loading";
 
 const Recipes = () => {
   const { loading, data: recipes } = useFetch(`${apiUrlBase}/recipes`);
@@ -37,7 +38,7 @@ const Recipes = () => {
   return (
     <section>
       <h2>Recipes</h2>
-      {loading && <section>Loading...</section>}
+      {loading && <Loading />}
       {recipes && recipes.error && <Error componentName="Recipes" />}
       {recipes && recipes.length && (
         <>

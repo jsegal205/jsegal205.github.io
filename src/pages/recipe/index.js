@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import useFetch from "../../utils/useFetch";
 import NotFound from "../not-found";
 import Error from "../../components/error";
+import Loading from "../../components/loading";
 
 import "../../App.css";
 import "./recipe.css";
@@ -26,7 +27,7 @@ const Recipe = (props) => {
   const { loading, data: recipe } = useFetch(`${apiUrlBase}/recipe/${slug}`);
 
   if (loading) {
-    return <section>Loading...</section>;
+    return <Loading />;
   }
 
   if (recipe.status === 404) {

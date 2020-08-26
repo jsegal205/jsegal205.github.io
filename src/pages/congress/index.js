@@ -4,6 +4,7 @@ import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import useWindowDimensions from "../../utils/windowDimensions";
 import Error from "../../components/error";
+import Loading from "../../components/loading";
 
 import {
   BarChart,
@@ -241,7 +242,7 @@ const Congress = () => {
           Propublica Congress API
         </a>
       </article>
-      {loading && <section className="congress-header">Loading...</section>}
+      {loading && <Loading />}
       {congress && congress.error && <Error componentName="Congress" />}
       {congress && !congress.error && (
         <div className="congress">

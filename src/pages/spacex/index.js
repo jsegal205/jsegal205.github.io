@@ -5,6 +5,7 @@ import Error from "../../components/error";
 
 import "../../App.css";
 import "./spacex.css";
+import Loading from "../../components/loading";
 
 const SpaceX = () => {
   const { loading, data: upcomingLaunch } = useFetch(
@@ -60,7 +61,7 @@ const SpaceX = () => {
   return (
     <section className="spacex-container">
       <h2>Next Space X Launch</h2>
-      {loading && <section>Loading...</section>}
+      {loading && <Loading />}
       {upcomingLaunch && upcomingLaunch.error && (
         <Error componentName="SpaceX" />
       )}
