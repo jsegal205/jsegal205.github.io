@@ -22,7 +22,7 @@ const returnData = {
         republican: 57.62,
       },
       distribution: {
-        "50": {
+        50: {
           total: 0,
           D: 0,
           R: 0,
