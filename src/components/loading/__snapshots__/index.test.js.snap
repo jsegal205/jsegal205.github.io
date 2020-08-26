@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component renders correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="loader"
+  >
+    <div
+      class="loader-wheel"
+    />
+    <div
+      class="loader-text"
+    >
+      Loading
+    </div>
+  </section>
+</DocumentFragment>
+`;
