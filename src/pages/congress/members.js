@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
@@ -40,12 +41,19 @@ const CongressMembers = (props) => {
   }
 
   return (
-    <ul>
+    <ul className="congress-members">
       {members[chamber].map((member) => {
         return (
           <li>
-            {member.first_name} {member.last_name} ({member.party}-
-            {member.state})
+            <Link
+              to={{
+                pathname: `/congress/${chamber}/member/${member.id}`,
+                state: { ...member },
+              }}
+            >
+              {member.first_name} {member.last_name} ({member.party}-
+              {member.state})
+            </Link>
           </li>
         );
       })}
