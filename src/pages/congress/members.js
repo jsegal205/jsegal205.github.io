@@ -41,23 +41,33 @@ const CongressMembers = (props) => {
   }
 
   return (
-    <ul className="congress-members">
-      {members[chamber].map((member) => {
-        return (
-          <li>
-            <Link
-              to={{
-                pathname: `/congress/${chamber}/member/${member.id}`,
-                state: { ...member },
-              }}
-            >
-              {member.first_name} {member.last_name} ({member.party}-
-              {member.state})
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <section>
+      <Link
+        className="chamber-members"
+        to={{
+          pathname: `/congress`,
+        }}
+      >
+        All Congress Data
+      </Link>
+      <ul className="congress-members">
+        {members[chamber].map((member) => {
+          return (
+            <li key={member.id}>
+              <Link
+                to={{
+                  pathname: `/congress/${chamber}/member/${member.id}`,
+                  state: { ...member },
+                }}
+              >
+                {member.first_name} {member.last_name} ({member.party}-
+                {member.state})
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 export default CongressMembers;

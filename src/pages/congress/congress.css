@@ -62,6 +62,11 @@
   text-align: center;
 }
 
+.chamber-members {
+  display: block;
+  text-align: center;
+}
+
 .congress-members {
   margin: 0;
   padding: 0;

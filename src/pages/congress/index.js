@@ -21,6 +21,7 @@ import {
 
 import "../../App.css";
 import "./congress.css";
+import { Link } from "react-router-dom";
 
 const Congress = () => {
   const { loading, data: congress } = useFetch(`${apiUrlBase}/congress/stats`);
@@ -45,8 +46,17 @@ const Congress = () => {
 
   const chamberSection = (data, chamber) => (
     <article key={chamber}>
-      <h3>{keyMap[chamber]}</h3>
       <hr />
+      <h3>{keyMap[chamber]}</h3>
+      <Link
+        className="chamber-members"
+        to={{
+          pathname: `/congress/${chamber}/members`,
+          state: { chamber },
+        }}
+      >
+        View all {chamber === "house" ? "Representatives" : "Senators"}
+      </Link>
       <section className="chamber">
         {!!data[chamber].age.distribution &&
           chamberAgeChart(data[chamber].age.distribution)}
