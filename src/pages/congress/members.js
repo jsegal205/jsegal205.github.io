@@ -101,7 +101,7 @@ const CongressMembers = (props) => {
         <ul className="congress-members" data-testid="members-list">
           {memberList.map((member) => {
             return (
-              <li>
+              <li key={member.id}>
                 <Link
                   to={{
                     pathname: `/congress/${chamber}/member/${member.id}`,
