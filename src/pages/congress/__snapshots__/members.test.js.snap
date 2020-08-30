@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CongressMembers Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<section
+  className="loader"
+>
+  <div
+    className="loader-wheel"
+  />
+  <div
+    className="loader-text"
+  >
+    Loading
+  </div>
+</section>
+`;
+
+exports[`CongressMembers Component when \`useFetch\` returns data with 200 status displays data 1`] = `
+<section>
+  <a
+    className="chamber-members"
+    href="/congress"
+    onClick={[Function]}
+  >
+    All Congress Data
+  </a>
+  <ul
+    className="congress-members"
+  >
+    <li>
+      <a
+        href="/congress/house/member/1"
+        onClick={[Function]}
+      >
+        first
+         
+        last
+         (
+        party
+        -
+        state
+        )
+      </a>
+    </li>
+  </ul>
+</section>
+`;
+
+exports[`CongressMembers Component when \`useFetch\` returns data with 404 status displays \`Not Found\` 1`] = `
+<h1>
+  Not Found
+</h1>
+`;
+
+exports[`CongressMembers Component when \`useFetch\` returns data with 500 status displays error message 1`] = `
+<section>
+  <h3>
+    Whoops! There was a problem loading
+     
+    Congress Memebers data.
+  </h3>
+  <p>
+    Please reload browser to try again in a little bit.
+  </p>
+</section>
+`;

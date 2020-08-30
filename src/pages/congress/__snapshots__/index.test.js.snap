@@ -64,10 +64,17 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
       class="congress"
     >
       <article>
+        <hr />
         <h3>
           House of Representatives
         </h3>
-        <hr />
+        <a
+          class="chamber-members"
+          href="/congress/house/members"
+        >
+          View all 
+          Representatives
+        </a>
         <section
           class="chamber"
         >
@@ -1078,10 +1085,17 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
         </section>
       </article>
       <article>
+        <hr />
         <h3>
           Senate
         </h3>
-        <hr />
+        <a
+          class="chamber-members"
+          href="/congress/senate/members"
+        >
+          View all 
+          Senators
+        </a>
         <section
           class="chamber"
         >

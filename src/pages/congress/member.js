@@ -12,9 +12,9 @@ import "./congress.css";
 import { Link } from "react-router-dom";
 
 const getUrlParams = ({ pathname, state }) => {
-  if (state && state.chamber) {
+  if (state && state.chamber && state.id) {
     // came from internal link
-    return state.chamber;
+    return { chamber: state.chamber, id: state.id };
   }
 
   // direct page load
