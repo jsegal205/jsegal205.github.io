@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
@@ -28,6 +28,33 @@ const CongressMembers = (props) => {
     `${apiUrlBase}/congress/${chamber}/members`
   );
 
+  const [memberSearch, setMemberSearch] = useState("");
+  const handleSearchChange = (event) => {
+    setMemberSearch(event.target.value);
+  };
+  const handleResetClick = () => {
+    setMemberSearch("");
+  };
+
+  const [memberList, setMemberList] = useState([]);
+  useEffect(() => {
+    if (!loading && members) {
+      if (members.error || members.status === 404) {
+        setMemberList([]);
+        return;
+      }
+
+      const results = members[chamber].filter(
+        (member) =>
+          member.first_name
+            .toLowerCase()
+            .includes(memberSearch.toLowerCase()) ||
+          member.last_name.toLowerCase().includes(memberSearch.toLowerCase())
+      );
+      setMemberList(results);
+    }
+  }, [loading, members, chamber, memberSearch]);
+
   if (loading) {
     return <Loading />;
   }
@@ -50,23 +77,52 @@ const CongressMembers = (props) => {
       >
         All Congress Data
       </Link>
-      <ul className="congress-members">
-        {members[chamber].map((member) => {
-          return (
-            <li key={member.id}>
-              <Link
-                to={{
-                  pathname: `/congress/${chamber}/member/${member.id}`,
-                  state: { ...member },
-                }}
-              >
-                {member.first_name} {member.last_name} ({member.party}-
-                {member.state})
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <section className="members-filter-container">
+        <label htmlFor="members-filter">Search</label>
+        <input
+          type="text"
+          id="members-filter"
+          className="members-filter-input"
+          value={memberSearch}
+          onChange={handleSearchChange}
+          data-testid="members-filter"
+        />
+        {memberSearch && (
+          <button
+            className="members-filter-reset"
+            onClick={handleResetClick}
+            data-testid="members-filter-reset"
+          >
+            reset
+          </button>
+        )}
+      </section>
+      {memberList.length ? (
+        <ul className="congress-members" data-testid="members-list">
+          {memberList.map((member) => {
+            return (
+              <li>
+                <Link
+                  to={{
+                    pathname: `/congress/${chamber}/member/${member.id}`,
+                    state: { ...member },
+                  }}
+                >
+                  {member.first_name} {member.last_name} ({member.party}-
+                  {member.state})
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div className="members-no-results">
+          No results for{" "}
+          <strong>
+            <em>{memberSearch}</em>
+          </strong>
+        </div>
+      )}
     </section>
   );
 };

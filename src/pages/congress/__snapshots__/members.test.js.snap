@@ -1,5 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CongressMembers Component Search filtering when input matches none of the data only shows data to match 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,29 +17,26 @@
+        <input
+          class=\\"members-filter-input\\"
+          data-testid=\\"members-filter\\"
+          id=\\"members-filter\\"
+          type=\\"text\\"
+-         value=\\"\\"
++         value=\\"mno\\"
+        />
+-     </section>
+-     <ul
+-       class=\\"congress-members\\"
+-       data-testid=\\"members-list\\"
+-     >
+-       <li>
+-         <a
+-           href=\\"/congress/house/member/1\\"
++       <button
++         class=\\"members-filter-reset\\"
++         data-testid=\\"members-filter-reset\\"
+        >
+-           abc efg (party-state)
+-         </a>
+-       </li>
+-       <li>
+-         <a
+-           href=\\"/congress/house/member/2\\"
++         reset
++       </button>
++     </section>
++     <div
++       class=\\"members-no-results\\"
+      >
+-           uxw xyz (party-state)
+-         </a>
+-       </li>
+-     </ul>
++       No results for 
++       <strong>
++         <em>
++           mno
++         </em>
++       </strong>
++     </div>
+    </section>
+  </DocumentFragment>"
+`;
+
+exports[`CongressMembers Component Search filtering when input matches subset of the data only shows data to match first name 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,29 +17,28 @@
+        <input
+          class=\\"members-filter-input\\"
+          data-testid=\\"members-filter\\"
+          id=\\"members-filter\\"
+          type=\\"text\\"
+-         value=\\"\\"
++         value=\\"abc\\"
+        />
++       <button
++         class=\\"members-filter-reset\\"
++         data-testid=\\"members-filter-reset\\"
++       >
++         reset
++       </button>
+      </section>
+      <ul
+        class=\\"congress-members\\"
+        data-testid=\\"members-list\\"
+      >
+        <li>
+          <a
+            href=\\"/congress/house/member/1\\"
+          >
+            abc efg (party-state)
+-         </a>
+-       </li>
+-       <li>
+-         <a
+-           href=\\"/congress/house/member/2\\"
+-         >
+-           uxw xyz (party-state)
+          </a>
+        </li>
+      </ul>
+    </section>
+  </DocumentFragment>"
+`;
+
+exports[`CongressMembers Component Search filtering when input matches subset of the data only shows data to match last name 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,24 +17,23 @@
+        <input
+          class=\\"members-filter-input\\"
+          data-testid=\\"members-filter\\"
+          id=\\"members-filter\\"
+          type=\\"text\\"
+-         value=\\"\\"
++         value=\\"xyz\\"
+        />
++       <button
++         class=\\"members-filter-reset\\"
++         data-testid=\\"members-filter-reset\\"
++       >
++         reset
++       </button>
+      </section>
+      <ul
+        class=\\"congress-members\\"
+        data-testid=\\"members-list\\"
+      >
+-       <li>
+-         <a
+-           href=\\"/congress/house/member/1\\"
+-         >
+-           abc efg (party-state)
+-         </a>
+-       </li>
+        <li>
+          <a
+            href=\\"/congress/house/member/2\\"
+          >
+            uxw xyz (party-state)"
+`;
+
 exports[`CongressMembers Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
 <section
   className="loader"
@@ -24,25 +160,35 @@ exports[`CongressMembers Component when \`useFetch\` returns data with 200 statu
   >
     All Congress Data
   </a>
-  <ul
-    className="congress-members"
+  <section
+    className="members-filter-container"
   >
-    <li>
-      <a
-        href="/congress/house/member/1"
-        onClick={[Function]}
-      >
-        first
-         
-        last
-         (
-        party
-        -
-        state
-        )
-      </a>
-    </li>
-  </ul>
+    <label
+      htmlFor="members-filter"
+    >
+      Search
+    </label>
+    <input
+      className="members-filter-input"
+      data-testid="members-filter"
+      id="members-filter"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    
+  </section>
+  <div
+    className="members-no-results"
+  >
+    No results for
+     
+    <strong>
+      <em>
+        
+      </em>
+    </strong>
+  </div>
 </section>
 `;
 

@@ -1,10 +1,14 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
+import { render, fireEvent, getByTestId } from "@testing-library/react";
+import { toMatchDiffSnapshot } from "snapshot-diff";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import CongressMembers from "./members";
+
+expect.extend({ toMatchDiffSnapshot });
 
 jest.mock("../../utils/useFetch", () => jest.fn());
 
@@ -153,6 +157,7 @@ describe("CongressMembers Component", () => {
         );
       });
     });
+
     describe("when props do not contain state.chamber", () => {
       it("pulls slug from pathname", () => {
         const props = {
@@ -177,6 +182,115 @@ describe("CongressMembers Component", () => {
         expect(useFetch).toHaveBeenCalledWith(
           `${apiUrlBase}/congress/house/members`
         );
+      });
+    });
+  });
+
+  describe("Search filtering", () => {
+    const apiData = {
+      house: [
+        {
+          id: 1,
+          first_name: "abc",
+          last_name: "efg",
+          party: "party",
+          state: "state",
+        },
+        {
+          id: 2,
+          first_name: "uxw",
+          last_name: "xyz",
+          party: "party",
+          state: "state",
+        },
+      ],
+    };
+
+    const setup = () => {
+      const props = {
+        location: {
+          pathname: `/cogress/house/members`,
+        },
+      };
+
+      useFetch.mockReturnValue({
+        loading: false,
+        data: apiData,
+      });
+
+      return render(
+        <Router>
+          <CongressMembers {...props} />
+        </Router>
+      );
+    };
+
+    it("defaults search input to empty string", () => {
+      const { container } = setup();
+      const membersFilter = getByTestId(container, "members-filter");
+      const membersList = getByTestId(container, "members-list");
+      const membersListItems = membersList.querySelectorAll("li");
+
+      expect(membersFilter.value).toBe("");
+      expect(membersListItems.length).toEqual(apiData["house"].length);
+      expect(membersListItems[0].querySelector("a").innerHTML).toContain(
+        apiData["house"][0].first_name
+      );
+      expect(membersListItems[1].querySelector("a").innerHTML).toContain(
+        apiData["house"][1].first_name
+      );
+    });
+
+    describe("when input matches subset of the data", () => {
+      it("only shows data to match first name", () => {
+        const { container, asFragment } = setup();
+
+        const initialRender = asFragment();
+        const memberFilter = getByTestId(container, "members-filter");
+        fireEvent.change(memberFilter, { target: { value: "abc" } });
+
+        expect(initialRender).toMatchDiffSnapshot(asFragment());
+      });
+
+      it("only shows data to match last name", () => {
+        const { container, asFragment } = setup();
+
+        const initialRender = asFragment();
+        const memberFilter = getByTestId(container, "members-filter");
+        fireEvent.change(memberFilter, { target: { value: "xyz" } });
+
+        expect(initialRender).toMatchDiffSnapshot(asFragment());
+      });
+    });
+
+    describe("when input matches none of the data", () => {
+      it("only shows data to match", () => {
+        const { container, asFragment } = setup();
+
+        const initialRender = asFragment();
+        const memberFilter = getByTestId(container, "members-filter");
+        fireEvent.change(memberFilter, { target: { value: "mno" } });
+
+        expect(initialRender).toMatchDiffSnapshot(asFragment());
+      });
+    });
+
+    describe("when reset clicked", () => {
+      it("resets search input value", () => {
+        const { container } = setup();
+
+        const recipeFilter = getByTestId(container, "members-filter");
+        fireEvent.change(recipeFilter, { target: { value: "a" } });
+
+        expect(recipeFilter.value).toBe("a");
+
+        const recipeFilterReset = getByTestId(
+          container,
+          "members-filter-reset"
+        );
+
+        fireEvent.click(recipeFilterReset);
+        expect(recipeFilter.value).toBe("");
       });
     });
   });
