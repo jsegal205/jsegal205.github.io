@@ -31,6 +31,7 @@ const returnData = {
         },
       },
       oldest: {
+        id: 1,
         age: 87,
         date_of_birth: "1933-06-09",
         full_name: "Don Young",
@@ -39,6 +40,7 @@ const returnData = {
         state: "AK",
       },
       youngest: {
+        id: 2,
         age: 30,
         date_of_birth: "1989-10-13",
         full_name: "Alexandria Ocasio-Cortez",
@@ -81,6 +83,7 @@ const returnData = {
         republican: 63.43,
       },
       oldest: {
+        id: 3,
         age: 87,
         date_of_birth: "1933-06-22",
         full_name: "Dianne Feinstein",
@@ -89,6 +92,7 @@ const returnData = {
         state: "CA",
       },
       youngest: {
+        id: 4,
         age: 40,
         date_of_birth: "1979-12-31",
         full_name: "Joshua Hawley",

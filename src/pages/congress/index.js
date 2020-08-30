@@ -61,7 +61,7 @@ const Congress = () => {
         {!!data[chamber].age.distribution &&
           chamberAgeChart(data[chamber].age.distribution)}
         <section className="chamber-data">
-          {ageSection(data[chamber].age)}
+          {ageSection(data[chamber].age, chamber)}
           {genderSection(data[chamber].gender)}
           {partySection(data[chamber].party)}
         </section>
@@ -123,7 +123,7 @@ const Congress = () => {
     );
   };
 
-  const ageSection = (age) => (
+  const ageSection = (age, chamber) => (
     <>
       <section>
         <h4>Average Age</h4>
@@ -140,8 +140,8 @@ const Congress = () => {
           {ageLabel(properCase(keyMap.M), age.average.male)}
         </section>
       </section>
-      {detailedAge(age, "youngest")}
-      {detailedAge(age, "oldest")}
+      {detailedAge(age, "youngest", chamber)}
+      {detailedAge(age, "oldest", chamber)}
     </>
   );
 
@@ -152,10 +152,19 @@ const Congress = () => {
     </div>
   );
 
-  const detailedAge = (data, key) => (
+  const detailedAge = (data, key, chamber) => (
     <section>
       <h4>{properCase(key)} Member</h4>
-      <label>{data[key].full_name}</label>
+      <label>
+        <Link
+          to={{
+            pathname: `/congress/${chamber}/member/${data[key].id}`,
+            state: { ...data[key] },
+          }}
+        >
+          {data[key].full_name}
+        </Link>
+      </label>
       {ageLabel("Age", data[key].age)}
       {genericLabel("Date of Birth", data[key].date_of_birth)}
       {genericLabel("State Representation", data[key].state)}
