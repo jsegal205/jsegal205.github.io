@@ -44,8 +44,23 @@ const Member = (props) => {
     return <Error componentName="Congress Memeber" />;
   }
 
+  const {
+    age,
+    first_name,
+    last_name,
+    date_of_birth,
+    gender,
+    current_party,
+    url,
+    twitter_account,
+    state,
+    next_election,
+    terms,
+    initial_elected_in,
+    most_recent_vote,
+  } = member;
   return (
-    <section>
+    <section className="congress-member">
       <Link
         to={{
           pathname: `/congress/${chamber}/members`,
@@ -55,9 +70,50 @@ const Member = (props) => {
         Back to all members
       </Link>
       <h2>
-        {member.first_name} {member.last_name}
+        {first_name} {last_name}
       </h2>
-      <div>{member.most_recent_vote}</div>
+      <ul>
+        <li>
+          <label>Most recent vote: {most_recent_vote}</label>
+        </li>
+        <li>
+          <label>
+            Date of Birth: {date_of_birth} (age: {age})
+          </label>
+        </li>
+        <li>
+          <label>Gender: {gender}</label>
+        </li>
+        <li>
+          <label>Current Party: {current_party}</label>
+        </li>
+        <li>
+          <label>State Representing: {state}</label>
+        </li>
+        <li>
+          <label>Will be up for reelection in: {next_election}</label>
+        </li>
+        <li>
+          <label>
+            Has served <em>{terms}</em> terms starting initially elected into
+            office in <em>{initial_elected_in}</em>
+          </label>
+        </li>
+      </ul>
+
+      <section className="congress-member-links">
+        <a href={url} target="_blank" rel="noopener">
+          Website
+        </a>
+
+        <a
+          href={`https://twitter.com/${twitter_account}`}
+          target="_blank"
+          rel="noopener"
+        >
+          Twitter
+        </a>
+      </section>
     </section>
   );
 };

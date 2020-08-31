@@ -16,7 +16,9 @@ exports[`Member Component when \`useFetch\` is awaiting promise to resolve displ
 `;
 
 exports[`Member Component when \`useFetch\` returns data with 200 status displays data 1`] = `
-<section>
+<section
+  className="congress-member"
+>
   <a
     href="/congress/house/members"
     onClick={[Function]}
@@ -28,9 +30,77 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
      
     last
   </h2>
-  <div>
-    most_recent_vote
-  </div>
+  <ul>
+    <li>
+      <label>
+        Most recent vote: 
+        2020-01-01
+      </label>
+    </li>
+    <li>
+      <label>
+        Date of Birth: 
+        1900-01-01
+         (age: 
+        1
+        )
+      </label>
+    </li>
+    <li>
+      <label>
+        Gender: 
+        F
+      </label>
+    </li>
+    <li>
+      <label>
+        Current Party: 
+        D
+      </label>
+    </li>
+    <li>
+      <label>
+        State Representing: 
+        IL
+      </label>
+    </li>
+    <li>
+      <label>
+        Will be up for reelection in: 
+        2020
+      </label>
+    </li>
+    <li>
+      <label>
+        Has served 
+        <em>
+          1
+        </em>
+         terms starting initially elected into office in 
+        <em>
+          2000-01-01
+        </em>
+      </label>
+    </li>
+  </ul>
+  <section
+    className="congress-member-links"
+  >
+    <a
+      href="www.example.com"
+      rel="noopener"
+      target="_blank"
+    >
+      Website
+    </a>
+    <a
+      href="https://twitter.com/twitter"
+      rel="noopener"
+      target="_blank"
+    >
+      Twitter
+    </a>
+  </section>
 </section>
 `;
 
