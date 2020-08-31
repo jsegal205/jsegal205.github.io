@@ -64,10 +64,17 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
       class="congress"
     >
       <article>
+        <hr />
         <h3>
           House of Representatives
         </h3>
-        <hr />
+        <a
+          class="chamber-members"
+          href="/congress/house/members"
+        >
+          View all 
+          Representatives
+        </a>
         <section
           class="chamber"
         >
@@ -733,7 +740,11 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                  Member
               </h4>
               <label>
-                Alexandria Ocasio-Cortez
+                <a
+                  href="/congress/house/member/2"
+                >
+                  Alexandria Ocasio-Cortez
+                </a>
               </label>
               <div>
                 <label>
@@ -788,7 +799,11 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                  Member
               </h4>
               <label>
-                Don Young
+                <a
+                  href="/congress/house/member/1"
+                >
+                  Don Young
+                </a>
               </label>
               <div>
                 <label>
@@ -1078,10 +1093,17 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
         </section>
       </article>
       <article>
+        <hr />
         <h3>
           Senate
         </h3>
-        <hr />
+        <a
+          class="chamber-members"
+          href="/congress/senate/members"
+        >
+          View all 
+          Senators
+        </a>
         <section
           class="chamber"
         >
@@ -1156,7 +1178,11 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                  Member
               </h4>
               <label>
-                Joshua Hawley
+                <a
+                  href="/congress/senate/member/4"
+                >
+                  Joshua Hawley
+                </a>
               </label>
               <div>
                 <label>
@@ -1211,7 +1237,11 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
                  Member
               </h4>
               <label>
-                Dianne Feinstein
+                <a
+                  href="/congress/senate/member/3"
+                >
+                  Dianne Feinstein
+                </a>
               </label>
               <div>
                 <label>

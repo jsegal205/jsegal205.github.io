@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Member Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<section
+  className="loader"
+>
+  <div
+    className="loader-wheel"
+  />
+  <div
+    className="loader-text"
+  >
+    Loading
+  </div>
+</section>
+`;
+
+exports[`Member Component when \`useFetch\` returns data with 200 status displays data 1`] = `
+<section
+  className="congress-member"
+>
+  <a
+    href="/congress/house/members"
+    onClick={[Function]}
+  >
+    Back to all members
+  </a>
+  <h2>
+    first
+     
+    last
+  </h2>
+  <ul>
+    <li>
+      <label>
+        Most recent vote: 
+        2020-01-01
+      </label>
+    </li>
+    <li>
+      <label>
+        Date of Birth: 
+        1900-01-01
+         (age: 
+        1
+        )
+      </label>
+    </li>
+    <li>
+      <label>
+        Gender: 
+        F
+      </label>
+    </li>
+    <li>
+      <label>
+        Current Party: 
+        D
+      </label>
+    </li>
+    <li>
+      <label>
+        State Representing: 
+        IL
+      </label>
+    </li>
+    <li>
+      <label>
+        Will be up for reelection in: 
+        2020
+      </label>
+    </li>
+    <li>
+      <label>
+        Has served 
+        <em>
+          1
+        </em>
+         terms starting initially elected into office in 
+        <em>
+          2000-01-01
+        </em>
+      </label>
+    </li>
+  </ul>
+  <section
+    className="congress-member-links"
+  >
+    <a
+      href="www.example.com"
+      rel="noopener"
+      target="_blank"
+    >
+      Website
+    </a>
+    <a
+      href="https://twitter.com/twitter"
+      rel="noopener"
+      target="_blank"
+    >
+      Twitter
+    </a>
+  </section>
+</section>
+`;
+
+exports[`Member Component when \`useFetch\` returns data with 404 status displays \`Not Found\` 1`] = `
+<h1>
+  Not Found
+</h1>
+`;
+
+exports[`Member Component when \`useFetch\` returns data with 500 status displays error message 1`] = `
+<section>
+  <h3>
+    Whoops! There was a problem loading
+     
+    Congress Memeber data.
+  </h3>
+  <p>
+    Please reload browser to try again in a little bit.
+  </p>
+</section>
+`;

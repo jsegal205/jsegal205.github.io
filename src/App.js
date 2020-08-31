@@ -9,6 +9,8 @@ import Recipe from "./pages/recipe";
 import SpaceX from "./pages/spacex";
 import NotFound from "./pages/not-found";
 import Congress from "./pages/congress";
+import CongressMembers from "./pages/congress/members";
+import CongressMember from "./pages/congress/member";
 import TopNav from "./components/topnav";
 import Home from "./pages/home";
 
@@ -33,6 +35,14 @@ const App = () => {
           <TopNav />
           <Switch>
             <Route exact path="/" component={withTracker(Home)} />
+            <Route
+              path="/congress/:chamber/members"
+              component={withTracker(CongressMembers)}
+            />
+            <Route
+              path="/congress/:chamber/member/:id"
+              component={withTracker(CongressMember)}
+            />
             <Route path="/congress" component={withTracker(Congress)} />
             <Route path="/recipes" component={withTracker(Recipes)} />
             <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
