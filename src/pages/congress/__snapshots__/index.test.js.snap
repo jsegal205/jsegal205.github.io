@@ -82,7 +82,7 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
             class="chamber-chart"
           >
             <h3>
-              Distrobution of age
+              Distribution of age
             </h3>
             <div
               class="recharts-wrapper"
