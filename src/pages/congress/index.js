@@ -75,7 +75,7 @@ const Congress = () => {
 
     return (
       <section className="chamber-chart">
-        <h3>Distrobution of age</h3>
+        <h3>Distribution of age</h3>
         <BarChart
           width={width * 0.9}
           height={400}
