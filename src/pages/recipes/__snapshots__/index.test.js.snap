@@ -7,18 +7,18 @@ exports[`Recipes Component Search filtering when input matches none of the data 
 
 @@ -14,28 +14,26 @@
         <input
-          class=\\"recipes-filter-input\\"
-          data-testid=\\"recipes-filter\\"
-          id=\\"recipes-filter\\"
+          class=\\"search-filter-input\\"
+          data-testid=\\"search-filter\\"
+          id=\\"search-filter\\"
           type=\\"text\\"
 -         value=\\"\\"
 +         value=\\"mno\\"
         />
 +       <button
-+         class=\\"recipes-filter-reset\\"
-+         data-testid=\\"recipes-filter-reset\\"
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
 +       >
-+         reset
++         Reset
 +       </button>
       </section>
 -     <ul
@@ -59,18 +59,18 @@ exports[`Recipes Component Search filtering when input matches subset of the dat
 
 @@ -14,28 +14,27 @@
         <input
-          class=\\"recipes-filter-input\\"
-          data-testid=\\"recipes-filter\\"
-          id=\\"recipes-filter\\"
+          class=\\"search-filter-input\\"
+          data-testid=\\"search-filter\\"
+          id=\\"search-filter\\"
           type=\\"text\\"
 -         value=\\"\\"
 +         value=\\"a\\"
         />
 +       <button
-+         class=\\"recipes-filter-reset\\"
-+         data-testid=\\"recipes-filter-reset\\"
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
 +       >
-+         reset
++         Reset
 +       </button>
       </section>
       <ul
@@ -125,17 +125,17 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
       Recipes
     </h2>
     <section
-      class="recipes-filter-container"
+      class="search-filter-container"
     >
       <label
-        for="recipes-filter"
+        for="search-filter"
       >
         Search
       </label>
       <input
-        class="recipes-filter-input"
-        data-testid="recipes-filter"
-        id="recipes-filter"
+        class="search-filter-input"
+        data-testid="search-filter"
+        id="search-filter"
         type="text"
         value=""
       />

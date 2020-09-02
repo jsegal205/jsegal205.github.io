@@ -121,7 +121,7 @@ describe("Recipes Component", () => {
 
     it("defaults search input to empty string", () => {
       const { container } = setup();
-      const recipeFilter = getByTestId(container, "recipes-filter");
+      const recipeFilter = getByTestId(container, "search-filter");
       const recipesList = getByTestId(container, "recipes-list");
       const recipesListItems = recipesList.querySelectorAll("li");
 
@@ -140,7 +140,7 @@ describe("Recipes Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const recipeFilter = getByTestId(container, "recipes-filter");
+        const recipeFilter = getByTestId(container, "search-filter");
         fireEvent.change(recipeFilter, { target: { value: "a" } });
 
         expect(initialRender).toMatchDiffSnapshot(asFragment());
@@ -152,7 +152,7 @@ describe("Recipes Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const recipeFilter = getByTestId(container, "recipes-filter");
+        const recipeFilter = getByTestId(container, "search-filter");
         fireEvent.change(recipeFilter, { target: { value: "mno" } });
 
         expect(initialRender).toMatchDiffSnapshot(asFragment());
@@ -163,15 +163,12 @@ describe("Recipes Component", () => {
       it("resets search input value", () => {
         const { container } = setup();
 
-        const recipeFilter = getByTestId(container, "recipes-filter");
+        const recipeFilter = getByTestId(container, "search-filter");
         fireEvent.change(recipeFilter, { target: { value: "a" } });
 
         expect(recipeFilter.value).toBe("a");
 
-        const recipeFilterReset = getByTestId(
-          container,
-          "recipes-filter-reset"
-        );
+        const recipeFilterReset = getByTestId(container, "search-filter-reset");
 
         fireEvent.click(recipeFilterReset);
         expect(recipeFilter.value).toBe("");

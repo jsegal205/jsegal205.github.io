@@ -11,6 +11,7 @@ import Loading from "../../components/loading";
 
 import "../../App.css";
 import "./congress.css";
+import SearchFilter from "../../components/search-filter";
 
 const getChamber = ({ pathname, state }) => {
   if (state && state.chamber) {
@@ -90,26 +91,11 @@ const CongressMembers = (props) => {
         View Current {chamberTitles(otherChamber(chamber))}
       </Link>
       <hr />
-      <section className="members-filter-container">
-        <label htmlFor="members-filter">Search</label>
-        <input
-          type="text"
-          id="members-filter"
-          className="members-filter-input"
-          value={memberSearch}
-          onChange={handleSearchChange}
-          data-testid="members-filter"
-        />
-        {memberSearch && (
-          <button
-            className="members-filter-reset"
-            onClick={handleResetClick}
-            data-testid="members-filter-reset"
-          >
-            reset
-          </button>
-        )}
-      </section>
+      <SearchFilter
+        searchValue={memberSearch}
+        handleResetClick={handleResetClick}
+        handleSearchChange={handleSearchChange}
+      />
       {memberList.length ? (
         <ul className="congress-members" data-testid="members-list">
           {memberList.map((member) => {

@@ -7,9 +7,9 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 
 @@ -29,29 +29,26 @@
         <input
-          class=\\"members-filter-input\\"
-          data-testid=\\"members-filter\\"
-          id=\\"members-filter\\"
+          class=\\"search-filter-input\\"
+          data-testid=\\"search-filter\\"
+          id=\\"search-filter\\"
           type=\\"text\\"
 -         value=\\"\\"
 +         value=\\"mno\\"
@@ -23,8 +23,8 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 -         <a
 -           href=\\"/congress/house/member/1\\"
 +       <button
-+         class=\\"members-filter-reset\\"
-+         data-testid=\\"members-filter-reset\\"
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
         >
 -           abc efg (party-state)
 -         </a>
@@ -32,7 +32,7 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 -       <li>
 -         <a
 -           href=\\"/congress/house/member/2\\"
-+         reset
++         Reset
 +       </button>
 +     </section>
 +     <div
@@ -60,18 +60,18 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 
 @@ -29,29 +29,28 @@
         <input
-          class=\\"members-filter-input\\"
-          data-testid=\\"members-filter\\"
-          id=\\"members-filter\\"
+          class=\\"search-filter-input\\"
+          data-testid=\\"search-filter\\"
+          id=\\"search-filter\\"
           type=\\"text\\"
 -         value=\\"\\"
 +         value=\\"abc\\"
         />
 +       <button
-+         class=\\"members-filter-reset\\"
-+         data-testid=\\"members-filter-reset\\"
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
 +       >
-+         reset
++         Reset
 +       </button>
       </section>
       <ul
@@ -104,18 +104,18 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 
 @@ -29,24 +29,23 @@
         <input
-          class=\\"members-filter-input\\"
-          data-testid=\\"members-filter\\"
-          id=\\"members-filter\\"
+          class=\\"search-filter-input\\"
+          data-testid=\\"search-filter\\"
+          id=\\"search-filter\\"
           type=\\"text\\"
 -         value=\\"\\"
 +         value=\\"xyz\\"
         />
 +       <button
-+         class=\\"members-filter-reset\\"
-+         data-testid=\\"members-filter-reset\\"
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
 +       >
-+         reset
++         Reset
 +       </button>
       </section>
       <ul
@@ -176,17 +176,17 @@ exports[`CongressMembers Component when \`useFetch\` returns data with 200 statu
   </a>
   <hr />
   <section
-    className="members-filter-container"
+    className="search-filter-container"
   >
     <label
-      htmlFor="members-filter"
+      htmlFor="search-filter"
     >
       Search
     </label>
     <input
-      className="members-filter-input"
-      data-testid="members-filter"
-      id="members-filter"
+      className="search-filter-input"
+      data-testid="search-filter"
+      id="search-filter"
       onChange={[Function]}
       type="text"
       value=""
