@@ -18,7 +18,7 @@ describe("CongressMembers Component", () => {
       const chamber = "doesNotExist";
       const props = {
         location: {
-          pathname: `/cogress/${chamber}/members`,
+          pathname: `/congress/${chamber}/members`,
         },
       };
 
@@ -45,7 +45,7 @@ describe("CongressMembers Component", () => {
         const chamber = "doesNotExist";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -71,7 +71,7 @@ describe("CongressMembers Component", () => {
         const chamber = "house";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -97,7 +97,7 @@ describe("CongressMembers Component", () => {
         const chamber = "house";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -138,7 +138,7 @@ describe("CongressMembers Component", () => {
             state: {
               chamber: "state-chamber",
             },
-            pathname: `/cogress/house/members`,
+            pathname: `/congress/house/members`,
           },
         };
 
@@ -165,7 +165,7 @@ describe("CongressMembers Component", () => {
             state: {
               "not-a-chamber": "state-chamber",
             },
-            pathname: `/cogress/house/members`,
+            pathname: `/congress/house/members`,
           },
         };
 
@@ -209,7 +209,7 @@ describe("CongressMembers Component", () => {
     const setup = () => {
       const props = {
         location: {
-          pathname: `/cogress/house/members`,
+          pathname: `/congress/house/members`,
         },
       };
 
@@ -227,7 +227,7 @@ describe("CongressMembers Component", () => {
 
     it("defaults search input to empty string", () => {
       const { container } = setup();
-      const membersFilter = getByTestId(container, "members-filter");
+      const membersFilter = getByTestId(container, "search-filter");
       const membersList = getByTestId(container, "members-list");
       const membersListItems = membersList.querySelectorAll("li");
 
@@ -246,7 +246,7 @@ describe("CongressMembers Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const memberFilter = getByTestId(container, "members-filter");
+        const memberFilter = getByTestId(container, "search-filter");
         fireEvent.change(memberFilter, { target: { value: "abc" } });
 
         expect(initialRender).toMatchDiffSnapshot(asFragment());
@@ -256,7 +256,7 @@ describe("CongressMembers Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const memberFilter = getByTestId(container, "members-filter");
+        const memberFilter = getByTestId(container, "search-filter");
         fireEvent.change(memberFilter, { target: { value: "xyz" } });
 
         expect(initialRender).toMatchDiffSnapshot(asFragment());
@@ -268,7 +268,7 @@ describe("CongressMembers Component", () => {
         const { container, asFragment } = setup();
 
         const initialRender = asFragment();
-        const memberFilter = getByTestId(container, "members-filter");
+        const memberFilter = getByTestId(container, "search-filter");
         fireEvent.change(memberFilter, { target: { value: "mno" } });
 
         expect(initialRender).toMatchDiffSnapshot(asFragment());
@@ -279,15 +279,12 @@ describe("CongressMembers Component", () => {
       it("resets search input value", () => {
         const { container } = setup();
 
-        const recipeFilter = getByTestId(container, "members-filter");
+        const recipeFilter = getByTestId(container, "search-filter");
         fireEvent.change(recipeFilter, { target: { value: "a" } });
 
         expect(recipeFilter.value).toBe("a");
 
-        const recipeFilterReset = getByTestId(
-          container,
-          "members-filter-reset"
-        );
+        const recipeFilterReset = getByTestId(container, "search-filter-reset");
 
         fireEvent.click(recipeFilterReset);
         expect(recipeFilter.value).toBe("");

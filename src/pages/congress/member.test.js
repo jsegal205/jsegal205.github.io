@@ -15,7 +15,7 @@ describe("Member Component", () => {
       const id = "1";
       const props = {
         location: {
-          pathname: `/cogress/${chamber}/member/${id}`,
+          pathname: `/congress/${chamber}/member/${id}`,
         },
       };
 
@@ -43,7 +43,7 @@ describe("Member Component", () => {
         const id = "1";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/member/${id}`,
+            pathname: `/congress/${chamber}/member/${id}`,
           },
         };
 
@@ -70,7 +70,7 @@ describe("Member Component", () => {
         const id = "1";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/member/${id}`,
+            pathname: `/congress/${chamber}/member/${id}`,
           },
         };
 
@@ -97,7 +97,7 @@ describe("Member Component", () => {
         const id = "1";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/member/${id}`,
+            pathname: `/congress/${chamber}/member/${id}`,
           },
         };
 
@@ -146,7 +146,7 @@ describe("Member Component", () => {
               chamber,
               id,
             },
-            pathname: `/cogress/somewhereelse/member/wrong`,
+            pathname: `/congress/somewhereelse/member/wrong`,
           },
         };
 
@@ -175,7 +175,7 @@ describe("Member Component", () => {
               "not-a-chamber": "state-chamber",
               "not-an-id": "state-id",
             },
-            pathname: `/cogress/${chamber}/member/${id}`,
+            pathname: `/congress/${chamber}/member/${id}`,
           },
         };
 

@@ -88,14 +88,14 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
   >
     <a
       href="www.example.com"
-      rel="noopener"
+      rel="noopener noreferrer"
       target="_blank"
     >
       Website
     </a>
     <a
       href="https://twitter.com/twitter"
-      rel="noopener"
+      rel="noopener noreferrer"
       target="_blank"
     >
       Twitter

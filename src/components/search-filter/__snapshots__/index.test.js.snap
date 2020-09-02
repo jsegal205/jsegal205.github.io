@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component renders default state correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="search-filter-container"
+  >
+    <label
+      for="search-filter"
+    >
+      Search
+    </label>
+    <input
+      class="search-filter-input"
+      data-testid="search-filter"
+      id="search-filter"
+      type="text"
+      value=""
+    />
+  </section>
+</DocumentFragment>
+`;
+
+exports[`Loading Component when \`searchValue\` is passed renders reset button 1`] = `
+<DocumentFragment>
+  <section
+    class="search-filter-container"
+  >
+    <label
+      for="search-filter"
+    >
+      Search
+    </label>
+    <input
+      class="search-filter-input"
+      data-testid="search-filter"
+      id="search-filter"
+      type="text"
+      value="test"
+    />
+    <button
+      class="search-filter-reset"
+      data-testid="search-filter-reset"
+    >
+      Reset
+    </button>
+  </section>
+</DocumentFragment>
+`;

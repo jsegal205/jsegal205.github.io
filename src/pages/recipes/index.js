@@ -8,6 +8,7 @@ import Error from "../../components/error";
 import "../../App.css";
 import "./recipes.css";
 import Loading from "../../components/loading";
+import SearchFilter from "../../components/search-filter";
 
 const Recipes = () => {
   const { loading, data: recipes } = useFetch(`${apiUrlBase}/recipes`);
@@ -42,26 +43,11 @@ const Recipes = () => {
       {recipes && recipes.error && <Error componentName="Recipes" />}
       {recipes && recipes.length && (
         <>
-          <section className="recipes-filter-container">
-            <label htmlFor="recipes-filter">Search</label>
-            <input
-              type="text"
-              id="recipes-filter"
-              className="recipes-filter-input"
-              value={recipeSearch}
-              onChange={handleSearchChange}
-              data-testid="recipes-filter"
-            />
-            {recipeSearch && (
-              <button
-                className="recipes-filter-reset"
-                onClick={handleResetClick}
-                data-testid="recipes-filter-reset"
-              >
-                reset
-              </button>
-            )}
-          </section>
+          <SearchFilter
+            searchValue={recipeSearch}
+            handleResetClick={handleResetClick}
+            handleSearchChange={handleSearchChange}
+          />
           {recipeList.length ? (
             <ul data-testid="recipes-list">
               {recipeList.map((recipe) => (

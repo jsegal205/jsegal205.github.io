@@ -1,0 +1,26 @@
+.search-filter-container,
+.search-no-results {
+  margin-left: 20px;
+}
+
+.search-filter-container > label {
+  display: block;
+}
+
+.search-filter-input,
+.search-filter-reset {
+  border: 2px solid #444444;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.search-no-results {
+  margin-top: 20px;
+}
+
+.search-filter-reset {
+  margin-left: 10px;
+}

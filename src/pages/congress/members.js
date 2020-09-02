@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
+import { chamberTitles, otherChamber } from "./utils";
 
 import NotFound from "../not-found";
 import Error from "../../components/error";
@@ -10,6 +11,7 @@ import Loading from "../../components/loading";
 
 import "../../App.css";
 import "./congress.css";
+import SearchFilter from "../../components/search-filter";
 
 const getChamber = ({ pathname, state }) => {
   if (state && state.chamber) {
@@ -44,13 +46,17 @@ const CongressMembers = (props) => {
         return;
       }
 
-      const results = members[chamber].filter(
-        (member) =>
-          member.first_name
-            .toLowerCase()
-            .includes(memberSearch.toLowerCase()) ||
-          member.last_name.toLowerCase().includes(memberSearch.toLowerCase())
-      );
+      const results = members[chamber]
+        ? members[chamber].filter(
+            (member) =>
+              member.first_name
+                .toLowerCase()
+                .includes(memberSearch.toLowerCase()) ||
+              member.last_name
+                .toLowerCase()
+                .includes(memberSearch.toLowerCase())
+          )
+        : [];
       setMemberList(results);
     }
   }, [loading, members, chamber, memberSearch]);
@@ -77,26 +83,19 @@ const CongressMembers = (props) => {
       >
         All Congress Data
       </Link>
-      <section className="members-filter-container">
-        <label htmlFor="members-filter">Search</label>
-        <input
-          type="text"
-          id="members-filter"
-          className="members-filter-input"
-          value={memberSearch}
-          onChange={handleSearchChange}
-          data-testid="members-filter"
-        />
-        {memberSearch && (
-          <button
-            className="members-filter-reset"
-            onClick={handleResetClick}
-            data-testid="members-filter-reset"
-          >
-            reset
-          </button>
-        )}
-      </section>
+      <h2 className="congress-header">Current {chamberTitles(chamber)}</h2>
+      <Link
+        className="chamber-members"
+        to={{ pathname: `/congress/${otherChamber(chamber)}/members` }}
+      >
+        View Current {chamberTitles(otherChamber(chamber))}
+      </Link>
+      <hr />
+      <SearchFilter
+        searchValue={memberSearch}
+        handleResetClick={handleResetClick}
+        handleSearchChange={handleSearchChange}
+      />
       {memberList.length ? (
         <ul className="congress-members" data-testid="members-list">
           {memberList.map((member) => {
