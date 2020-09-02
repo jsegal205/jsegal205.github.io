@@ -3,6 +3,8 @@ import React from "react";
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import useWindowDimensions from "../../utils/windowDimensions";
+import { chamberTitles } from "./utils";
+
 import Error from "../../components/error";
 import Loading from "../../components/loading";
 
@@ -55,7 +57,7 @@ const Congress = () => {
           state: { chamber },
         }}
       >
-        View all {chamber === "house" ? "Representatives" : "Senators"}
+        View Current {chamberTitles(chamber)}
       </Link>
       <section className="chamber">
         {!!data[chamber].age.distribution &&
