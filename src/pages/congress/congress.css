@@ -89,6 +89,33 @@
   margin-top: 1em;
 }
 
+.members-filter-container,
+.members-no-results {
+  margin-left: 20px;
+}
+
+.members-filter-container > label {
+  display: block;
+}
+
+.members-filter-input,
+.members-filter-reset {
+  border: 2px solid #444444;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Consolas, monaco, monospace;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.members-no-results {
+  margin-top: 20px;
+}
+
+.members-filter-reset {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 740px) {
   .chamber-chart {
     margin: 0 -1em;
