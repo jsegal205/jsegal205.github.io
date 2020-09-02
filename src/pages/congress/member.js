@@ -102,14 +102,14 @@ const Member = (props) => {
       </ul>
 
       <section className="congress-member-links">
-        <a href={url} target="_blank" rel="noopener">
+        <a href={url} target="_blank" rel="noopener noreferrer">
           Website
         </a>
 
         <a
           href={`https://twitter.com/${twitter_account}`}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Twitter
         </a>
