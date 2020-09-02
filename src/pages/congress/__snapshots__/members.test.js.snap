@@ -5,7 +5,7 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 - First value
 + Second value
 
-@@ -17,29 +17,26 @@
+@@ -29,29 +29,26 @@
         <input
           class=\\"members-filter-input\\"
           data-testid=\\"members-filter\\"
@@ -58,7 +58,7 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 - First value
 + Second value
 
-@@ -17,29 +17,28 @@
+@@ -29,29 +29,28 @@
         <input
           class=\\"members-filter-input\\"
           data-testid=\\"members-filter\\"
@@ -102,7 +102,7 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 - First value
 + Second value
 
-@@ -17,24 +17,23 @@
+@@ -29,24 +29,23 @@
         <input
           class=\\"members-filter-input\\"
           data-testid=\\"members-filter\\"
@@ -160,6 +160,21 @@ exports[`CongressMembers Component when \`useFetch\` returns data with 200 statu
   >
     All Congress Data
   </a>
+  <h2
+    className="congress-header"
+  >
+    Current 
+    Representatives
+  </h2>
+  <a
+    className="chamber-members"
+    href="/congress/senate/members"
+    onClick={[Function]}
+  >
+    View Current 
+    Senators
+  </a>
+  <hr />
   <section
     className="members-filter-container"
   >
