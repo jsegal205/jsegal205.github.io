@@ -18,7 +18,7 @@ describe("CongressMembers Component", () => {
       const chamber = "doesNotExist";
       const props = {
         location: {
-          pathname: `/cogress/${chamber}/members`,
+          pathname: `/congress/${chamber}/members`,
         },
       };
 
@@ -45,7 +45,7 @@ describe("CongressMembers Component", () => {
         const chamber = "doesNotExist";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -71,7 +71,7 @@ describe("CongressMembers Component", () => {
         const chamber = "house";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -97,7 +97,7 @@ describe("CongressMembers Component", () => {
         const chamber = "house";
         const props = {
           location: {
-            pathname: `/cogress/${chamber}/members`,
+            pathname: `/congress/${chamber}/members`,
           },
         };
 
@@ -138,7 +138,7 @@ describe("CongressMembers Component", () => {
             state: {
               chamber: "state-chamber",
             },
-            pathname: `/cogress/house/members`,
+            pathname: `/congress/house/members`,
           },
         };
 
@@ -165,7 +165,7 @@ describe("CongressMembers Component", () => {
             state: {
               "not-a-chamber": "state-chamber",
             },
-            pathname: `/cogress/house/members`,
+            pathname: `/congress/house/members`,
           },
         };
 
@@ -209,7 +209,7 @@ describe("CongressMembers Component", () => {
     const setup = () => {
       const props = {
         location: {
-          pathname: `/cogress/house/members`,
+          pathname: `/congress/house/members`,
         },
       };
 
