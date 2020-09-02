@@ -1,4 +1,8 @@
-const { chamberTitles, individualChamberTitle } = require("./utils");
+const {
+  chamberTitles,
+  individualChamberTitle,
+  otherChamber,
+} = require("./utils");
 
 describe("Congress - Utils", () => {
   describe("chamberTitles", () => {
@@ -14,6 +18,14 @@ describe("Congress - Utils", () => {
       expect(individualChamberTitle("house")).toEqual("Representative");
       expect(individualChamberTitle("senate")).toEqual("Senator");
       expect(individualChamberTitle("other")).toEqual("Member");
+    });
+  });
+
+  describe("otherChamber", () => {
+    it("outputs other chamber name", () => {
+      expect(otherChamber("house")).toEqual("senate");
+      expect(otherChamber("senate")).toEqual("house");
+      expect(otherChamber("other")).toEqual("house");
     });
   });
 });
