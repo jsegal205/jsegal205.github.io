@@ -202,7 +202,7 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
     <footer
       className="footnote"
     >
-      * - counts relating to votes with or against party might be off due to rounding precision
+      * - counts relating to votes with or against party might be off due to rounding precision or insufficient historical data provided
     </footer>
   </article>
 </section>

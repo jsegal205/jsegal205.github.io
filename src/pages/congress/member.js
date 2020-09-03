@@ -197,7 +197,7 @@ const Member = (props) => {
         </section>
         <footer className="footnote">
           * - counts relating to votes with or against party might be off due to
-          rounding precision
+          rounding precision or insufficient historical data provided
         </footer>
       </article>
     </section>
