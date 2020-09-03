@@ -30,59 +30,6 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
      
     last
   </h2>
-  <ul>
-    <li>
-      <label>
-        Most recent vote: 
-        2020-01-01
-      </label>
-    </li>
-    <li>
-      <label>
-        Date of Birth: 
-        1900-01-01
-         (age: 
-        1
-        )
-      </label>
-    </li>
-    <li>
-      <label>
-        Gender: 
-        F
-      </label>
-    </li>
-    <li>
-      <label>
-        Current Party: 
-        D
-      </label>
-    </li>
-    <li>
-      <label>
-        State Representing: 
-        IL
-      </label>
-    </li>
-    <li>
-      <label>
-        Will be up for reelection in: 
-        2020
-      </label>
-    </li>
-    <li>
-      <label>
-        Has served 
-        <em>
-          1
-        </em>
-         terms starting initially elected into office in 
-        <em>
-          2000-01-01
-        </em>
-      </label>
-    </li>
-  </ul>
   <section
     className="congress-member-links"
   >
@@ -101,6 +48,163 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       Twitter
     </a>
   </section>
+  <hr />
+  <article
+    className="information"
+  >
+    <section>
+      <ul>
+        <li>
+          <label>
+            Most recent vote: 
+            2020-01-01
+          </label>
+        </li>
+        <li>
+          <label>
+            Date of Birth: 
+            1900-01-01
+             (age: 
+            1
+            )
+          </label>
+        </li>
+        <li>
+          <label>
+            Gender: 
+            F
+          </label>
+        </li>
+        <li>
+          <label>
+            Current Party: 
+            D
+          </label>
+        </li>
+        <li>
+          <label>
+            State Representing: 
+            IL
+          </label>
+        </li>
+        <li>
+          <label>
+            Will be up for reelection in: 
+            2020
+          </label>
+        </li>
+        <li>
+          <label>
+            Has served 
+            <em>
+              1
+            </em>
+             terms starting initially elected into office in 
+            <em>
+              2000-01-01
+            </em>
+          </label>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Career Voting History
+      </h3>
+      <ul>
+        <li>
+          <label>
+            Total Votes Eligible: 
+            1
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Cast Votes: 
+            2
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Missed Votes: 
+            3
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Present Votes: 
+            4
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Votes With 
+            Democrat
+             Party:
+             
+            5
+            *
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Votes Against 
+            Democrat
+             Party:
+             
+            6
+            *
+          </label>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Individual Term Voting Statistics
+      </h3>
+      <ul
+        className="term-info"
+      >
+        <li>
+          <label>
+            Congressional Session: 
+            116
+             - From 
+            2019-01-03
+             until
+             
+            2021-01-03
+          </label>
+        </li>
+        <li>
+          <label>
+            Cast Votes: 
+            1
+          </label>
+        </li>
+        <li>
+          Votes With 
+          Democrat
+           Party: 
+          2
+          *
+        </li>
+        <li>
+          Votes Against 
+          Democrat
+           Party:
+           
+          3
+          *
+        </li>
+      </ul>
+    </section>
+    <footer
+      className="footnote"
+    >
+      * - counts relating to votes with or against party might be off due to rounding precision
+    </footer>
+  </article>
 </section>
 `;
 

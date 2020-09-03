@@ -10,6 +10,7 @@ import Loading from "../../components/loading";
 import "../../App.css";
 import "./congress.css";
 import { Link } from "react-router-dom";
+import { partyName } from "./utils";
 
 const getUrlParams = ({ pathname, state }) => {
   if (state && state.chamber && state.id) {
@@ -58,6 +59,8 @@ const Member = (props) => {
     terms,
     initial_elected_in,
     most_recent_vote,
+    careerVoting,
+    termInfo,
   } = member;
   return (
     <section className="congress-member">
@@ -72,35 +75,6 @@ const Member = (props) => {
       <h2>
         {first_name} {last_name}
       </h2>
-      <ul>
-        <li>
-          <label>Most recent vote: {most_recent_vote}</label>
-        </li>
-        <li>
-          <label>
-            Date of Birth: {date_of_birth} (age: {age})
-          </label>
-        </li>
-        <li>
-          <label>Gender: {gender}</label>
-        </li>
-        <li>
-          <label>Current Party: {current_party}</label>
-        </li>
-        <li>
-          <label>State Representing: {state}</label>
-        </li>
-        <li>
-          <label>Will be up for reelection in: {next_election}</label>
-        </li>
-        <li>
-          <label>
-            Has served <em>{terms}</em> terms starting initially elected into
-            office in <em>{initial_elected_in}</em>
-          </label>
-        </li>
-      </ul>
-
       <section className="congress-member-links">
         <a href={url} target="_blank" rel="noopener noreferrer">
           Website
@@ -114,6 +88,118 @@ const Member = (props) => {
           Twitter
         </a>
       </section>
+      <hr />
+      <article className="information">
+        <section>
+          <ul>
+            <li>
+              <label>Most recent vote: {most_recent_vote}</label>
+            </li>
+            <li>
+              <label>
+                Date of Birth: {date_of_birth} (age: {age})
+              </label>
+            </li>
+            <li>
+              <label>Gender: {gender}</label>
+            </li>
+            <li>
+              <label>Current Party: {current_party}</label>
+            </li>
+            <li>
+              <label>State Representing: {state}</label>
+            </li>
+            <li>
+              <label>Will be up for reelection in: {next_election}</label>
+            </li>
+            <li>
+              <label>
+                Has served <em>{terms}</em> terms starting initially elected
+                into office in <em>{initial_elected_in}</em>
+              </label>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Career Voting History</h3>
+          <ul>
+            <li>
+              <label>
+                Total Votes Eligible: {careerVoting.careerVotesEligible}
+              </label>
+            </li>
+            <li>
+              <label>Total Cast Votes: {careerVoting.careerVotesCast}</label>
+            </li>
+            <li>
+              <label>
+                Total Missed Votes: {careerVoting.careerMissedVotes}
+              </label>
+            </li>
+            <li>
+              <label>
+                Total Present Votes: {careerVoting.careerPresentVotes}
+              </label>
+            </li>
+            <li>
+              <label>
+                Total Votes With {partyName(current_party)} Party:{" "}
+                {careerVoting.careerVotesWithParty}*
+              </label>
+            </li>
+            <li>
+              <label>
+                Total Votes Against {partyName(current_party)} Party:{" "}
+                {careerVoting.careerVotesAgainstParty}*
+              </label>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Individual Term Voting Statistics</h3>
+
+          {termInfo.map((term) => {
+            const {
+              congress,
+              start_date,
+              end_date,
+              total_votes,
+              missed_votes,
+              total_present,
+              votesWithParty,
+              votesAgainstParty,
+            } = term;
+            return (
+              <ul key={congress} className="term-info">
+                <li>
+                  <label>
+                    Congressional Session: {congress} - From {start_date} until{" "}
+                    {end_date}
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    Cast Votes: {total_votes - missed_votes - total_present}
+                  </label>
+                </li>
+                <li>
+                  Votes With {partyName(current_party)} Party: {votesWithParty}*
+                </li>
+                <li>
+                  Votes Against {partyName(current_party)} Party:{" "}
+                  {votesAgainstParty}*
+                </li>
+              </ul>
+            );
+          })}
+        </section>
+        <footer className="footnote">
+          * - counts relating to votes with or against party might be off due to
+          rounding precision
+        </footer>
+      </article>
     </section>
   );
 };

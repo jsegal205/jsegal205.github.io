@@ -67,6 +67,11 @@
   text-align: center;
 }
 
+.congress-member h2,
+.congress-member h3 {
+  text-align: center;
+}
+
 .congress-members,
 .congress-member ul {
   margin: 0;
@@ -87,6 +92,21 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 1em;
+}
+
+.congress-member .term-info {
+  margin: 2em 0;
+}
+
+.congress-member .information {
+  min-width: 350px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.congress-member .footnote {
+  font-size: 0.75em;
+  text-align: center;
 }
 
 @media screen and (max-width: 740px) {

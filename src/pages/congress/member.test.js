@@ -118,6 +118,26 @@ describe("Member Component", () => {
             terms: 1,
             initial_elected_in: "2000-01-01",
             most_recent_vote: "2020-01-01",
+            careerVoting: {
+              careerVotesEligible: 1,
+              careerVotesCast: 2,
+              careerMissedVotes: 3,
+              careerPresentVotes: 4,
+              careerVotesWithParty: 5,
+              careerVotesAgainstParty: 6,
+            },
+            termInfo: [
+              {
+                congress: "116",
+                start_date: "2019-01-03",
+                end_date: "2021-01-03",
+                total_votes: 6,
+                missed_votes: 2,
+                total_present: 3,
+                votesWithParty: 2,
+                votesAgainstParty: 3,
+              },
+            ],
             status: 200,
           },
         });
