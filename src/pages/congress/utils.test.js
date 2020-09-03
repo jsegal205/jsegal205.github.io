@@ -1,6 +1,7 @@
 const {
   chamberTitles,
   individualChamberTitle,
+  partyName,
   otherChamber,
 } = require("./utils");
 
@@ -26,6 +27,18 @@ describe("Congress - Utils", () => {
       expect(otherChamber("house")).toEqual("senate");
       expect(otherChamber("senate")).toEqual("house");
       expect(otherChamber("other")).toEqual("house");
+    });
+  });
+
+  describe("partyName", () => {
+    it("outputs other chamber name", () => {
+      expect(partyName("d")).toEqual("Democrat");
+      expect(partyName("D")).toEqual("Democrat");
+      expect(partyName("r")).toEqual("Republican");
+      expect(partyName("R")).toEqual("Republican");
+      expect(partyName("i")).toEqual("Independent");
+      expect(partyName("I")).toEqual("Independent");
+      expect(partyName("o")).toEqual("");
     });
   });
 });

@@ -16,3 +16,16 @@ export const individualChamberTitle = (chamber) => {
 
 export const otherChamber = (chamber) =>
   chamber === "house" ? "senate" : "house";
+
+export const partyName = (abbreviation) => {
+  switch (abbreviation.toLowerCase()) {
+    case "d":
+      return "Democrat";
+    case "r":
+      return "Republican";
+    case "i":
+      return "Independent";
+    default:
+      return "";
+  }
+};
