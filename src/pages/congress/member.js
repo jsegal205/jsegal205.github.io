@@ -104,7 +104,7 @@ const Member = (props) => {
               <label>Gender: {gender}</label>
             </li>
             <li>
-              <label>Current Party: {current_party}</label>
+              <label>Current Party: {partyName(current_party)}</label>
             </li>
             <li>
               <label>State Representing: {state}</label>

@@ -78,7 +78,7 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
         <li>
           <label>
             Current Party: 
-            D
+            Democrat
           </label>
         </li>
         <li>
