@@ -256,6 +256,254 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
 </section>
 `;
 
+exports[`Member Component when \`useFetch\` returns data with 200 status displays misconduct info if present 1`] = `
+<section
+  className="congress-member"
+>
+  <a
+    href="/congress/house/members"
+    onClick={[Function]}
+  >
+    Back to all members
+  </a>
+  <h2>
+    first
+     
+    last
+  </h2>
+  <section
+    className="congress-member-links"
+  >
+    <a
+      href="www.example.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Website
+    </a>
+    <a
+      href="https://twitter.com/twitter"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Twitter
+    </a>
+  </section>
+  <hr />
+  <article
+    className="information"
+  >
+    <section>
+      <ul>
+        <li>
+          <label>
+            Most recent vote: 
+            2020-01-01
+          </label>
+        </li>
+        <li>
+          <label>
+            Date of Birth: 
+            1900-01-01
+             (age: 
+            1
+            )
+          </label>
+        </li>
+        <li>
+          <label>
+            Gender: 
+            F
+          </label>
+        </li>
+        <li>
+          <label>
+            Current Party: 
+            Democrat
+          </label>
+        </li>
+        <li>
+          <label>
+            State Representing: 
+            IL
+          </label>
+        </li>
+        <li>
+          <label>
+            Will be up for reelection in: 
+            2020
+          </label>
+        </li>
+        <li>
+          <label>
+            Has served 
+            <em>
+              1
+            </em>
+             terms starting initially elected into office in 
+            <em>
+              2000-01-01
+            </em>
+          </label>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Official Misconduct Reports
+      </h3>
+      <h4>
+        Data provided by
+         
+        <a
+          href="https://github.com/govtrack/misconduct"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          GovTrack Congressional Misconduct DB
+        </a>
+      </h4>
+      <ul>
+        <li>
+          <label>
+            Allegation: 
+            Allegation text
+          </label>
+        </li>
+        <li>
+          <label>
+            Initiated on: 
+            2020-01-01
+          </label>
+        </li>
+        <li>
+          <label>
+            Allegation Categories: 
+            corruption, elections
+          </label>
+        </li>
+        <li>
+          <label>
+            Current Status: 
+            Unresolved
+          </label>
+        </li>
+        <li>
+          <p>
+            text in 
+            <a
+              href="#markdown"
+            >
+              markdown
+            </a>
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Career Voting History
+      </h3>
+      <ul>
+        <li>
+          <label>
+            Total Votes Eligible: 
+            1
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Cast Votes: 
+            2
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Missed Votes: 
+            3
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Present Votes: 
+            4
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Votes With 
+            Democrat
+             Party:
+             
+            5
+            *
+          </label>
+        </li>
+        <li>
+          <label>
+            Total Votes Against 
+            Democrat
+             Party:
+             
+            6
+            *
+          </label>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>
+        Individual Term Voting Statistics
+      </h3>
+      <ul
+        className="term-info"
+      >
+        <li>
+          <label>
+            Congressional Session: 
+            116
+             - From 
+            2019-01-03
+             until
+             
+            2021-01-03
+          </label>
+        </li>
+        <li>
+          <label>
+            Cast Votes: 
+            1
+          </label>
+        </li>
+        <li>
+          <label>
+            Votes With 
+            Democrat
+             Party: 
+            2
+            *
+          </label>
+        </li>
+        <li>
+          <label>
+            Votes Against 
+            Democrat
+             Party: 
+            3
+            *
+          </label>
+        </li>
+      </ul>
+    </section>
+    <footer
+      className="footnote"
+    >
+      * - counts relating to votes with or against party might be off due to rounding precision or insufficient historical data provided
+    </footer>
+  </article>
+</section>
+`;
+
 exports[`Member Component when \`useFetch\` returns data with 404 status displays \`Not Found\` 1`] = `
 <h1>
   Not Found
