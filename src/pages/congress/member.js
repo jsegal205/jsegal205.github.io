@@ -167,6 +167,7 @@ const Member = (props) => {
               end_date,
               total_votes,
               missed_votes,
+              party,
               total_present,
               votesWithParty,
               votesAgainstParty,
@@ -179,17 +180,21 @@ const Member = (props) => {
                     {end_date}
                   </label>
                 </li>
+                {current_party !== party ? (
+                  <li>
+                    <label>Party: {partyName(party)}</label>
+                  </li>
+                ) : null}
                 <li>
                   <label>
                     Cast Votes: {total_votes - missed_votes - total_present}
                   </label>
                 </li>
                 <li>
-                  Votes With {partyName(current_party)} Party: {votesWithParty}*
+                  Votes With {partyName(party)} Party: {votesWithParty}*
                 </li>
                 <li>
-                  Votes Against {partyName(current_party)} Party:{" "}
-                  {votesAgainstParty}*
+                  Votes Against {partyName(party)} Party: {votesAgainstParty}*
                 </li>
               </ul>
             );
