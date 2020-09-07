@@ -150,6 +150,7 @@ describe("Member Component", () => {
                 party: "R",
               },
             ],
+            misconduct: [],
             status: 200,
           },
         });

@@ -183,18 +183,22 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
           </label>
         </li>
         <li>
-          Votes With 
-          Democrat
-           Party: 
-          2
-          *
+          <label>
+            Votes With 
+            Democrat
+             Party: 
+            2
+            *
+          </label>
         </li>
         <li>
-          Votes Against 
-          Democrat
-           Party: 
-          3
-          *
+          <label>
+            Votes Against 
+            Democrat
+             Party: 
+            3
+            *
+          </label>
         </li>
       </ul>
       <ul
@@ -224,18 +228,22 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
           </label>
         </li>
         <li>
-          Votes With 
-          Republican
-           Party: 
-          2
-          *
+          <label>
+            Votes With 
+            Republican
+             Party: 
+            2
+            *
+          </label>
         </li>
         <li>
-          Votes Against 
-          Republican
-           Party: 
-          3
-          *
+          <label>
+            Votes Against 
+            Republican
+             Party: 
+            3
+            *
+          </label>
         </li>
       </ul>
     </section>
