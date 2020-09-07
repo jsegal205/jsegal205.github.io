@@ -29,3 +29,6 @@ export const partyName = (abbreviation) => {
       return "";
   }
 };
+
+export const properCase = (value) =>
+  !!value ? value.charAt(0).toUpperCase() + value.slice(1) : "";

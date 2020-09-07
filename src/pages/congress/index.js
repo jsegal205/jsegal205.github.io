@@ -3,7 +3,7 @@ import React from "react";
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import useWindowDimensions from "../../utils/windowDimensions";
-import { chamberTitles } from "./utils";
+import { chamberTitles, properCase } from "./utils";
 
 import Error from "../../components/error";
 import Loading from "../../components/loading";
@@ -38,7 +38,6 @@ const Congress = () => {
     senate: "Senate",
   };
 
-  const properCase = (value) => value.charAt(0).toUpperCase() + value.slice(1);
   const genericLabel = (label, value) => (
     <div>
       {<label>{label}: </label>}

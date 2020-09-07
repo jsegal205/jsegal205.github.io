@@ -10,7 +10,8 @@ import Loading from "../../components/loading";
 import "../../App.css";
 import "./congress.css";
 import { Link } from "react-router-dom";
-import { partyName } from "./utils";
+import { partyName, properCase } from "./utils";
+import ReactMarkdown from "react-markdown";
 
 const getUrlParams = ({ pathname, state }) => {
   if (state && state.chamber && state.id) {
@@ -61,7 +62,9 @@ const Member = (props) => {
     most_recent_vote,
     careerVoting,
     termInfo,
+    misconduct,
   } = member;
+
   return (
     <section className="congress-member">
       <Link
@@ -120,6 +123,44 @@ const Member = (props) => {
             </li>
           </ul>
         </section>
+
+        {!!misconduct.length && (
+          <section>
+            <h3>Official Misconduct Reports</h3>
+            <h4>
+              Data provided by{" "}
+              <a
+                href="https://github.com/govtrack/misconduct"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GovTrack Congressional Misconduct DB
+              </a>
+            </h4>
+
+            {misconduct.map((m) => (
+              <ul key={m.first_date}>
+                <li>
+                  <label>Allegation: {properCase(m.allegation)}</label>
+                </li>
+                <li>
+                  <label>Initiated on: {m.first_date}</label>
+                </li>
+                <li>
+                  <label>
+                    Allegation Categories: {m.allegationCategories.join(", ")}
+                  </label>
+                </li>
+                <li>
+                  <label>Current Status: {properCase(m.currentStatus)}</label>
+                </li>
+                <li>
+                  <ReactMarkdown source={m.text} />
+                </li>
+              </ul>
+            ))}
+          </section>
+        )}
 
         <section>
           <h3>Career Voting History</h3>
@@ -191,10 +232,14 @@ const Member = (props) => {
                   </label>
                 </li>
                 <li>
-                  Votes With {partyName(party)} Party: {votesWithParty}*
+                  <label>
+                    Votes With {partyName(party)} Party: {votesWithParty}*
+                  </label>
                 </li>
                 <li>
-                  Votes Against {partyName(party)} Party: {votesAgainstParty}*
+                  <label>
+                    Votes Against {partyName(party)} Party: {votesAgainstParty}*
+                  </label>
                 </li>
               </ul>
             );

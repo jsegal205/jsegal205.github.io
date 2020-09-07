@@ -3,6 +3,7 @@ const {
   individualChamberTitle,
   partyName,
   otherChamber,
+  properCase,
 } = require("./utils");
 
 describe("Congress - Utils", () => {
@@ -39,6 +40,13 @@ describe("Congress - Utils", () => {
       expect(partyName("i")).toEqual("Independent");
       expect(partyName("I")).toEqual("Independent");
       expect(partyName("o")).toEqual("");
+    });
+  });
+
+  describe("properCase", () => {
+    it("capitalizes first letter of passed param", () => {
+      expect(properCase("abc")).toEqual("Abc");
+      expect(properCase("")).toEqual("");
     });
   });
 });
