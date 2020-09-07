@@ -192,8 +192,48 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
         <li>
           Votes Against 
           Democrat
-           Party:
-           
+           Party: 
+          3
+          *
+        </li>
+      </ul>
+      <ul
+        className="term-info"
+      >
+        <li>
+          <label>
+            Congressional Session: 
+            115
+             - From 
+            2017-01-03
+             until
+             
+            2019-01-03
+          </label>
+        </li>
+        <li>
+          <label>
+            Party: 
+            Republican
+          </label>
+        </li>
+        <li>
+          <label>
+            Cast Votes: 
+            1
+          </label>
+        </li>
+        <li>
+          Votes With 
+          Republican
+           Party: 
+          2
+          *
+        </li>
+        <li>
+          Votes Against 
+          Republican
+           Party: 
           3
           *
         </li>
