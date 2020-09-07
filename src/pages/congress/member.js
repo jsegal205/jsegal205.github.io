@@ -173,7 +173,7 @@ const Member = (props) => {
               votesAgainstParty,
             } = term;
             return (
-              <ul key={congress} className="term-info">
+              <ul key={`${congress}-${party}`} className="term-info">
                 <li>
                   <label>
                     Congressional Session: {congress} - From {start_date} until{" "}
