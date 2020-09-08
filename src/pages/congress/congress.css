@@ -100,6 +100,7 @@
 }
 
 .congress-members .congress-members-card img {
+  max-width: 200px;
   max-height: 225px;
   margin-bottom: 1em;
 }

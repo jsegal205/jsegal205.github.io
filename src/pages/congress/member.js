@@ -46,6 +46,11 @@ const Member = (props) => {
     return <Error componentName="Congress Memeber" />;
   }
 
+  const addDefaultSrc = (event) => {
+    event.target.src = "/assets/congress-seal.png";
+    event.target.alt = "United States Seal of Congress";
+  };
+
   const {
     age,
     first_name,
@@ -82,6 +87,7 @@ const Member = (props) => {
         <img
           src={`https://www.congress.gov/img/member/${id.toLowerCase()}.jpg`}
           alt={`Professional headshot of ${first_name} ${last_name}`}
+          onError={addDefaultSrc}
         />
       </div>
       <section className="congress-member-links">
