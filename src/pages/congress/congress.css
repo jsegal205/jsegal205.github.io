@@ -82,6 +82,28 @@
   list-style: none;
 }
 
+.congress-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.congress-members .congress-members-card {
+  align-items: center;
+  border: 3px solid #444444;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 225px;
+  padding: 1em;
+}
+
+.congress-members .congress-members-card img {
+  max-height: 225px;
+  margin-bottom: 1em;
+}
+
 .congress-member li {
   list-style-type: none;
 }

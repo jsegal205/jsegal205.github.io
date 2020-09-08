@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { apiUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
-import { chamberTitles, otherChamber } from "./utils";
+import { chamberTitles, otherChamber, partyName } from "./utils";
 
 import NotFound from "../not-found";
 import Error from "../../components/error";
@@ -106,9 +106,16 @@ const CongressMembers = (props) => {
                     pathname: `/congress/${chamber}/member/${member.id}`,
                     state: { ...member },
                   }}
+                  className="congress-members-card"
                 >
-                  {member.first_name} {member.last_name} ({member.party}-
-                  {member.state})
+                  <img
+                    src={`https://www.congress.gov/img/member/${member.id.toLowerCase()}.jpg`}
+                    alt={`Professional headshot of ${member.first_name} ${member.last_name}`}
+                  />
+                  <label>
+                    {member.first_name} {member.last_name}
+                  </label>
+                  {partyName(member.party)} - {member.state}
                 </Link>
               </li>
             );

@@ -5,7 +5,7 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 - First value
 + Second value
 
-@@ -29,29 +29,26 @@
+@@ -29,45 +29,26 @@
         <input
           class=\\"search-filter-input\\"
           data-testid=\\"search-filter\\"
@@ -21,16 +21,25 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 -     >
 -       <li>
 -         <a
+-           class=\\"congress-members-card\\"
 -           href=\\"/congress/house/member/1\\"
 +       <button
 +         class=\\"search-filter-reset\\"
 +         data-testid=\\"search-filter-reset\\"
         >
--           abc efg (party-state)
+-           <img
+-             alt=\\"Professional headshot of abc efg\\"
+-             src=\\"https://www.congress.gov/img/member/1.jpg\\"
+-           />
+-           <label>
+-             abc efg
+-           </label>
+-           Democrat - state
 -         </a>
 -       </li>
 -       <li>
 -         <a
+-           class=\\"congress-members-card\\"
 -           href=\\"/congress/house/member/2\\"
 +         Reset
 +       </button>
@@ -38,7 +47,14 @@ exports[`CongressMembers Component Search filtering when input matches none of t
 +     <div
 +       class=\\"members-no-results\\"
       >
--           uxw xyz (party-state)
+-           <img
+-             alt=\\"Professional headshot of uxw xyz\\"
+-             src=\\"https://www.congress.gov/img/member/2.jpg\\"
+-           />
+-           <label>
+-             uxw xyz
+-           </label>
+-           Republican - state
 -         </a>
 -       </li>
 -     </ul>
@@ -58,7 +74,7 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 - First value
 + Second value
 
-@@ -29,29 +29,28 @@
+@@ -29,12 +29,18 @@
         <input
           class=\\"search-filter-input\\"
           data-testid=\\"search-filter\\"
@@ -78,18 +94,27 @@ exports[`CongressMembers Component Search filtering when input matches subset of
         class=\\"congress-members\\"
         data-testid=\\"members-list\\"
       >
-        <li>
-          <a
-            href=\\"/congress/house/member/1\\"
-          >
-            abc efg (party-state)
+@@ -49,25 +55,10 @@
+            />
+            <label>
+              abc efg
+            </label>
+            Democrat - state
 -         </a>
 -       </li>
 -       <li>
 -         <a
+-           class=\\"congress-members-card\\"
 -           href=\\"/congress/house/member/2\\"
 -         >
--           uxw xyz (party-state)
+-           <img
+-             alt=\\"Professional headshot of uxw xyz\\"
+-             src=\\"https://www.congress.gov/img/member/2.jpg\\"
+-           />
+-           <label>
+-             uxw xyz
+-           </label>
+-           Republican - state
           </a>
         </li>
       </ul>
@@ -102,7 +127,7 @@ exports[`CongressMembers Component Search filtering when input matches subset of
 - First value
 + Second value
 
-@@ -29,24 +29,23 @@
+@@ -29,32 +29,23 @@
         <input
           class=\\"search-filter-input\\"
           data-testid=\\"search-filter\\"
@@ -124,16 +149,24 @@ exports[`CongressMembers Component Search filtering when input matches subset of
       >
 -       <li>
 -         <a
+-           class=\\"congress-members-card\\"
 -           href=\\"/congress/house/member/1\\"
 -         >
--           abc efg (party-state)
+-           <img
+-             alt=\\"Professional headshot of abc efg\\"
+-             src=\\"https://www.congress.gov/img/member/1.jpg\\"
+-           />
+-           <label>
+-             abc efg
+-           </label>
+-           Democrat - state
 -         </a>
 -       </li>
         <li>
           <a
+            class=\\"congress-members-card\\"
             href=\\"/congress/house/member/2\\"
-          >
-            uxw xyz (party-state)"
+          >"
 `;
 
 exports[`CongressMembers Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
