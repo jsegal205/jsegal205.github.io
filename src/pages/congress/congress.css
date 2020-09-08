@@ -67,9 +67,7 @@
   text-align: center;
 }
 
-.congress-member h2,
-.congress-member h3,
-.congress-member h4 {
+.congress-member h2 {
   text-align: center;
 }
 
@@ -96,7 +94,7 @@
 }
 
 .congress-member .term-info {
-  margin: 2em 0;
+  margin-bottom: 2em;
 }
 
 .congress-member .information {
@@ -108,6 +106,27 @@
 .congress-member .footnote {
   font-size: 0.75em;
   text-align: center;
+}
+
+.congress-member label {
+  font-weight: 600;
+}
+
+.congress-member .headshot {
+  display: flex;
+  justify-content: center;
+}
+
+.congress-member .headshot > img {
+  max-width: 200px;
+}
+
+.congress-member .information > section {
+  margin-top: 2em;
+}
+
+.congress-member .information > section > ul {
+  margin-left: 1.5em;
 }
 
 @media screen and (max-width: 740px) {
