@@ -78,6 +78,12 @@ const Member = (props) => {
       <h2>
         {first_name} {last_name}
       </h2>
+      <div className="headshot">
+        <img
+          src={`https://www.congress.gov/img/member/${id.toLowerCase()}.jpg`}
+          alt={`Professional headshot of ${first_name} ${last_name}`}
+        />
+      </div>
       <section className="congress-member-links">
         <a href={url} target="_blank" rel="noopener noreferrer">
           Website
@@ -96,30 +102,28 @@ const Member = (props) => {
         <section>
           <ul>
             <li>
-              <label>Most recent vote: {most_recent_vote}</label>
+              <label>Most recent vote:</label> {most_recent_vote}
             </li>
             <li>
-              <label>
-                Date of Birth: {date_of_birth} (age: {age})
-              </label>
+              <label>Date of Birth:</label> {date_of_birth} (age: {age})
             </li>
             <li>
-              <label>Gender: {gender}</label>
+              <label>Gender:</label> {gender}
             </li>
             <li>
-              <label>Current Party: {partyName(current_party)}</label>
+              <label>Current Party:</label> {partyName(current_party)}
             </li>
             <li>
-              <label>State Representing: {state}</label>
+              <label>State Representing:</label> {state}
             </li>
             <li>
-              <label>Will be up for reelection in: {next_election}</label>
+              <label>Will be up for re-election in:</label> {next_election}
             </li>
             <li>
-              <label>
+              <p>
                 Has served <em>{terms}</em> terms starting initially elected
                 into office in <em>{initial_elected_in}</em>
-              </label>
+              </p>
             </li>
           </ul>
         </section>
@@ -141,18 +145,17 @@ const Member = (props) => {
             {misconduct.map((m) => (
               <ul key={m.first_date}>
                 <li>
-                  <label>Allegation: {properCase(m.allegation)}</label>
+                  <label>Allegation:</label> {properCase(m.allegation)}
                 </li>
                 <li>
-                  <label>Initiated on: {m.first_date}</label>
+                  <label>Initiated on:</label> {m.first_date}
                 </li>
                 <li>
-                  <label>
-                    Allegation Categories: {m.allegationCategories.join(", ")}
-                  </label>
+                  <label>Allegation Categories:</label>{" "}
+                  {m.allegationCategories.join(", ")}
                 </li>
                 <li>
-                  <label>Current Status: {properCase(m.currentStatus)}</label>
+                  <label>Current Status:</label> {properCase(m.currentStatus)}
                 </li>
                 <li>
                   <ReactMarkdown source={m.text} />
@@ -166,34 +169,29 @@ const Member = (props) => {
           <h3>Career Voting History</h3>
           <ul>
             <li>
-              <label>
-                Total Votes Eligible: {careerVoting.careerVotesEligible}
-              </label>
+              <label>Total Votes Eligible:</label>{" "}
+              {careerVoting.careerVotesEligible}
             </li>
             <li>
-              <label>Total Cast Votes: {careerVoting.careerVotesCast}</label>
+              <label>Total Cast Votes:</label> {careerVoting.careerVotesCast}
             </li>
             <li>
-              <label>
-                Total Missed Votes: {careerVoting.careerMissedVotes}
-              </label>
+              <label>Total Missed Votes:</label>{" "}
+              {careerVoting.careerMissedVotes}
             </li>
             <li>
-              <label>
-                Total Present Votes: {careerVoting.careerPresentVotes}
-              </label>
+              <label>Total Present Votes:</label>{" "}
+              {careerVoting.careerPresentVotes}
             </li>
             <li>
-              <label>
-                Total Votes With {partyName(current_party)} Party:{" "}
-                {careerVoting.careerVotesWithParty}*
-              </label>
+              <label>Total Votes With {partyName(current_party)} Party:</label>{" "}
+              {careerVoting.careerVotesWithParty}*
             </li>
             <li>
               <label>
-                Total Votes Against {partyName(current_party)} Party:{" "}
-                {careerVoting.careerVotesAgainstParty}*
-              </label>
+                Total Votes Against {partyName(current_party)} Party:
+              </label>{" "}
+              {careerVoting.careerVotesAgainstParty}*
             </li>
           </ul>
         </section>
@@ -216,30 +214,25 @@ const Member = (props) => {
             return (
               <ul key={`${congress}-${party}`} className="term-info">
                 <li>
-                  <label>
-                    Congressional Session: {congress} - From {start_date} until{" "}
-                    {end_date}
-                  </label>
+                  <label>Congressional Session:</label> {congress} - From{" "}
+                  {start_date} until {end_date}
                 </li>
                 {current_party !== party ? (
                   <li>
-                    <label>Party: {partyName(party)}</label>
+                    <label>Party:</label> {partyName(party)}
                   </li>
                 ) : null}
                 <li>
-                  <label>
-                    Cast Votes: {total_votes - missed_votes - total_present}
-                  </label>
+                  <label>Cast Votes:</label>{" "}
+                  {total_votes - missed_votes - total_present}
                 </li>
                 <li>
-                  <label>
-                    Votes With {partyName(party)} Party: {votesWithParty}*
-                  </label>
+                  <label>Votes With {partyName(party)} Party:</label>{" "}
+                  {votesWithParty}*
                 </li>
                 <li>
-                  <label>
-                    Votes Against {partyName(party)} Party: {votesAgainstParty}*
-                  </label>
+                  <label>Votes Against {partyName(party)} Party:</label>{" "}
+                  {votesAgainstParty}*
                 </li>
               </ul>
             );

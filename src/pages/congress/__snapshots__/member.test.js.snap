@@ -30,6 +30,14 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
      
     last
   </h2>
+  <div
+    className="headshot"
+  >
+    <img
+      alt="Professional headshot of first last"
+      src="https://www.congress.gov/img/member/1.jpg"
+    />
+  </div>
   <section
     className="congress-member-links"
   >
@@ -56,45 +64,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Most recent vote: 
-            2020-01-01
+            Most recent vote:
           </label>
+           
+          2020-01-01
         </li>
         <li>
           <label>
-            Date of Birth: 
-            1900-01-01
-             (age: 
-            1
-            )
+            Date of Birth:
           </label>
+           
+          1900-01-01
+           (age: 
+          1
+          )
         </li>
         <li>
           <label>
-            Gender: 
-            F
+            Gender:
           </label>
+           
+          F
         </li>
         <li>
           <label>
-            Current Party: 
-            Democrat
+            Current Party:
           </label>
+           
+          Democrat
         </li>
         <li>
           <label>
-            State Representing: 
-            IL
+            State Representing:
           </label>
+           
+          IL
         </li>
         <li>
           <label>
-            Will be up for reelection in: 
-            2020
+            Will be up for re-election in:
           </label>
+           
+          2020
         </li>
         <li>
-          <label>
+          <p>
             Has served 
             <em>
               1
@@ -103,7 +117,7 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
             <em>
               2000-01-01
             </em>
-          </label>
+          </p>
         </li>
       </ul>
     </section>
@@ -114,47 +128,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Total Votes Eligible: 
-            1
+            Total Votes Eligible:
           </label>
+           
+          1
         </li>
         <li>
           <label>
-            Total Cast Votes: 
-            2
+            Total Cast Votes:
           </label>
+           
+          2
         </li>
         <li>
           <label>
-            Total Missed Votes: 
-            3
+            Total Missed Votes:
           </label>
+           
+          3
         </li>
         <li>
           <label>
-            Total Present Votes: 
-            4
+            Total Present Votes:
           </label>
+           
+          4
         </li>
         <li>
           <label>
             Total Votes With 
             Democrat
              Party:
-             
-            5
-            *
           </label>
+           
+          5
+          *
         </li>
         <li>
           <label>
             Total Votes Against 
             Democrat
              Party:
-             
-            6
-            *
           </label>
+           
+          6
+          *
         </li>
       </ul>
     </section>
@@ -167,38 +185,42 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       >
         <li>
           <label>
-            Congressional Session: 
-            116
-             - From 
-            2019-01-03
-             until
-             
-            2021-01-03
+            Congressional Session:
           </label>
+           
+          116
+           - From
+           
+          2019-01-03
+           until 
+          2021-01-03
         </li>
         <li>
           <label>
-            Cast Votes: 
-            1
+            Cast Votes:
           </label>
+           
+          1
         </li>
         <li>
           <label>
             Votes With 
             Democrat
-             Party: 
-            2
-            *
+             Party:
           </label>
+           
+          2
+          *
         </li>
         <li>
           <label>
             Votes Against 
             Democrat
-             Party: 
-            3
-            *
+             Party:
           </label>
+           
+          3
+          *
         </li>
       </ul>
     </section>
@@ -226,6 +248,14 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
      
     last
   </h2>
+  <div
+    className="headshot"
+  >
+    <img
+      alt="Professional headshot of first last"
+      src="https://www.congress.gov/img/member/1.jpg"
+    />
+  </div>
   <section
     className="congress-member-links"
   >
@@ -252,45 +282,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Most recent vote: 
-            2020-01-01
+            Most recent vote:
           </label>
+           
+          2020-01-01
         </li>
         <li>
           <label>
-            Date of Birth: 
-            1900-01-01
-             (age: 
-            1
-            )
+            Date of Birth:
           </label>
+           
+          1900-01-01
+           (age: 
+          1
+          )
         </li>
         <li>
           <label>
-            Gender: 
-            F
+            Gender:
           </label>
+           
+          F
         </li>
         <li>
           <label>
-            Current Party: 
-            Democrat
+            Current Party:
           </label>
+           
+          Democrat
         </li>
         <li>
           <label>
-            State Representing: 
-            IL
+            State Representing:
           </label>
+           
+          IL
         </li>
         <li>
           <label>
-            Will be up for reelection in: 
-            2020
+            Will be up for re-election in:
           </label>
+           
+          2020
         </li>
         <li>
-          <label>
+          <p>
             Has served 
             <em>
               1
@@ -299,7 +335,7 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
             <em>
               2000-01-01
             </em>
-          </label>
+          </p>
         </li>
       </ul>
     </section>
@@ -321,27 +357,31 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Allegation: 
-            Allegation text
+            Allegation:
           </label>
+           
+          Allegation text
         </li>
         <li>
           <label>
-            Initiated on: 
-            2020-01-01
+            Initiated on:
           </label>
+           
+          2020-01-01
         </li>
         <li>
           <label>
-            Allegation Categories: 
-            corruption, elections
+            Allegation Categories:
           </label>
+           
+          corruption, elections
         </li>
         <li>
           <label>
-            Current Status: 
-            Unresolved
+            Current Status:
           </label>
+           
+          Unresolved
         </li>
         <li>
           <p>
@@ -362,47 +402,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Total Votes Eligible: 
-            1
+            Total Votes Eligible:
           </label>
+           
+          1
         </li>
         <li>
           <label>
-            Total Cast Votes: 
-            2
+            Total Cast Votes:
           </label>
+           
+          2
         </li>
         <li>
           <label>
-            Total Missed Votes: 
-            3
+            Total Missed Votes:
           </label>
+           
+          3
         </li>
         <li>
           <label>
-            Total Present Votes: 
-            4
+            Total Present Votes:
           </label>
+           
+          4
         </li>
         <li>
           <label>
             Total Votes With 
             Democrat
              Party:
-             
-            5
-            *
           </label>
+           
+          5
+          *
         </li>
         <li>
           <label>
             Total Votes Against 
             Democrat
              Party:
-             
-            6
-            *
           </label>
+           
+          6
+          *
         </li>
       </ul>
     </section>
@@ -415,38 +459,42 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       >
         <li>
           <label>
-            Congressional Session: 
-            116
-             - From 
-            2019-01-03
-             until
-             
-            2021-01-03
+            Congressional Session:
           </label>
+           
+          116
+           - From
+           
+          2019-01-03
+           until 
+          2021-01-03
         </li>
         <li>
           <label>
-            Cast Votes: 
-            1
+            Cast Votes:
           </label>
+           
+          1
         </li>
         <li>
           <label>
             Votes With 
             Democrat
-             Party: 
-            2
-            *
+             Party:
           </label>
+           
+          2
+          *
         </li>
         <li>
           <label>
             Votes Against 
             Democrat
-             Party: 
-            3
-            *
+             Party:
           </label>
+           
+          3
+          *
         </li>
       </ul>
     </section>
@@ -474,6 +522,14 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
      
     last
   </h2>
+  <div
+    className="headshot"
+  >
+    <img
+      alt="Professional headshot of first last"
+      src="https://www.congress.gov/img/member/1.jpg"
+    />
+  </div>
   <section
     className="congress-member-links"
   >
@@ -500,45 +556,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Most recent vote: 
-            2020-01-01
+            Most recent vote:
           </label>
+           
+          2020-01-01
         </li>
         <li>
           <label>
-            Date of Birth: 
-            1900-01-01
-             (age: 
-            1
-            )
+            Date of Birth:
           </label>
+           
+          1900-01-01
+           (age: 
+          1
+          )
         </li>
         <li>
           <label>
-            Gender: 
-            F
+            Gender:
           </label>
+           
+          F
         </li>
         <li>
           <label>
-            Current Party: 
-            Democrat
+            Current Party:
           </label>
+           
+          Democrat
         </li>
         <li>
           <label>
-            State Representing: 
-            IL
+            State Representing:
           </label>
+           
+          IL
         </li>
         <li>
           <label>
-            Will be up for reelection in: 
-            2020
+            Will be up for re-election in:
           </label>
+           
+          2020
         </li>
         <li>
-          <label>
+          <p>
             Has served 
             <em>
               1
@@ -547,7 +609,7 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
             <em>
               2000-01-01
             </em>
-          </label>
+          </p>
         </li>
       </ul>
     </section>
@@ -558,47 +620,51 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       <ul>
         <li>
           <label>
-            Total Votes Eligible: 
-            1
+            Total Votes Eligible:
           </label>
+           
+          1
         </li>
         <li>
           <label>
-            Total Cast Votes: 
-            2
+            Total Cast Votes:
           </label>
+           
+          2
         </li>
         <li>
           <label>
-            Total Missed Votes: 
-            3
+            Total Missed Votes:
           </label>
+           
+          3
         </li>
         <li>
           <label>
-            Total Present Votes: 
-            4
+            Total Present Votes:
           </label>
+           
+          4
         </li>
         <li>
           <label>
             Total Votes With 
             Democrat
              Party:
-             
-            5
-            *
           </label>
+           
+          5
+          *
         </li>
         <li>
           <label>
             Total Votes Against 
             Democrat
              Party:
-             
-            6
-            *
           </label>
+           
+          6
+          *
         </li>
       </ul>
     </section>
@@ -611,38 +677,42 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       >
         <li>
           <label>
-            Congressional Session: 
-            116
-             - From 
-            2019-01-03
-             until
-             
-            2021-01-03
+            Congressional Session:
           </label>
+           
+          116
+           - From
+           
+          2019-01-03
+           until 
+          2021-01-03
         </li>
         <li>
           <label>
-            Cast Votes: 
-            1
+            Cast Votes:
           </label>
+           
+          1
         </li>
         <li>
           <label>
             Votes With 
             Democrat
-             Party: 
-            2
-            *
+             Party:
           </label>
+           
+          2
+          *
         </li>
         <li>
           <label>
             Votes Against 
             Democrat
-             Party: 
-            3
-            *
+             Party:
           </label>
+           
+          3
+          *
         </li>
       </ul>
       <ul
@@ -650,44 +720,49 @@ exports[`Member Component when \`useFetch\` returns data with 200 status display
       >
         <li>
           <label>
-            Congressional Session: 
-            115
-             - From 
-            2017-01-03
-             until
-             
-            2019-01-03
+            Congressional Session:
           </label>
+           
+          115
+           - From
+           
+          2017-01-03
+           until 
+          2019-01-03
         </li>
         <li>
           <label>
-            Party: 
-            Republican
+            Party:
           </label>
+           
+          Republican
         </li>
         <li>
           <label>
-            Cast Votes: 
-            1
+            Cast Votes:
           </label>
+           
+          1
         </li>
         <li>
           <label>
             Votes With 
             Republican
-             Party: 
-            2
-            *
+             Party:
           </label>
+           
+          2
+          *
         </li>
         <li>
           <label>
             Votes Against 
             Republican
-             Party: 
-            3
-            *
+             Party:
           </label>
+           
+          3
+          *
         </li>
       </ul>
     </section>

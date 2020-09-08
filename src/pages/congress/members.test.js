@@ -190,17 +190,17 @@ describe("CongressMembers Component", () => {
     const apiData = {
       house: [
         {
-          id: 1,
+          id: "1",
           first_name: "abc",
           last_name: "efg",
-          party: "party",
+          party: "D",
           state: "state",
         },
         {
-          id: 2,
+          id: "2",
           first_name: "uxw",
           last_name: "xyz",
-          party: "party",
+          party: "R",
           state: "state",
         },
       ],
