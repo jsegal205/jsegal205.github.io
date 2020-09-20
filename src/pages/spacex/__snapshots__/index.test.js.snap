@@ -35,9 +35,22 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
     </h2>
     <div
       class="spacex-mega"
-    />
+    >
+      <div>
+        366
+         
+        days
+         
+      </div>
+      <div>
+        0
+         
+        seconds
+         
+      </div>
+    </div>
     <h3>
-      mission_name
+      mission_name_future
     </h3>
     <div
       class="spacex-item"
@@ -46,7 +59,7 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
         When:
       </label>
       <span>
-        Saturday, January 1, 2000, 12:00 AM
+        Friday, January 1, 2021, 12:00 AM
       </span>
     </div>
     <div
@@ -56,7 +69,7 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
         Rocket:
       </label>
       <span>
-        rocket_name
+        rocket_name_future
       </span>
     </div>
     <div
@@ -66,13 +79,13 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
         Launch Site:
       </label>
       <span>
-        site_name_long
+        site_name_long_future
       </span>
     </div>
     <div
       class="spacex-details"
     >
-      details
+      future details
     </div>
   </section>
 </div>
