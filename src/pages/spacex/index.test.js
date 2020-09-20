@@ -39,6 +39,13 @@ describe("SpaceX Component", () => {
             rocket: { rocket_name: "rocket_name" },
             launch_site: { site_name_long: "site_name_long" },
           },
+          {
+            mission_name: "mission_name_future",
+            details: "future details",
+            launch_date_utc: new Date("01-01-3000"),
+            rocket: { rocket_name: "rocket_name_future" },
+            launch_site: { site_name_long: "site_name_long_future" },
+          },
         ],
       });
 
