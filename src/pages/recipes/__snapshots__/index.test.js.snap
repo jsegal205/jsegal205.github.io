@@ -5,7 +5,7 @@ exports[`Recipes Component Search filtering when input matches none of the data 
 - First value
 + Second value
 
-@@ -14,28 +14,26 @@
+@@ -14,29 +14,26 @@
         <input
           class=\\"search-filter-input\\"
           data-testid=\\"search-filter\\"
@@ -14,29 +14,30 @@ exports[`Recipes Component Search filtering when input matches none of the data 
 -         value=\\"\\"
 +         value=\\"mno\\"
         />
-+       <button
-+         class=\\"search-filter-reset\\"
-+         data-testid=\\"search-filter-reset\\"
-+       >
-+         Reset
-+       </button>
-      </section>
+-     </section>
 -     <ul
+-       class=\\"recipes-list\\"
 -       data-testid=\\"recipes-list\\"
-+     <div
-+       class=\\"recipes-no-results\\"
-      >
+-     >
 -       <li>
 -         <a
 -           href=\\"/recipe/abc\\"
--         >
++       <button
++         class=\\"search-filter-reset\\"
++         data-testid=\\"search-filter-reset\\"
+        >
 -           abc
 -         </a>
 -       </li>
 -       <li>
 -         <a
 -           href=\\"/recipe/xyz\\"
--         >
++         Reset
++       </button>
++     </section>
++     <div
++       class=\\"recipes-no-results\\"
+      >
 -           xyz
 -         </a>
 -       </li>
@@ -57,7 +58,7 @@ exports[`Recipes Component Search filtering when input matches subset of the dat
 - First value
 + Second value
 
-@@ -14,28 +14,27 @@
+@@ -14,29 +14,28 @@
         <input
           class=\\"search-filter-input\\"
           data-testid=\\"search-filter\\"
@@ -74,6 +75,7 @@ exports[`Recipes Component Search filtering when input matches subset of the dat
 +       </button>
       </section>
       <ul
+        class=\\"recipes-list\\"
         data-testid=\\"recipes-list\\"
       >
         <li>
@@ -142,6 +144,7 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
       
     </section>
     <ul
+      class="recipes-list"
       data-testid="recipes-list"
     >
       <li>
