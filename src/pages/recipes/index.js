@@ -49,7 +49,7 @@ const Recipes = () => {
             handleSearchChange={handleSearchChange}
           />
           {recipeList.length ? (
-            <ul data-testid="recipes-list">
+            <ul className="recipes-list" data-testid="recipes-list">
               {recipeList.map((recipe) => (
                 <li key={recipe.slug}>
                   <Link
