@@ -37,25 +37,13 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
       class="spacex-mega"
     >
       <div>
-        357674
+        366
          
         days
          
       </div>
       <div>
-        10
-         
-        hours
-         
-      </div>
-      <div>
-        21
-         
-        minutes
-         
-      </div>
-      <div>
-        47
+        0
          
         seconds
          
@@ -71,7 +59,7 @@ exports[`SpaceX Component when \`useFetch\` returns data displays data 1`] = `
         When:
       </label>
       <span>
-        Wednesday, January 1, 3000, 12:00 AM
+        Friday, January 1, 2021, 12:00 AM
       </span>
     </div>
     <div

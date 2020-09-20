@@ -28,6 +28,11 @@ describe("SpaceX Component", () => {
   });
 
   describe("when `useFetch` returns data", () => {
+    beforeEach(() => {
+      const mockDate = new Date("01-01-2020");
+      global.Date.now = jest.fn(() => mockDate);
+    });
+
     it("displays data", () => {
       useFetch.mockReturnValue({
         loading: false,
@@ -35,14 +40,16 @@ describe("SpaceX Component", () => {
           {
             mission_name: "mission_name",
             details: "details",
-            launch_date_utc: new Date("01-01-2000"),
+            launch_date_unix: new Date("01-01-2019").valueOf() / 1000,
+            launch_date_utc: new Date("01-01-2019"),
             rocket: { rocket_name: "rocket_name" },
             launch_site: { site_name_long: "site_name_long" },
           },
           {
             mission_name: "mission_name_future",
             details: "future details",
-            launch_date_utc: new Date("01-01-3000"),
+            launch_date_unix: new Date("01-01-2021").valueOf() / 1000,
+            launch_date_utc: new Date("01-01-2021"),
             rocket: { rocket_name: "rocket_name_future" },
             launch_site: { site_name_long: "site_name_long_future" },
           },

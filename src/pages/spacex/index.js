@@ -14,9 +14,7 @@ const SpaceX = () => {
 
   const futureLaunchIndex = () => {
     if (!loading && upcomingLaunch.length) {
-      return new Date(upcomingLaunch[0]["launch_date_utc"]) < new Date()
-        ? 1
-        : 0;
+      return upcomingLaunch[0]["launch_date_unix"] < Date.now() / 1000 ? 1 : 0;
     }
   };
 
@@ -29,15 +27,15 @@ const SpaceX = () => {
 
       if (upcomingLaunch[futureLaunchIndex()]) {
         const difference =
-          +new Date(upcomingLaunch[futureLaunchIndex()]["launch_date_utc"]) -
-          +new Date();
+          upcomingLaunch[futureLaunchIndex()]["launch_date_unix"] -
+          Date.now() / 1000;
 
         if (difference > 0) {
           timeLeft = {
-            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-            minutes: Math.floor((difference / 1000 / 60) % 60),
-            seconds: Math.floor((difference / 1000) % 60),
+            days: Math.floor(difference / (60 * 60 * 24)),
+            hours: Math.floor((difference / (60 * 60)) % 24),
+            minutes: Math.floor((difference / 60) % 60),
+            seconds: Math.floor(difference % 60),
           };
         }
       }
