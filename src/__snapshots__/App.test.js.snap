@@ -33,6 +33,30 @@ exports[`renders correctly 1`] = `
         >
           <a
             class="project-list-item-link"
+            href="https://jimsegal.com"
+          >
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                JimSegal.com
+              </h2>
+            </div>
+            <p>
+              OG site with other projects
+            </p>
+          </a>
+        </li>
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
+          <a
+            class="project-list-item-link"
             href="/congress"
           >
             <div

@@ -11,7 +11,15 @@ const TopNav = (props) =>
         <ul className="topnav-list">
           {projectInfo.map((project) => (
             <li className="topnav-list-item" key={project.title}>
-              <Link to={project.link}>{project.title}</Link>
+              {project.absolute ? (
+                <a title={project.subtitle} href={project.link}>
+                  {project.title}
+                </a>
+              ) : (
+                <Link title={project.subtitle} to={project.link}>
+                  {project.title}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
