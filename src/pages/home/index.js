@@ -55,7 +55,6 @@ const Home = () => (
         );
       })}
     </ul>
-    <span id="test"> </span>
   </section>
 );
 
