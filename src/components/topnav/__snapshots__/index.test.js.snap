@@ -12,7 +12,18 @@ exports[`TopNav Component Renders on all other routes 1`] = `
         class="topnav-list-item"
       >
         <a
+          href="https://jimsegal.com"
+          title="OG site with other projects"
+        >
+          JimSegal.com
+        </a>
+      </li>
+      <li
+        class="topnav-list-item"
+      >
+        <a
           href="/congress"
+          title="Some fun data surrounding the current congressional sesssion"
         >
           Congress
         </a>
@@ -22,6 +33,7 @@ exports[`TopNav Component Renders on all other routes 1`] = `
       >
         <a
           href="/recipes"
+          title="A bunch of recipes that I frequent and wanted to show off"
         >
           Recipes
         </a>
@@ -31,6 +43,7 @@ exports[`TopNav Component Renders on all other routes 1`] = `
       >
         <a
           href="/spacex"
+          title="A countdown timer until the next launch of a Space X rocket"
         >
           Space X
         </a>
