@@ -103,6 +103,11 @@ exports[`Home Component renders correctly 1`] = `
         </a>
       </li>
     </ul>
+    <span
+      id="test"
+    >
+       
+    </span>
   </section>
 </div>
 `;

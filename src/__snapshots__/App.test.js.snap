@@ -124,6 +124,11 @@ exports[`renders correctly 1`] = `
           </a>
         </li>
       </ul>
+      <span
+        id="test"
+      >
+         
+      </span>
     </section>
   </article>
 </DocumentFragment>
