@@ -3,6 +3,12 @@ export const apiUrlBase = "https://api.jimsegal.com";
 
 export const projectInfo = [
   {
+    absolute: true,
+    link: "https://jimsegal.com",
+    subtitle: "OG site with other projects",
+    title: "JimSegal.com",
+  },
+  {
     link: "/congress",
     subtitle: "Some fun data surrounding the current congressional sesssion",
     title: "Congress",

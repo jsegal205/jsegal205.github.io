@@ -10,6 +10,26 @@ import {
   textColor,
 } from "../../utils/color";
 
+const cardDetails = (project, color) => (
+  <>
+    <div
+      className="project-list-item-placeholder"
+      style={{
+        backgroundColor: `#${color}`,
+      }}
+    >
+      <h2
+        className="project-list-item-title"
+        style={{ color: `#${textColor(color)}` }}
+      >
+        {project.title}
+      </h2>
+    </div>
+
+    <p>{project.subtitle}</p>
+  </>
+);
+
 const Home = () => (
   <section>
     <ul className="project-list">
@@ -22,23 +42,15 @@ const Home = () => (
             className="project-list-item"
             style={{ borderColor: `#${borderColor}` }}
           >
-            <Link className="project-list-item-link" to={project.link}>
-              <div
-                className="project-list-item-placeholder"
-                style={{
-                  backgroundColor: `#${complementaryBorderColor}`,
-                }}
-              >
-                <h2
-                  className="project-list-item-title"
-                  style={{ color: `#${textColor(complementaryBorderColor)}` }}
-                >
-                  {project.title}
-                </h2>
-              </div>
-
-              <p>{project.subtitle}</p>
-            </Link>
+            {project.absolute ? (
+              <a className="project-list-item-link" href={project.link}>
+                {cardDetails(project, complementaryBorderColor)}
+              </a>
+            ) : (
+              <Link className="project-list-item-link" to={project.link}>
+                {cardDetails(project, complementaryBorderColor)}
+              </Link>
+            )}
           </li>
         );
       })}
