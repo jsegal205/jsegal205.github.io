@@ -17,15 +17,3 @@ main {
 .app-header {
   text-align: center;
 }
-
-.vote-banner {
-  background: #0071bc;
-  color: #efefef;
-  margin: 0 -2em;
-  padding: 2em;
-  text-align: center;
-}
-
-.vote-banner > a {
-  color: #efefef;
-}
