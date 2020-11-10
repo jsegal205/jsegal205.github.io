@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<div>
+  <section
+    class="loader"
+  >
+    <div
+      class="loader-wheel"
+    />
+    <div
+      class="loader-text"
+    >
+      Loading
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
+<div>
+  <section>
+    <h2>
+      Is Jim wearing shorts?
+    </h2>
+    <section>
+      <article>
+        There is a 
+        <strong>
+          50
+          %
+        </strong>
+         chance he is.
+      </article>
+      <br />
+      <article>
+        Based on the following criteria:
+        <ul>
+          <li>
+            criteria 1
+            : 
+            value 1
+          </li>
+        </ul>
+      </article>
+    </section>
+  </section>
+</div>
+`;
+
+exports[`Recipes Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
+<div>
+  <section>
+    <h3>
+      Whoops! There was a problem loading
+       
+      "Is Jim Wearing Shorts" data.
+    </h3>
+    <p>
+      Please reload browser to try again in a little bit.
+    </p>
+  </section>
+</div>
+`;
