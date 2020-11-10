@@ -42,7 +42,7 @@ exports[`TopNav Component Renders on all other routes 1`] = `
         class="topnav-list-item"
       >
         <a
-          href="/shorts"
+          href="/isJimWearingShorts"
           title="A site to predict if Jim is wearing shorts or not"
         >
           Is Jim Wearing Shorts?
