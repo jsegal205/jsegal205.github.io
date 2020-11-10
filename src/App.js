@@ -13,6 +13,7 @@ import CongressMembers from "./pages/congress/members";
 import CongressMember from "./pages/congress/member";
 import TopNav from "./components/topnav";
 import Home from "./pages/home";
+import Shorts from "./pages/shorts";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/congress" component={withTracker(Congress)} />
             <Route path="/recipes" component={withTracker(Recipes)} />
             <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
+            <Route path="/shorts" component={withTracker(Shorts)} />
             <Route path="/spacex" component={withTracker(SpaceX)} />
             <Route path="*" component={withTracker(NotFound)} />
           </Switch>

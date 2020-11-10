@@ -19,6 +19,11 @@ export const projectInfo = [
     title: "Recipes",
   },
   {
+    link: "/shorts",
+    subtitle: "A site to predict if Jim is wearing shorts or not",
+    title: "Is Jim Wearing Shorts?",
+  },
+  {
     link: "/spacex",
     subtitle: "A countdown timer until the next launch of a Space X rocket",
     title: "Space X",
