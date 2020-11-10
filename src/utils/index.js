@@ -19,7 +19,7 @@ export const projectInfo = [
     title: "Recipes",
   },
   {
-    link: "/shorts",
+    link: "/isJimWearingShorts",
     subtitle: "A site to predict if Jim is wearing shorts or not",
     title: "Is Jim Wearing Shorts?",
   },

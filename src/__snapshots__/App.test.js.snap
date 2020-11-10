@@ -92,7 +92,7 @@ exports[`renders correctly 1`] = `
         >
           <a
             class="project-list-item-link"
-            href="/shorts"
+            href="/isJimWearingShorts"
           >
             <div
               class="project-list-item-placeholder"

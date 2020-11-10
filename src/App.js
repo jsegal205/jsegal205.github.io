@@ -35,9 +35,9 @@ const App = () => {
               component={withTracker(CongressMember)}
             />
             <Route path="/congress" component={withTracker(Congress)} />
+            <Route path="/isJimWearingShorts" component={withTracker(Shorts)} />
             <Route path="/recipes" component={withTracker(Recipes)} />
             <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
-            <Route path="/shorts" component={withTracker(Shorts)} />
             <Route path="/spacex" component={withTracker(SpaceX)} />
             <Route path="*" component={withTracker(NotFound)} />
           </Switch>
