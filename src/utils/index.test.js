@@ -12,8 +12,8 @@ describe("UTILS - projectInfo", () => {
     expect(projectInfo.map((project) => project.title)).toEqual([
       "JimSegal.com",
       "Congress",
-      "Recipes",
       "Is Jim Wearing Shorts?",
+      "Recipes",
       "Space X",
     ]);
   });

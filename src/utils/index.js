@@ -14,14 +14,14 @@ export const projectInfo = [
     title: "Congress",
   },
   {
-    link: "/recipes",
-    subtitle: "A bunch of recipes that I frequent and wanted to show off",
-    title: "Recipes",
-  },
-  {
     link: "/isJimWearingShorts",
     subtitle: "A site to predict if Jim is wearing shorts or not",
     title: "Is Jim Wearing Shorts?",
+  },
+  {
+    link: "/recipes",
+    subtitle: "A bunch of recipes that I frequent and wanted to show off",
+    title: "Recipes",
   },
   {
     link: "/spacex",

@@ -32,20 +32,20 @@ exports[`TopNav Component Renders on all other routes 1`] = `
         class="topnav-list-item"
       >
         <a
-          href="/recipes"
-          title="A bunch of recipes that I frequent and wanted to show off"
+          href="/isJimWearingShorts"
+          title="A site to predict if Jim is wearing shorts or not"
         >
-          Recipes
+          Is Jim Wearing Shorts?
         </a>
       </li>
       <li
         class="topnav-list-item"
       >
         <a
-          href="/isJimWearingShorts"
-          title="A site to predict if Jim is wearing shorts or not"
+          href="/recipes"
+          title="A bunch of recipes that I frequent and wanted to show off"
         >
-          Is Jim Wearing Shorts?
+          Recipes
         </a>
       </li>
       <li
