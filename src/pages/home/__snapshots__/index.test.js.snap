@@ -60,30 +60,6 @@ exports[`Home Component renders correctly 1`] = `
       >
         <a
           class="project-list-item-link"
-          href="/recipes"
-        >
-          <div
-            class="project-list-item-placeholder"
-            style="background-color: rgb(0, 0, 0);"
-          >
-            <h2
-              class="project-list-item-title"
-              style="color: rgb(68, 68, 68);"
-            >
-              Recipes
-            </h2>
-          </div>
-          <p>
-            A bunch of recipes that I frequent and wanted to show off
-          </p>
-        </a>
-      </li>
-      <li
-        class="project-list-item"
-        style="border-color: #ffffff;"
-      >
-        <a
-          class="project-list-item-link"
           href="/isJimWearingShorts"
         >
           <div
@@ -99,6 +75,30 @@ exports[`Home Component renders correctly 1`] = `
           </div>
           <p>
             A site to predict if Jim is wearing shorts or not
+          </p>
+        </a>
+      </li>
+      <li
+        class="project-list-item"
+        style="border-color: #ffffff;"
+      >
+        <a
+          class="project-list-item-link"
+          href="/recipes"
+        >
+          <div
+            class="project-list-item-placeholder"
+            style="background-color: rgb(0, 0, 0);"
+          >
+            <h2
+              class="project-list-item-title"
+              style="color: rgb(68, 68, 68);"
+            >
+              Recipes
+            </h2>
+          </div>
+          <p>
+            A bunch of recipes that I frequent and wanted to show off
           </p>
         </a>
       </li>
