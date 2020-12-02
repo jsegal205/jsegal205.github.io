@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment, useRef } from "react";
 
 import useFetch from "../../utils/useFetch";
 import Error from "../../components/error";
@@ -20,7 +20,7 @@ const SpaceX = () => {
 
   const calcTimeToLaunch = () => {
     let timeLeft = {};
-    if (!loading) {
+    if (!loading && timeCalculated.current) {
       if (upcomingLaunch.error) {
         return timeLeft;
       }
@@ -43,9 +43,13 @@ const SpaceX = () => {
     return timeLeft;
   };
 
+  const timeCalculated = useRef(false);
   const [timeToLaunch, setTimeToLaunch] = useState(calcTimeToLaunch());
   useEffect(() => {
     const timer = setTimeout(() => {
+      if (!timeCalculated.current) {
+        timeCalculated.current = true;
+      }
       setTimeToLaunch(calcTimeToLaunch());
     }, 1000);
     return () => clearTimeout(timer);
@@ -66,7 +70,7 @@ const SpaceX = () => {
   });
 
   const launchDetails = () => {
-    if (loading) {
+    if (timeCalculated.current === false) {
       return null;
     }
 
@@ -87,7 +91,6 @@ const SpaceX = () => {
     return (
       <Fragment key={launch["mission_name"]}>
         <div className="spacex-mega">{timerComponents}</div>
-
         <h3>{launch["mission_name"]}</h3>
         <div className="spacex-item">
           <label>When:</label>
@@ -101,7 +104,6 @@ const SpaceX = () => {
           <label>Launch Site:</label>
           <span>{launch["launch_site"]["site_name_long"]}</span>
         </div>
-
         <div className="spacex-details">{launch["details"]}</div>
       </Fragment>
     );
@@ -110,7 +112,8 @@ const SpaceX = () => {
   return (
     <section className="spacex-container">
       <h2>Next Space X Launch</h2>
-      {loading && <Loading />}
+      {(loading || !timeCalculated.current) &&
+        !(upcomingLaunch && upcomingLaunch.error) && <Loading />}
       {upcomingLaunch && upcomingLaunch.error && (
         <Error componentName="SpaceX" />
       )}
