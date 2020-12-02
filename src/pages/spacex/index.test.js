@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import useFetch from "../../utils/useFetch";
 import SpaceX from "./index";
-import { render } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import { toMatchDiffSnapshot } from "snapshot-diff";
 
 expect.extend({ toMatchDiffSnapshot });
@@ -34,6 +34,7 @@ describe("SpaceX Component", () => {
     });
 
     it("displays data", () => {
+      jest.useFakeTimers();
       useFetch.mockReturnValue({
         loading: false,
         data: [
@@ -61,11 +62,15 @@ describe("SpaceX Component", () => {
           <SpaceX />
         </Router>
       );
+      act(() => {
+        jest.runAllTimers(); // trigger setTimeout
+      });
       expect(container).toMatchSnapshot();
     });
 
     describe("when no data returned", () => {
       it("displays no data", () => {
+        jest.useFakeTimers();
         useFetch.mockReturnValue({
           loading: false,
           data: [],
@@ -76,6 +81,9 @@ describe("SpaceX Component", () => {
             <SpaceX />
           </Router>
         );
+        act(() => {
+          jest.runAllTimers(); // trigger setTimeout
+        });
         expect(container).toMatchSnapshot();
       });
     });

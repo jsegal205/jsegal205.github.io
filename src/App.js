@@ -18,12 +18,12 @@ import Shorts from "./pages/shorts";
 const App = () => {
   return (
     <>
-      <header>
-        <h1 className="app-header">Jim Segal Projects</h1>
-      </header>
       <Router>
-        <article>
+        <header>
+          <h1 className="app-header">Jim Segal Projects</h1>
           <TopNav />
+        </header>
+        <article>
           <Switch>
             <Route exact path="/" component={withTracker(Home)} />
             <Route
