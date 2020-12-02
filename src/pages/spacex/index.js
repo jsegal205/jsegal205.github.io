@@ -70,7 +70,7 @@ const SpaceX = () => {
   });
 
   const launchDetails = () => {
-    if (timeCalculated.current === false) {
+    if (!timeCalculated.current) {
       return null;
     }
 

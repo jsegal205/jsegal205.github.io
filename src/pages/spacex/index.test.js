@@ -23,7 +23,6 @@ describe("SpaceX Component", () => {
           <SpaceX />
         </Router>
       );
-
       expect(container).toMatchSnapshot();
     });
   });
