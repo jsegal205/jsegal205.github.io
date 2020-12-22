@@ -146,6 +146,7 @@ const MountainGoat = () => {
         return { ...acc, [curr]: [] };
       }, {});
 
+      // make this dynamic based on defaultSettings.diceRolls
       const diceCombos = [
         ["d1"],
         ["d2"],
@@ -178,11 +179,14 @@ const MountainGoat = () => {
         return (
           <>
             <div>{peak}</div>
-            <ul>
-              {allCombos[peak].map((combos) => (
-                <li>{JSON.stringify(combos)}</li>
-              ))}
-            </ul>
+            {!allCombos[peak].length && <div>No combinations</div>}
+            {!!allCombos[peak].length && (
+              <ul>
+                {allCombos[peak].map((combos) => (
+                  <li>{JSON.stringify(combos)}</li>
+                ))}
+              </ul>
+            )}
           </>
         );
       });
