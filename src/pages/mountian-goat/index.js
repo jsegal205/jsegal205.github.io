@@ -46,7 +46,12 @@ const MountainGoat = () => {
 
   const AddPlayer = () => {
     const [playerName, setPlayerName] = useState("");
-    let canAddPlayer = playerName.trim() !== "";
+
+    const blankPlayerName = playerName.trim() === "";
+    const dupeName = gameState.players
+      .map((player) => player.name)
+      .includes(playerName.trim());
+
     if (gameState.players.length === gameState.setup.maxPlayers) {
       return null;
     }
@@ -84,7 +89,7 @@ const MountainGoat = () => {
         totalPoints: 0,
       };
 
-      if (canAddPlayer) {
+      if (!blankPlayerName && !dupeName) {
         setGameState({
           ...gameState,
           players: [...gameState.players, newPlayer],
@@ -100,11 +105,12 @@ const MountainGoat = () => {
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
         />
-        <button disabled={!canAddPlayer} onClick={handleOnClick}>
+        <button disabled={blankPlayerName || dupeName} onClick={handleOnClick}>
           Add new player
         </button>
 
-        {!canAddPlayer && <label>Please enter player name</label>}
+        {blankPlayerName && <label>Please enter player name</label>}
+        {dupeName && <label>Name already taken</label>}
       </div>
     );
   };
@@ -258,7 +264,6 @@ const MountainGoat = () => {
           <li>game board ui</li>
           <li>cool animation for dice roll?</li>
           <li>goat noise when goat moves</li>
-          <li>no duplicate names</li>
         </ul>
       </section>
 
