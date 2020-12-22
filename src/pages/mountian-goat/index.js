@@ -121,7 +121,7 @@ const MountainGoat = () => {
     );
     const [currentTurn, setCurrentTurn] = useState({
       rolls: {},
-      possiblePaths: {},
+      showOutcomes: false,
     });
 
     /*
@@ -221,15 +221,47 @@ const MountainGoat = () => {
           <>
             <h4>Roll Results</h4>
             {Object.keys(currentTurn.rolls).map((diceKey) => {
+              // make these checkboxes
+              // add stage dice section, allow removal from stage dice section, disable dice that have been staged
+              // show popup if all dice not used before submitting
+              // add submit section button that
               return (
                 <div>
                   {diceKey} -{">"} {currentTurn.rolls[diceKey]}
                 </div>
               );
             })}
-            <hr />
-            <div>Possible Outcomes</div>
-            {possiblePaths(currentTurn.rolls)}
+
+            {!currentTurn.showOutcomes && (
+              <>
+                <span>Need some help with dice outcomes?</span>
+                <span>
+                  <button
+                    onClick={() => {
+                      setCurrentTurn({ ...currentTurn, showOutcomes: true });
+                    }}
+                  >
+                    Click here
+                  </button>
+                </span>
+              </>
+            )}
+
+            {currentTurn.showOutcomes && (
+              <>
+                <hr />
+                <div>Possible Outcomes</div>
+                <button
+                  onClick={() => {
+                    setCurrentTurn({ ...currentTurn, showOutcomes: false });
+                  }}
+                >
+                  Hide Outcomes
+                </button>
+
+                {possiblePaths(currentTurn.rolls)}
+              </>
+            )}
           </>
         )}
       </>
@@ -268,6 +300,8 @@ const MountainGoat = () => {
           <li>game board ui</li>
           <li>cool animation for dice roll?</li>
           <li>goat noise when goat moves</li>
+          <li>pressing enter in add player input, adds player</li>
+          <li>style the shit out of it</li>
         </ul>
       </section>
 
