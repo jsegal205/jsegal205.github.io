@@ -136,10 +136,6 @@ const MountainGoat = () => {
     const rollTheDice = () => Math.ceil(Math.random() * Math.floor(6));
 
     const possiblePaths = (rolls) => {
-      // const peakValues = defaultGameState.setup.mountain.map(
-      //   (peak) => peak.value
-      // );
-
       const allCombos = peakValues.reduce((acc, curr) => {
         return { ...acc, [curr]: [] };
       }, {});
@@ -255,10 +251,9 @@ const MountainGoat = () => {
         TODO:
         <ul>
           <li>player turn logic, roll dice, choose numbers, complete turn</li>
-          <li> figure out dice combo logic </li>
           <li>game rules: double 1 rolled (chose any number)</li>
           <li>
-            add points when moving to the top, remove exisiting goats at top,{" "}
+            add points when moving to the top, remove exisiting goats at top
           </li>
           <li>game board ui</li>
           <li>cool animation for dice roll?</li>
