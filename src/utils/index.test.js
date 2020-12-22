@@ -8,11 +8,12 @@ describe("UTILS - apiUrlBase", () => {
 
 describe("UTILS - projectInfo", () => {
   it("returns array of project info", () => {
-    expect(projectInfo.length).toEqual(5);
+    expect(projectInfo.length).toEqual(6);
     expect(projectInfo.map((project) => project.title)).toEqual([
       "JimSegal.com",
       "Congress",
       "Is Jim Wearing Shorts?",
+      "Mountain Goat Game",
       "Recipes",
       "Space X",
     ]);

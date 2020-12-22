@@ -19,6 +19,11 @@ export const projectInfo = [
     title: "Is Jim Wearing Shorts?",
   },
   {
+    link: "mountaingoat",
+    subtitle: "Digital game",
+    title: "Mountain Goat Game",
+  },
+  {
     link: "/recipes",
     subtitle: "A bunch of recipes that I frequent and wanted to show off",
     title: "Recipes",

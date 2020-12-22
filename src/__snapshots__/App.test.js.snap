@@ -92,6 +92,30 @@ exports[`renders correctly 1`] = `
         >
           <a
             class="project-list-item-link"
+            href="/mountaingoat"
+          >
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                Mountain Goat Game
+              </h2>
+            </div>
+            <p>
+              Digital game
+            </p>
+          </a>
+        </li>
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
+          <a
+            class="project-list-item-link"
             href="/recipes"
           >
             <div
