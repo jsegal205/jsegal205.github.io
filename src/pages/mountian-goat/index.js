@@ -173,11 +173,13 @@ const MountainGoat = () => {
             [sum]: allCombos[sum].push(combo),
           };
         }
+
+        return allCombos;
       });
 
       return Object.keys(allCombos).map((peak) => {
         return (
-          <>
+          <div key={peak}>
             <div>{peak}</div>
             {!allCombos[peak].length && <div>No combinations</div>}
             {!!allCombos[peak].length && (
@@ -187,7 +189,7 @@ const MountainGoat = () => {
                 ))}
               </ul>
             )}
-          </>
+          </div>
         );
       });
     };
@@ -217,7 +219,7 @@ const MountainGoat = () => {
           </section>
         )}
 
-        {Object.keys(currentTurn.rolls).length && (
+        {!!Object.keys(currentTurn.rolls).length && (
           <>
             <h4>Roll Results</h4>
             {Object.keys(currentTurn.rolls).map((diceKey) => {
@@ -226,7 +228,7 @@ const MountainGoat = () => {
               // show popup if all dice not used before submitting
               // add submit section button that
               return (
-                <div>
+                <div key={diceKey}>
                   {diceKey} -{">"} {currentTurn.rolls[diceKey]}
                 </div>
               );
@@ -316,11 +318,11 @@ const MountainGoat = () => {
       {!!gameState.players.length && (
         <>
           <h3>Players</h3>
-          {gameState.players.map((player) => (
-            <ul>
+          <ul>
+            {gameState.players.map((player) => (
               <li key={player.name}>Goat {player.name}</li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </>
       )}
 
@@ -341,7 +343,7 @@ const MountainGoat = () => {
             <li>roll the dice</li>
             <li>choose dice values that correspond to mountain peaks </li>
           </ul>
-          <h3>Game Board</h3>
+          {/* <h3>Game Board</h3>
           {defaultGameState.setup.mountain.map((peak) => (
             <>
               <div
@@ -352,7 +354,7 @@ const MountainGoat = () => {
                 }}
               ></div>
             </>
-          ))}
+          ))} */}
 
           {<PlayerTurn player={gameState.players[0]} />}
         </section>
