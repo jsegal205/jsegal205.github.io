@@ -301,9 +301,50 @@ const MountainGoat = () => {
             {!!currentTurn.stagedRolls.length && (
               <div>
                 here are the staged rolls
-                {currentTurn.stagedRolls.map((stage) => (
-                  <div>{stage}</div>
-                ))}
+                {currentTurn.stagedRolls.map((stage) => {
+                  const total = stage.reduce(
+                    (acc, current) => acc + currentTurn.rolls[current].value,
+                    0
+                  );
+                  const peakValues = defaultGameState.setup.mountain.map(
+                    (peak) => peak.value
+                  );
+
+                  return (
+                    <div style={{ border: "2px solid black" }}>
+                      {stage.map((stagedRoll) => (
+                        <div>
+                          {stagedRoll} {"->"}{" "}
+                          {currentTurn.rolls[stagedRoll].value}
+                        </div>
+                      ))}
+                      <label>total: {total}</label>
+                      {!peakValues.includes(total) && (
+                        <label>This doesn't match a peak!</label>
+                      )}
+                      <button
+                        onClick={() => {
+                          const stagingRolls = JSON.parse(
+                            JSON.stringify(currentTurn.rolls)
+                          );
+                          stage.forEach((stagedRoll) => {
+                            stagingRolls[stagedRoll].staged = false;
+                          });
+
+                          setCurrentTurn({
+                            ...currentTurn,
+                            rolls: stagingRolls,
+                            stagedRolls: currentTurn.stagedRolls.filter(
+                              (staged) => staged !== stage
+                            ),
+                          });
+                        }}
+                      >
+                        Unstage
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             )}
 
