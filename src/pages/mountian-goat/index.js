@@ -122,20 +122,20 @@ const MountainGoat = () => {
     const [currentTurn, setCurrentTurn] = useState({
       rolls: {},
       showOutcomes: false,
+      stagedRolls: [],
+      toBeStaged: [],
     });
 
     /*
       roll dice,
       pick outcomes,
         if multiple 1 rolled, pick any number
-        show all possible outcomes as checkboxes ,
-
-          with end turn
-      move goats,
-        if at top of mountain
-          overthrow goat,
-          take points,
-          don't go down far side of the mountain
+      with end turn
+        move goats,
+          if at top of mountain
+            overthrow goat,
+            take points,
+            don't go down far side of the mountain
       end turn
     */
 
@@ -166,7 +166,7 @@ const MountainGoat = () => {
       ];
 
       diceCombos.map((combo) => {
-        const sum = combo.reduce((acc, curr) => acc + rolls[curr], 0);
+        const sum = combo.reduce((acc, curr) => acc + rolls[curr].value, 0);
         if (peakValues.includes(sum)) {
           return {
             ...allCombos,
@@ -185,7 +185,7 @@ const MountainGoat = () => {
             {!!allCombos[peak].length && (
               <ul>
                 {allCombos[peak].map((combos) => (
-                  <li>{JSON.stringify(combos)}</li>
+                  <li key={JSON.stringify(combos)}>{JSON.stringify(combos)}</li>
                 ))}
               </ul>
             )}
@@ -197,18 +197,22 @@ const MountainGoat = () => {
     return (
       <>
         <h3>Current Player: {player.name}</h3>
-        {!currentTurn.rolls.length && (
+        {Object.keys(currentTurn.rolls).length === 0 && (
           <section>
             Click to roll {defaultGameState.setup.diceRolls} dice!
             <button
               onClick={() => {
-                const rolls = { d1: 0, d2: 0, d3: 0, d4: 0 };
+                const rolls = { d1: {}, d2: {}, d3: {}, d4: {} };
                 for (
                   let rollNum = 0;
                   rollNum < defaultGameState.setup.diceRolls;
                   rollNum++
                 ) {
-                  rolls[`d${rollNum + 1}`] = rollTheDice();
+                  rolls[`d${rollNum + 1}`] = {
+                    value: rollTheDice(),
+                    staged: false,
+                    checked: false,
+                  };
                 }
 
                 setCurrentTurn({ ...currentTurn, rolls });
@@ -229,13 +233,82 @@ const MountainGoat = () => {
               // add submit section button that
               return (
                 <div key={diceKey}>
-                  {diceKey} -{">"} {currentTurn.rolls[diceKey]}
+                  <input
+                    type="checkbox"
+                    value={diceKey}
+                    name={diceKey}
+                    id={diceKey}
+                    disabled={!!currentTurn.rolls[diceKey].staged}
+                    checked={!!currentTurn.rolls[diceKey].checked}
+                    onClick={(e) => {
+                      let toBeStaged = [];
+                      if (currentTurn.toBeStaged.includes(e.target.value)) {
+                        toBeStaged = currentTurn.toBeStaged.filter(
+                          (s) => s !== e.target.value
+                        );
+                      } else {
+                        toBeStaged = [
+                          ...currentTurn.toBeStaged,
+                          e.target.value,
+                        ];
+                      }
+
+                      setCurrentTurn({
+                        ...currentTurn,
+                        rolls: {
+                          ...currentTurn.rolls,
+                          [diceKey]: {
+                            ...currentTurn.rolls[diceKey],
+                            checked: e.target.checked,
+                          },
+                        },
+                        toBeStaged,
+                      });
+                    }}
+                  />
+                  <label htmlFor={diceKey}>
+                    {diceKey} -{">"} {currentTurn.rolls[diceKey].value}
+                  </label>
                 </div>
               );
             })}
 
+            <button
+              disabled={!currentTurn.toBeStaged.length}
+              onClick={() => {
+                const stagingRolls = JSON.parse(
+                  JSON.stringify(currentTurn.rolls)
+                );
+                currentTurn.toBeStaged.forEach((stage) => {
+                  stagingRolls[stage].checked = false;
+                  stagingRolls[stage].staged = true;
+                });
+
+                setCurrentTurn({
+                  ...currentTurn,
+                  rolls: stagingRolls,
+                  stagedRolls: [
+                    ...currentTurn.stagedRolls,
+                    currentTurn.toBeStaged,
+                  ],
+                  toBeStaged: [],
+                });
+              }}
+            >
+              Stage Rolls
+            </button>
+
+            {!!currentTurn.stagedRolls.length && (
+              <div>
+                here are the staged rolls
+                {currentTurn.stagedRolls.map((stage) => (
+                  <div>{stage}</div>
+                ))}
+              </div>
+            )}
+
             {!currentTurn.showOutcomes && (
-              <>
+              <div>
                 <span>Need some help with dice outcomes?</span>
                 <span>
                   <button
@@ -246,7 +319,7 @@ const MountainGoat = () => {
                     Click here
                   </button>
                 </span>
-              </>
+              </div>
             )}
 
             {currentTurn.showOutcomes && (
@@ -290,7 +363,7 @@ const MountainGoat = () => {
           Mountain Goats on Board Game Tables
         </a>
       </section>
-
+      {/*
       <section>
         TODO:
         <ul>
@@ -305,7 +378,7 @@ const MountainGoat = () => {
           <li>pressing enter in add player input, adds player</li>
           <li>style the shit out of it</li>
         </ul>
-      </section>
+      </section> */}
 
       {!gameState.gameStarted && (
         <section>
