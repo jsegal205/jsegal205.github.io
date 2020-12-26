@@ -39,6 +39,7 @@ const defaultGameState = {
     ],
   },
   gameStarted: false,
+  currentPlayer: -1,
 };
 
 const MountainGoat = () => {
@@ -120,6 +121,7 @@ const MountainGoat = () => {
       (peak) => peak.value
     );
     const [currentTurn, setCurrentTurn] = useState({
+      playerNumber: player.number,
       rolls: {},
       showOutcomes: false,
       stagedRolls: [],
@@ -299,53 +301,94 @@ const MountainGoat = () => {
             </button>
 
             {!!currentTurn.stagedRolls.length && (
-              <div>
-                here are the staged rolls
-                {currentTurn.stagedRolls.map((stage) => {
-                  const total = stage.reduce(
-                    (acc, current) => acc + currentTurn.rolls[current].value,
-                    0
-                  );
-                  const peakValues = defaultGameState.setup.mountain.map(
-                    (peak) => peak.value
-                  );
+              <section>
+                <div>
+                  here are the staged rolls
+                  {currentTurn.stagedRolls.map((stage) => {
+                    const total = stage.reduce(
+                      (acc, current) => acc + currentTurn.rolls[current].value,
+                      0
+                    );
+                    const peakValues = defaultGameState.setup.mountain.map(
+                      (peak) => peak.value
+                    );
 
-                  return (
-                    <div style={{ border: "2px solid black" }}>
-                      {stage.map((stagedRoll) => (
-                        <div>
-                          {stagedRoll} {"->"}{" "}
-                          {currentTurn.rolls[stagedRoll].value}
-                        </div>
-                      ))}
-                      <label>total: {total}</label>
-                      {!peakValues.includes(total) && (
-                        <label>This doesn't match a peak!</label>
-                      )}
-                      <button
-                        onClick={() => {
-                          const stagingRolls = JSON.parse(
-                            JSON.stringify(currentTurn.rolls)
-                          );
-                          stage.forEach((stagedRoll) => {
-                            stagingRolls[stagedRoll].staged = false;
-                          });
+                    return (
+                      <div style={{ border: "2px solid black" }}>
+                        {stage.map((stagedRoll) => (
+                          <div>
+                            {stagedRoll} {"->"}{" "}
+                            {currentTurn.rolls[stagedRoll].value}
+                          </div>
+                        ))}
+                        <label>total: {total}</label>
+                        {!peakValues.includes(total) && (
+                          <label>This doesn't match a peak!</label>
+                        )}
+                        <button
+                          onClick={() => {
+                            const stagingRolls = JSON.parse(
+                              JSON.stringify(currentTurn.rolls)
+                            );
+                            stage.forEach((stagedRoll) => {
+                              stagingRolls[stagedRoll].staged = false;
+                            });
 
-                          setCurrentTurn({
-                            ...currentTurn,
-                            rolls: stagingRolls,
-                            stagedRolls: currentTurn.stagedRolls.filter(
-                              (staged) => staged !== stage
-                            ),
-                          });
-                        }}
-                      >
-                        Unstage
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+                            setCurrentTurn({
+                              ...currentTurn,
+                              rolls: stagingRolls,
+                              stagedRolls: currentTurn.stagedRolls.filter(
+                                (staged) => staged !== stage
+                              ),
+                            });
+                          }}
+                        >
+                          Unstage
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <button
+                  onClick={() => {
+                    const workingPlayers = [...gameState.players];
+                    const idx = workingPlayers.findIndex(
+                      (player) => player.number === currentTurn.playerNumber
+                    );
+                    const player = JSON.parse(
+                      JSON.stringify(workingPlayers[idx])
+                    );
+
+                    currentTurn.stagedRolls.map((stage) => {
+                      const total = stage.reduce(
+                        (acc, current) =>
+                          acc + currentTurn.rolls[current].value,
+                        0
+                      );
+
+                      player.goats[total].currentPosition += 1;
+                    });
+
+                    workingPlayers[idx] = player;
+
+                    let nextPlayer = (gameState.currentPlayer += 1);
+                    if (nextPlayer > gameState.players.length - 1) {
+                      nextPlayer = 0;
+                    }
+
+                    setGameState({
+                      ...gameState,
+                      players: workingPlayers,
+                      currentPlayer: nextPlayer,
+                    });
+                    // setGameState({players})
+                    // take totals from each stage
+                  }}
+                >
+                  Finish turn
+                </button>
+              </section>
             )}
 
             {!currentTurn.showOutcomes && (
@@ -443,7 +486,13 @@ const MountainGoat = () => {
       {!gameState.gameStarted && gameState.players.length > 1 && (
         <section>
           <button
-            onClick={() => setGameState({ ...gameState, gameStarted: true })}
+            onClick={() =>
+              setGameState({
+                ...gameState,
+                gameStarted: true,
+                currentPlayer: 0,
+              })
+            }
           >
             Start the game!
           </button>
@@ -470,7 +519,7 @@ const MountainGoat = () => {
             </>
           ))} */}
 
-          {<PlayerTurn player={gameState.players[0]} />}
+          {<PlayerTurn player={gameState.players[gameState.currentPlayer]} />}
         </section>
       )}
     </main>
