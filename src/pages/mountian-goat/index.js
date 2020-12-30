@@ -2,41 +2,47 @@ import React, { useState } from "react";
 
 const defaultGameState = {
   players: [],
+  mountainPeaks: {
+    5: {
+      value: 5,
+      size: 4,
+      points: 10,
+      goats: {},
+    },
+    6: {
+      value: 6,
+      size: 4,
+      points: 9,
+      goats: {},
+    },
+    7: {
+      value: 7,
+      size: 3,
+      points: 8,
+      goats: {},
+    },
+    8: {
+      value: 8,
+      size: 3,
+      points: 7,
+      goats: {},
+    },
+    9: {
+      value: 9,
+      size: 2,
+      points: 6,
+      goats: {},
+    },
+    10: {
+      value: 10,
+      size: 2,
+      points: 5,
+      goats: {},
+    },
+  },
   setup: {
     maxPlayers: 4,
     diceRolls: 4,
-    mountain: [
-      {
-        value: 5,
-        size: 4,
-        points: 10,
-      },
-      {
-        value: 6,
-        size: 4,
-        points: 9,
-      },
-      {
-        value: 7,
-        size: 3,
-        points: 8,
-      },
-      {
-        value: 8,
-        size: 3,
-        points: 7,
-      },
-      {
-        value: 9,
-        size: 2,
-        points: 6,
-      },
-      {
-        value: 10,
-        size: 2,
-        points: 5,
-      },
-    ],
   },
   gameStarted: false,
   currentPlayer: -1,
@@ -61,32 +67,6 @@ const MountainGoat = () => {
       const newPlayer = {
         number: gameState.players.length + 1,
         name: playerName,
-        goats: {
-          5: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-          6: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-          7: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-          8: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-          9: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-          10: {
-            currentPosition: 0,
-            timesPeaked: 0,
-          },
-        },
         totalPoints: 0,
       };
 
@@ -117,9 +97,7 @@ const MountainGoat = () => {
   };
 
   const PlayerTurn = ({ player }) => {
-    const peakValues = defaultGameState.setup.mountain.map(
-      (peak) => peak.value
-    );
+    const peakValues = Object.keys(defaultGameState.mountainPeaks);
     const [currentTurn, setCurrentTurn] = useState({
       playerNumber: player.number,
       rolls: {},
@@ -229,10 +207,6 @@ const MountainGoat = () => {
           <>
             <h4>Roll Results</h4>
             {Object.keys(currentTurn.rolls).map((diceKey) => {
-              // make these checkboxes
-              // add stage dice section, allow removal from stage dice section, disable dice that have been staged
-              // show popup if all dice not used before submitting
-              // add submit section button that
               return (
                 <div key={diceKey}>
                   <input
@@ -242,6 +216,7 @@ const MountainGoat = () => {
                     id={diceKey}
                     disabled={!!currentTurn.rolls[diceKey].staged}
                     checked={!!currentTurn.rolls[diceKey].checked}
+                    onChange={(e) => {}}
                     onClick={(e) => {
                       let toBeStaged = [];
                       if (currentTurn.toBeStaged.includes(e.target.value)) {
@@ -274,7 +249,7 @@ const MountainGoat = () => {
                 </div>
               );
             })}
-
+            {/* show popup if all dice not used before submitting */}
             <button
               disabled={!currentTurn.toBeStaged.length}
               onClick={() => {
@@ -299,30 +274,27 @@ const MountainGoat = () => {
             >
               Stage Rolls
             </button>
-
             {!!currentTurn.stagedRolls.length && (
               <section>
                 <div>
                   here are the staged rolls
-                  {currentTurn.stagedRolls.map((stage) => {
+                  {currentTurn.stagedRolls.map((stage, idx) => {
                     const total = stage.reduce(
                       (acc, current) => acc + currentTurn.rolls[current].value,
                       0
                     );
-                    const peakValues = defaultGameState.setup.mountain.map(
-                      (peak) => peak.value
-                    );
+                    const peakValues = Object.keys(gameState.mountainPeaks);
 
                     return (
-                      <div style={{ border: "2px solid black" }}>
+                      <div key={idx} style={{ border: "2px solid black" }}>
                         {stage.map((stagedRoll) => (
-                          <div>
+                          <div key={stagedRoll}>
                             {stagedRoll} {"->"}{" "}
                             {currentTurn.rolls[stagedRoll].value}
                           </div>
                         ))}
-                        <label>total: {total}</label>
-                        {!peakValues.includes(total) && (
+                        <label>Total: {total}</label>
+                        {!peakValues.includes(total.toString()) && (
                           <label>This doesn't match a peak!</label>
                         )}
                         <button
@@ -352,25 +324,21 @@ const MountainGoat = () => {
 
                 <button
                   onClick={() => {
-                    const workingPlayers = [...gameState.players];
-                    const idx = workingPlayers.findIndex(
-                      (player) => player.number === currentTurn.playerNumber
-                    );
-                    const player = JSON.parse(
-                      JSON.stringify(workingPlayers[idx])
+                    const workingMountains = JSON.parse(
+                      JSON.stringify(gameState.mountainPeaks)
                     );
 
-                    currentTurn.stagedRolls.map((stage) => {
+                    currentTurn.stagedRolls.forEach((stage) => {
                       const total = stage.reduce(
                         (acc, current) =>
                           acc + currentTurn.rolls[current].value,
                         0
                       );
 
-                      player.goats[total].currentPosition += 1;
+                      workingMountains[total].goats[
+                        currentTurn.playerNumber
+                      ] += 1;
                     });
-
-                    workingPlayers[idx] = player;
 
                     let nextPlayer = (gameState.currentPlayer += 1);
                     if (nextPlayer > gameState.players.length - 1) {
@@ -379,18 +347,16 @@ const MountainGoat = () => {
 
                     setGameState({
                       ...gameState,
-                      players: workingPlayers,
+
+                      mountainPeaks: workingMountains,
                       currentPlayer: nextPlayer,
                     });
-                    // setGameState({players})
-                    // take totals from each stage
                   }}
                 >
                   Finish turn
                 </button>
               </section>
             )}
-
             {!currentTurn.showOutcomes && (
               <div>
                 <span>Need some help with dice outcomes?</span>
@@ -405,7 +371,6 @@ const MountainGoat = () => {
                 </span>
               </div>
             )}
-
             {currentTurn.showOutcomes && (
               <>
                 <hr />
@@ -486,13 +451,32 @@ const MountainGoat = () => {
       {!gameState.gameStarted && gameState.players.length > 1 && (
         <section>
           <button
-            onClick={() =>
+            onClick={() => {
+              const defaultGoatState = gameState.players.reduce(
+                (acc, player) => {
+                  return { ...acc, [player.number]: 0 };
+                },
+                {}
+              );
+
+              const workingMountains = JSON.parse(
+                JSON.stringify(gameState.mountainPeaks)
+              );
+
+              Object.keys(workingMountains).forEach((peak) => {
+                workingMountains[peak] = {
+                  ...workingMountains[peak],
+                  goats: defaultGoatState,
+                };
+              });
+
               setGameState({
                 ...gameState,
                 gameStarted: true,
                 currentPlayer: 0,
-              })
-            }
+                mountainPeaks: workingMountains,
+              });
+            }}
           >
             Start the game!
           </button>
@@ -507,15 +491,18 @@ const MountainGoat = () => {
             <li>choose dice values that correspond to mountain peaks </li>
           </ul>
           {/* <h3>Game Board</h3>
-          {defaultGameState.setup.mountain.map((peak) => (
+          {gameState.mountainPeaks.map((peak) => (
             <>
               <div
                 style={{
                   border: "2px solid black",
                   height: "10px",
                   width: "10px",
+                  display: "inline-block",
                 }}
-              ></div>
+              >
+                {peak.size}
+              </div>
             </>
           ))} */}
 
