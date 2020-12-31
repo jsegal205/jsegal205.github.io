@@ -490,10 +490,9 @@ const MountainGoat = () => {
         TODO:
         <ul>
           <li>game rules: double 1 rolled (chose any number)</li>
-          <li>
-          add points when moving to the top, remove exisiting goats at top
-          </li>
-
+          <li>add player point token data store</li>
+          <li> add bonus points pointing </li>
+          <li> add end game scenarios - 3 peaks out of tokens, all 4 bonus tokens taken</li>
           <li>style the shit out of it</li>
           <li>pressing enter in add player input, adds player</li>
           <li>cool animation for dice roll?</li>
