@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./goat.css";
+
 const defaultGameState = {
   players: [],
   mountainPeaks: {
@@ -90,8 +92,10 @@ const MountainGoat = () => {
           Add new player
         </button>
 
-        {blankPlayerName && <label>Please enter player name</label>}
-        {dupeName && <label>Name already taken</label>}
+        {blankPlayerName && (
+          <label className="error-text">Please enter player name</label>
+        )}
+        {dupeName && <label className="error-text">Name already taken</label>}
       </div>
     );
   };
@@ -272,12 +276,12 @@ const MountainGoat = () => {
                 });
               }}
             >
-              Stage Rolls
+              Use selected
             </button>
             {!!currentTurn.stagedRolls.length && (
               <section>
-                <div>
-                  here are the staged rolls
+                <h4>Here are the grouped rolls</h4>
+                <div className="current-grouped-rolls">
                   {currentTurn.stagedRolls.map((stage, idx) => {
                     const total = stage.reduce(
                       (acc, current) => acc + currentTurn.rolls[current].value,
@@ -286,7 +290,7 @@ const MountainGoat = () => {
                     const peakValues = Object.keys(gameState.mountainPeaks);
 
                     return (
-                      <div key={idx} style={{ border: "2px solid black" }}>
+                      <div key={idx} className="grouped-roll">
                         {stage.map((stagedRoll) => (
                           <div key={stagedRoll}>
                             {stagedRoll} {"->"}{" "}
@@ -295,9 +299,15 @@ const MountainGoat = () => {
                         ))}
                         <label>Total: {total}</label>
                         {!peakValues.includes(total.toString()) && (
-                          <label>This doesn't match a peak!</label>
+                          <label
+                            className="error-text"
+                            style={{ display: "block" }}
+                          >
+                            This doesn't match a peak!
+                          </label>
                         )}
                         <button
+                          style={{ display: "block" }}
                           onClick={() => {
                             const stagingRolls = JSON.parse(
                               JSON.stringify(currentTurn.rolls)
@@ -315,7 +325,7 @@ const MountainGoat = () => {
                             });
                           }}
                         >
-                          Unstage
+                          Remove
                         </button>
                       </div>
                     );
@@ -335,26 +345,32 @@ const MountainGoat = () => {
                         0
                       );
 
-                      const currentPlayerName = gameState.players.find(
-                        (player) => player.number === currentTurn.playerNumber
-                      ).name;
-                      const { goats } = workingMountains[total];
-                      let currentPosition = -1;
-                      Object.keys(goats).forEach((key) => {
-                        if (goats[key].includes(currentPlayerName)) {
-                          currentPosition = parseInt(key);
-                        }
-                      });
+                      if (
+                        Object.keys(defaultGameState.mountainPeaks).includes(
+                          total.toString()
+                        )
+                      ) {
+                        const currentPlayerName = gameState.players.find(
+                          (player) => player.number === currentTurn.playerNumber
+                        ).name;
+                        const { goats } = workingMountains[total];
+                        let currentPosition = -1;
+                        Object.keys(goats).forEach((key) => {
+                          if (goats[key].includes(currentPlayerName)) {
+                            currentPosition = parseInt(key);
+                          }
+                        });
 
-                      goats[currentPosition] = goats[currentPosition].filter(
-                        (playerName) => playerName !== currentPlayerName
-                      );
-                      goats[currentPosition + 1] = [
-                        ...goats[currentPosition + 1],
-                        currentPlayerName,
-                      ];
+                        goats[currentPosition] = goats[currentPosition].filter(
+                          (playerName) => playerName !== currentPlayerName
+                        );
+                        goats[currentPosition + 1] = [
+                          ...goats[currentPosition + 1],
+                          currentPlayerName,
+                        ];
 
-                      workingMountains[total].goats = goats;
+                        workingMountains[total].goats = goats;
+                      }
                     });
 
                     let nextPlayer = (gameState.currentPlayer += 1);
@@ -408,6 +424,9 @@ const MountainGoat = () => {
     );
   };
 
+  const getGoatsByPeak = (peak, position) =>
+    gameState.mountainPeaks[peak].goats[position].join(", ");
+
   return (
     <main>
       <h2>Mountain Goat Game</h2>
@@ -432,16 +451,16 @@ const MountainGoat = () => {
       <section>
         TODO:
         <ul>
-          <li>player turn logic, roll dice, choose numbers, complete turn</li>
           <li>game rules: double 1 rolled (chose any number)</li>
           <li>
-            add points when moving to the top, remove exisiting goats at top
+          add points when moving to the top, remove exisiting goats at top
           </li>
-          <li>game board ui</li>
+
+          <li>style the shit out of it</li>
+          <li>pressing enter in add player input, adds player</li>
           <li>cool animation for dice roll?</li>
           <li>goat noise when goat moves</li>
-          <li>pressing enter in add player input, adds player</li>
-          <li>style the shit out of it</li>
+          <li>create history log of all moves that happened in the game</li>
         </ul>
       </section> */}
 
@@ -510,90 +529,59 @@ const MountainGoat = () => {
             <li>choose dice values that correspond to mountain peaks </li>
           </ul>
           <h3>Game Board</h3>
-
-          <div style={{ border: "2px solid black" }}>
-            <h4>5</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[5].goats[4].join(", ")}
+          <div className="game-board">
+            <div className="peak">
+              <h4>5</h4>
+              <div>Points tokens left: {gameState.mountainPeaks[5].points}</div>
+              <div className="peak-point">{getGoatsByPeak(5, 4)}</div>
+              <div className="peak-point">{getGoatsByPeak(5, 3)}</div>
+              <div className="peak-point">{getGoatsByPeak(5, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(5, 1)}</div>
+              <div className="peak-point peak-zero">{getGoatsByPeak(5, 0)}</div>
             </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[5].goats[3].join(", ")}
+            <div className="peak">
+              <h4>6</h4>
+              <div>Points tokens left: {gameState.mountainPeaks[6].points}</div>
+              <div className="peak-point">{getGoatsByPeak(6, 4)}</div>
+              <div className="peak-point">{getGoatsByPeak(6, 3)}</div>
+              <div className="peak-point">{getGoatsByPeak(6, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(6, 1)}</div>
+              <div className="peak-point peak-zero">{getGoatsByPeak(6, 0)}</div>
             </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[5].goats[2].join(", ")}
+            <div className="peak">
+              <h4>7</h4>
+              <div>Points tokens left: {gameState.mountainPeaks[7].points}</div>
+              <div className="peak-point">{getGoatsByPeak(7, 3)}</div>
+              <div className="peak-point">{getGoatsByPeak(7, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(7, 1)}</div>
+              <div className="peak-point peak-zero">{getGoatsByPeak(7, 0)}</div>
             </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[5].goats[1].join(", ")}
+            <div className="peak">
+              <h4>8</h4>
+              <div>Points tokens left: {gameState.mountainPeaks[8].points}</div>
+              <div className="peak-point">{getGoatsByPeak(8, 3)}</div>
+              <div className="peak-point">{getGoatsByPeak(8, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(8, 1)}</div>
+              <div className="peak-point peak-zero">{getGoatsByPeak(8, 0)}</div>
             </div>
-            <div>{gameState.mountainPeaks[5].goats[0].join(", ")}</div>
-          </div>
-          <div style={{ border: "2px solid black" }}>
-            <h4>6</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[6].goats[4].join(", ")}
+            <div className="peak">
+              <h4>9</h4>
+              <div>Points tokens left: {gameState.mountainPeaks[9].points}</div>
+              <div className="peak-point">{getGoatsByPeak(9, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(9, 1)}</div>
+              <div className="peak-point peak-zero">{getGoatsByPeak(9, 0)}</div>
             </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[6].goats[3].join(", ")}
+            <div className="peak">
+              <h4>10</h4>
+              <div>
+                Points tokens left: {gameState.mountainPeaks[10].points}
+              </div>
+              <div className="peak-point">{getGoatsByPeak(10, 2)}</div>
+              <div className="peak-point">{getGoatsByPeak(10, 1)}</div>
+              <div className="peak-point peak-zero">
+                {getGoatsByPeak(10, 0)}
+              </div>
             </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[6].goats[2].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[6].goats[1].join(", ")}
-            </div>
-            <div>{gameState.mountainPeaks[6].goats[0].join(", ")}</div>
-          </div>
-          <div style={{ border: "2px solid black" }}>
-            <h4>7</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[7].goats[3].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[7].goats[2].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[7].goats[1].join(", ")}
-            </div>
-            <div>{gameState.mountainPeaks[7].goats[0].join(", ")}</div>
-          </div>
-          <div style={{ border: "2px solid black" }}>
-            <h4>8</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[8].goats[3].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[8].goats[2].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[8].goats[1].join(", ")}
-            </div>
-            <div>{gameState.mountainPeaks[8].goats[0].join(", ")}</div>
-          </div>
-          <div style={{ border: "2px solid black" }}>
-            <h4>9</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[9].goats[2].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[9].goats[1].join(", ")}
-            </div>
-            <div>{gameState.mountainPeaks[9].goats[0].join(", ")}</div>
-          </div>
-          <div style={{ border: "2px solid black" }}>
-            <h4>10</h4>
-            <div>Points Left: </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[10].goats[2].join(", ")}
-            </div>
-            <div style={{ border: "2px solid green", height: "1em" }}>
-              {gameState.mountainPeaks[10].goats[1].join(", ")}
-            </div>
-            <div>{gameState.mountainPeaks[10].goats[0].join(", ")}</div>
           </div>
 
           {<PlayerTurn player={gameState.players[gameState.currentPlayer]} />}

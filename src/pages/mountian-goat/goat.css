@@ -1,0 +1,29 @@
+.game-board,
+.current-grouped-rolls {
+  display: flex;
+}
+
+.grouped-roll {
+  border: 2px solid black;
+  padding: 1em;
+  margin: 0 1em;
+}
+
+.peak {
+  border: 2px solid black;
+  padding: 1em;
+}
+
+.peak > .peak-point {
+  border: 2px solid green;
+  min-height: 1em;
+  padding: 0.25em;
+}
+
+.peak > .peak-point.peak-zero {
+  border-color: red;
+}
+
+.error-text {
+  color: maroon;
+}
