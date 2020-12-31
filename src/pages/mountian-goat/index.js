@@ -48,6 +48,7 @@ const defaultGameState = {
   },
   gameStarted: false,
   currentPlayer: -1,
+  showRules: true,
 };
 
 const MountainGoat = () => {
@@ -88,7 +89,11 @@ const MountainGoat = () => {
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
         />
-        <button disabled={blankPlayerName || dupeName} onClick={handleOnClick}>
+        <button
+          className="add-new-player"
+          disabled={blankPlayerName || dupeName}
+          onClick={handleOnClick}
+        >
           Add new player
         </button>
 
@@ -504,32 +509,54 @@ const MountainGoat = () => {
         </ul>
       </section> */}
       <section>
-        <h3>Rules</h3>
-        <ul>
-          <li>
-            You and up to {gameState.setup.maxPlayers - 1} friends can join to
-            play locally
-          </li>
-          <li>On your turn, you will roll {gameState.setup.diceRolls} dice</li>
-          <li>
-            You can then choose combinations of dice that add up to mountain
-            peaks (5 through 10)
-          </li>
-          <li>You do not have to use all the dice on you turn</li>
+        <h3>
+          Rules
+          <button
+            className="toggle-rules"
+            onClick={() => {
+              setGameState({
+                ...gameState,
+                showRules: !gameState.showRules,
+              });
+            }}
+          >
+            {gameState.showRules ? "Hide" : "Show"} Rules
+          </button>
+        </h3>
+        {gameState.showRules && (
+          <>
+            <ul>
+              <li>
+                You and up to {gameState.setup.maxPlayers - 1} friends can join
+                to play locally
+              </li>
+              <li>
+                On your turn, you will roll {gameState.setup.diceRolls} dice
+              </li>
+              <li>
+                You can then choose combinations of dice that add up to mountain
+                peaks (5 through 10)
+              </li>
+              <li>You do not have to use all the dice on you turn</li>
 
-          <li>
-            Points will be earned when reaching the summit of the mountain or
-            when rolling that peak value while currently holding the summit
-          </li>
-        </ul>
-        <h3>Game End</h3>
+              <li>
+                Points will be earned when reaching the summit of the mountain
+                or when rolling that peak value while currently holding the
+                summit
+              </li>
+            </ul>
+            <h3>Game End</h3>
 
-        <ul>
-          <li>When 3 of the peak summits have no point tokens left</li>
-          <li>When all 4 of the bonus tokens are claimed</li>
-          <li>Goat with the most points, wins!</li>
-        </ul>
+            <ul>
+              <li>When 3 of the peak summits have no point tokens left</li>
+              <li>When all 4 of the bonus tokens are claimed</li>
+              <li>Goat with the most points, wins!</li>
+            </ul>
+          </>
+        )}
+        <hr />
       </section>
+
       {!gameState.gameStarted && (
         <section>
           <h3>New Game</h3>

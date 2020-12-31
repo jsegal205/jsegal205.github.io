@@ -65,3 +65,11 @@ button {
   color: maroon;
   display: block;
 }
+
+.toggle-rules,
+.add-new-player {
+  margin-left: 1em;
+}
+.toggle-rules {
+  vertical-align: text-bottom;
+}
