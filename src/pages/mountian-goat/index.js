@@ -362,14 +362,29 @@ const MountainGoat = () => {
                         });
 
                         if (currentPosition === size) {
+                          // add points when retaining summit
                           workingMountains[total].points -= 1;
                           currentPlayer.totalPoints += total;
                         } else {
+                          // remove goat from current position
                           goats[currentPosition] = goats[
                             currentPosition
                           ].filter(
                             (playerName) => playerName !== currentPlayer.name
                           );
+
+                          if (
+                            currentPosition + 1 === size &&
+                            goats[currentPosition + 1].length > 0
+                          ) {
+                            //overthrow current goat at summit
+                            goats[0] = goats[0].concat(
+                              goats[currentPosition + 1]
+                            );
+                            goats[currentPosition + 1] = [];
+                          }
+
+                          // move goat up one level
                           goats[currentPosition + 1] = [
                             ...goats[currentPosition + 1],
                             currentPlayer.name,
@@ -378,6 +393,7 @@ const MountainGoat = () => {
                           workingMountains[total].goats = goats;
 
                           if (currentPosition + 1 === size) {
+                            // add points when moving to summit
                             workingMountains[total].points -= 1;
                             currentPlayer.totalPoints += total;
                           }
