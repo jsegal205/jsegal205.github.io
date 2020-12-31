@@ -1,9 +1,44 @@
-.game-board,
-.current-grouped-rolls {
-  display: flex;
+button {
+  font-family: Consolas, monaco, monospace;
+  cursor: pointer;
 }
 
-.grouped-roll {
+.game-board,
+.current-grouped-rolls,
+.players-area,
+.start-game,
+.finish-turn,
+.roll-the-dice {
+  display: flex;
+  margin-top: 1em;
+}
+
+.players-area,
+.start-game,
+.finish-turn,
+.roll-the-dice {
+  justify-content: center;
+}
+
+.player > h4,
+.peak > h4 {
+  margin-top: 0;
+}
+.peak > h4,
+.current-player-name {
+  font-size: 2em;
+  text-align: center;
+}
+
+.start-game > button,
+.finish-turn > button,
+.roll-the-dice > button {
+  padding: 0.25em;
+  font-size: 1.5em;
+}
+
+.grouped-roll,
+.player {
   border: 2px solid black;
   padding: 1em;
   margin: 0 1em;
@@ -16,14 +51,17 @@
 
 .peak > .peak-point {
   border: 2px solid green;
+  border-bottom: none;
   min-height: 1em;
   padding: 0.25em;
 }
 
 .peak > .peak-point.peak-zero {
   border-color: red;
+  border-bottom: 2px solid red;
 }
 
 .error-text {
   color: maroon;
+  display: block;
 }
