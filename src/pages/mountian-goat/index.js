@@ -337,6 +337,9 @@ const MountainGoat = () => {
                     const workingMountains = JSON.parse(
                       JSON.stringify(gameState.mountainPeaks)
                     );
+                    const currentPlayer = gameState.players.find(
+                      (player) => player.number === currentTurn.playerNumber
+                    );
 
                     currentTurn.stagedRolls.forEach((stage) => {
                       const total = stage.reduce(
@@ -350,26 +353,35 @@ const MountainGoat = () => {
                           total.toString()
                         )
                       ) {
-                        const currentPlayerName = gameState.players.find(
-                          (player) => player.number === currentTurn.playerNumber
-                        ).name;
-                        const { goats } = workingMountains[total];
+                        const { goats, size } = workingMountains[total];
                         let currentPosition = -1;
                         Object.keys(goats).forEach((key) => {
-                          if (goats[key].includes(currentPlayerName)) {
+                          if (goats[key].includes(currentPlayer.name)) {
                             currentPosition = parseInt(key);
                           }
                         });
 
-                        goats[currentPosition] = goats[currentPosition].filter(
-                          (playerName) => playerName !== currentPlayerName
-                        );
-                        goats[currentPosition + 1] = [
-                          ...goats[currentPosition + 1],
-                          currentPlayerName,
-                        ];
+                        if (currentPosition === size) {
+                          workingMountains[total].points -= 1;
+                          currentPlayer.totalPoints += total;
+                        } else {
+                          goats[currentPosition] = goats[
+                            currentPosition
+                          ].filter(
+                            (playerName) => playerName !== currentPlayer.name
+                          );
+                          goats[currentPosition + 1] = [
+                            ...goats[currentPosition + 1],
+                            currentPlayer.name,
+                          ];
 
-                        workingMountains[total].goats = goats;
+                          workingMountains[total].goats = goats;
+
+                          if (currentPosition + 1 === size) {
+                            workingMountains[total].points -= 1;
+                            currentPlayer.totalPoints += total;
+                          }
+                        }
                       }
                     });
 
@@ -377,9 +389,19 @@ const MountainGoat = () => {
                     if (nextPlayer > gameState.players.length - 1) {
                       nextPlayer = 0;
                     }
+                    const workingPlayers = JSON.parse(
+                      JSON.stringify(gameState.players)
+                    );
+
+                    const currentPlayerIdx = workingPlayers.findIndex(
+                      (p) => p.number === currentPlayer.number
+                    );
+
+                    workingPlayers[currentPlayerIdx] = currentPlayer;
 
                     setGameState({
                       ...gameState,
+                      players: workingPlayers,
                       mountainPeaks: workingMountains,
                       currentPlayer: nextPlayer,
                     });
@@ -477,7 +499,9 @@ const MountainGoat = () => {
           <h3>Players</h3>
           <ul>
             {gameState.players.map((player) => (
-              <li key={player.name}>Goat {player.name}</li>
+              <li key={player.name}>
+                Goat {player.name} - Points: {player.totalPoints}
+              </li>
             ))}
           </ul>
         </>
@@ -526,7 +550,11 @@ const MountainGoat = () => {
           <h3>Rules</h3>
           <ul>
             <li>roll the dice</li>
-            <li>choose dice values that correspond to mountain peaks </li>
+            <li>choose dice values that correspond to mountain peaks</li>
+            <li>
+              Points will be earned when reaching the summit of the mountain or
+              when rolling that peak value while currently holding the summit
+            </li>
           </ul>
           <h3>Game Board</h3>
           <div className="game-board">
