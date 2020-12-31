@@ -49,6 +49,8 @@ const defaultGameState = {
   gameStarted: false,
   currentPlayer: -1,
   showRules: true,
+  history: [],
+  showHistory: false,
 };
 
 const MountainGoat = () => {
@@ -77,6 +79,7 @@ const MountainGoat = () => {
         setGameState({
           ...gameState,
           players: [...gameState.players, newPlayer],
+          history: [...gameState.history, `${playerName} has joined`],
         });
       }
     };
@@ -105,8 +108,8 @@ const MountainGoat = () => {
     );
   };
 
-  const PlayerTurn = ({ player }) => {
-    const peakValues = Object.keys(defaultGameState.mountainPeaks);
+  const PlayerTurn = ({ player, gameState, setGameState }) => {
+    const peakValues = Object.keys(gameState.mountainPeaks);
     const [currentTurn, setCurrentTurn] = useState({
       playerNumber: player.number,
       rolls: {},
@@ -114,19 +117,6 @@ const MountainGoat = () => {
       stagedRolls: [],
       toBeStaged: [],
     });
-
-    /*
-      roll dice,
-      pick outcomes,
-        if multiple 1 rolled, pick any number
-      with end turn
-        move goats,
-          if at top of mountain
-            overthrow goat,
-            take points,
-            don't go down far side of the mountain
-      end turn
-    */
 
     const rollTheDice = () => Math.ceil(Math.random() * Math.floor(6));
 
@@ -202,11 +192,25 @@ const MountainGoat = () => {
                     checked: false,
                   };
                 }
-
                 setCurrentTurn({ ...currentTurn, rolls });
+
+                // TODO - figure this out why I can't send two state actions
+                // probably need to roll up `currentTurn` into overall `gameState`
+                // this will also
+                // -------------------------------------------------------------
+
+                // setGameState(() => ({
+                //   ...gameState,
+                //   history: [
+                //     ...gameState.history,
+                //     `${player.name} rolled ${Object.keys(rolls)
+                //       .map((rollKey) => rolls[rollKey].value)
+                //       .join(", ")}`,
+                //   ],
+                // }));
               }}
             >
-              Roll {defaultGameState.setup.diceRolls} dice
+              Roll {gameState.setup.diceRolls} dice
             </button>
           </section>
         )}
@@ -345,6 +349,7 @@ const MountainGoat = () => {
                       const currentPlayer = gameState.players.find(
                         (player) => player.number === currentTurn.playerNumber
                       );
+                      const turnHistory = [];
 
                       currentTurn.stagedRolls.forEach((stage) => {
                         const total = stage.reduce(
@@ -370,6 +375,9 @@ const MountainGoat = () => {
                             // add points when retaining summit
                             workingMountains[total].points -= 1;
                             currentPlayer.totalPoints += total;
+                            turnHistory.push(
+                              `${currentPlayer.name} scored ${total} points from staying at the summit`
+                            );
                           } else {
                             // remove goat from current position
                             goats[currentPosition] = goats[
@@ -382,6 +390,13 @@ const MountainGoat = () => {
                               currentPosition + 1 === size &&
                               goats[currentPosition + 1].length > 0
                             ) {
+                              turnHistory.push(
+                                `${
+                                  goats[currentPosition + 1]
+                                } was overthrown by ${
+                                  currentPlayer.name
+                                } on peak ${total}`
+                              );
                               //overthrow current goat at summit
                               goats[0] = goats[0].concat(
                                 goats[currentPosition + 1]
@@ -395,12 +410,19 @@ const MountainGoat = () => {
                               currentPlayer.name,
                             ];
 
+                            turnHistory.push(
+                              `${currentPlayer.name} moved up peak ${total}`
+                            );
+
                             workingMountains[total].goats = goats;
 
                             if (currentPosition + 1 === size) {
                               // add points when moving to summit
                               workingMountains[total].points -= 1;
                               currentPlayer.totalPoints += total;
+                              turnHistory.push(
+                                `${currentPlayer.name} scored ${total} points from reaching the summit of peak ${total}`
+                              );
                             }
                           }
                         }
@@ -420,11 +442,21 @@ const MountainGoat = () => {
 
                       workingPlayers[currentPlayerIdx] = currentPlayer;
 
+                      turnHistory.push(
+                        `${currentPlayer.name} finished turn`,
+                        `${
+                          gameState.players.find(
+                            (player) => player.number === nextPlayer + 1
+                          ).name
+                        } is starting their turn`
+                      );
+
                       setGameState({
                         ...gameState,
                         players: workingPlayers,
                         mountainPeaks: workingMountains,
                         currentPlayer: nextPlayer,
+                        history: gameState.history.concat(turnHistory),
                       });
                     }}
                   >
@@ -557,6 +589,33 @@ const MountainGoat = () => {
         <hr />
       </section>
 
+      {!!gameState.history.length && (
+        <section>
+          <h3>
+            Game Log
+            <button
+              className="toggle-rules"
+              onClick={() => {
+                setGameState({
+                  ...gameState,
+                  showHistory: !gameState.showHistory,
+                });
+              }}
+            >
+              {gameState.showHistory ? "Hide" : "Show"} Log
+            </button>
+          </h3>
+
+          {gameState.showHistory && (
+            <ul>
+              {gameState.history.map((history, idx) => (
+                <li key={idx}>{history}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+
       {!gameState.gameStarted && (
         <section>
           <h3>New Game</h3>
@@ -606,6 +665,7 @@ const MountainGoat = () => {
                 gameStarted: true,
                 currentPlayer: 0,
                 mountainPeaks: workingMountains,
+                history: [...gameState.history, "Game Started"],
               });
             }}
           >
@@ -671,7 +731,13 @@ const MountainGoat = () => {
             </div>
           </div>
 
-          {<PlayerTurn player={gameState.players[gameState.currentPlayer]} />}
+          {
+            <PlayerTurn
+              player={gameState.players[gameState.currentPlayer]}
+              gameState={gameState}
+              setGameState={setGameState}
+            />
+          }
         </section>
       )}
     </main>
