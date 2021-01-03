@@ -813,6 +813,16 @@ const MountainGoat = () => {
                   </li>
                 ))}
               </ol>
+              <div>
+                If you liked this game, please consider{" "}
+                <a
+                  href="https://www.boardgametables.com/products/gps-sequoia-and-mountain-goats"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  purchasing Mountain Goats on Board Game Tables
+                </a>
+              </div>
               <button
                 onClick={() => {
                   setGameState({ ...defaultGameState });
