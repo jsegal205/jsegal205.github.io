@@ -54,6 +54,7 @@ const defaultGameState = {
   showRules: true,
   history: [],
   showHistory: false,
+  gameFinished: false,
 };
 
 const MountainGoat = () => {
@@ -459,12 +460,24 @@ const MountainGoat = () => {
                         } is starting their turn`
                       );
 
+                      const peaksOutOfPoints = Object.keys(
+                        workingMountains
+                      ).reduce((acc, curr) => {
+                        return workingMountains[curr].points === 0
+                          ? acc + 1
+                          : acc;
+                      }, 0);
+
+                      const gameFinished =
+                        peaksOutOfPoints >= gameState.winConditions.peaksEmpty;
+
                       setGameState({
                         ...gameState,
                         players: workingPlayers,
                         mountainPeaks: workingMountains,
                         currentPlayer: nextPlayer,
                         history: gameState.history.concat(turnHistory),
+                        gameFinished,
                       });
                     }}
                   >
@@ -738,13 +751,34 @@ const MountainGoat = () => {
             </div>
           </div>
 
-          {
+          {!gameState.gameFinished && (
             <PlayerTurn
               player={gameState.players[gameState.currentPlayer]}
               gameState={gameState}
               setGameState={setGameState}
             />
-          }
+          )}
+          {gameState.gameFinished && (
+            <section>
+              <h2>Game Finished</h2>
+              <ol>
+                {gameState.players
+                  .sort((curr, next) => {
+                    if (curr.totalPoints > next.totalPoints) {
+                      return -1;
+                    } else if (curr.totalPoints <= next.totalPoints) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((player) => (
+                    <li key={player.number}>
+                      {player.name}: {player.totalPoints} points
+                    </li>
+                  ))}
+              </ol>
+            </section>
+          )}
         </section>
       )}
     </main>
