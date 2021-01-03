@@ -9,7 +9,9 @@ button {
 .start-game,
 .finish-turn,
 .roll-the-dice,
-.possible-outcomes {
+.possible-outcomes,
+.game-finished,
+.game-reset {
   display: flex;
   margin-top: 1em;
 }
@@ -17,7 +19,9 @@ button {
 .players-area,
 .start-game,
 .finish-turn,
-.roll-the-dice {
+.roll-the-dice,
+.game-finished,
+.game-reset {
   justify-content: center;
 }
 
@@ -38,7 +42,8 @@ button {
 
 .start-game > button,
 .finish-turn > button,
-.roll-the-dice > button {
+.roll-the-dice > button,
+.game-finished > button {
   padding: 0.25em;
   font-size: 1.5em;
 }

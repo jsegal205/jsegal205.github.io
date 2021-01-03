@@ -609,6 +609,18 @@ const MountainGoat = () => {
         <hr />
       </section>
 
+      {gameState.gameStarted && (
+        <section className="game-reset">
+          <button
+            onClick={() => {
+              setGameState({ ...defaultGameState });
+            }}
+          >
+            Reset Game!
+          </button>
+        </section>
+      )}
+
       {!!gameState.history.length && (
         <section>
           <h3>
@@ -759,7 +771,7 @@ const MountainGoat = () => {
             />
           )}
           {gameState.gameFinished && (
-            <section>
+            <section className="game-finished">
               <h2>Game Finished</h2>
               <ol>
                 {gameState.players
@@ -777,6 +789,13 @@ const MountainGoat = () => {
                     </li>
                   ))}
               </ol>
+              <button
+                onClick={() => {
+                  setGameState({ ...defaultGameState });
+                }}
+              >
+                Play Again!
+              </button>
             </section>
           )}
         </section>
