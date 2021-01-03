@@ -8,7 +8,8 @@ button {
 .players-area,
 .start-game,
 .finish-turn,
-.roll-the-dice {
+.roll-the-dice,
+.possible-outcomes {
   display: flex;
   margin-top: 1em;
 }
@@ -21,11 +22,16 @@ button {
 }
 
 .player > h4,
-.peak > h4 {
+.peak > h4,
+.possible-outcomes > h4,
+.dice-combo > h4 {
   margin-top: 0;
+  margin-bottom: 0.25em;
 }
 .peak > h4,
-.current-player-name {
+.current-player-name,
+.possible-outcomes > h4,
+.dice-combo > h4 {
   font-size: 2em;
   text-align: center;
 }
@@ -44,7 +50,8 @@ button {
   margin: 0 1em;
 }
 
-.peak {
+.peak,
+.dice-combo {
   border: 2px solid black;
   padding: 1em;
 }
@@ -72,4 +79,14 @@ button {
 }
 .toggle-rules {
   vertical-align: text-bottom;
+}
+
+.dice-combo-match::after {
+  text-align: center;
+  content: "\a OR";
+  display: block;
+}
+.dice-combo-match:last-child::after {
+  content: "";
+  display: inherit;
 }

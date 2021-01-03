@@ -46,6 +46,9 @@ const defaultGameState = {
     maxPlayers: 4,
     diceRolls: 4,
   },
+  winConditions: {
+    peaksEmpty: 3,
+  },
   gameStarted: false,
   currentPlayer: -1,
   showRules: true,
@@ -156,21 +159,26 @@ const MountainGoat = () => {
         return allCombos;
       });
 
-      return Object.keys(allCombos).map((peak) => {
-        return (
-          <div key={peak}>
-            <div>{peak}</div>
-            {!allCombos[peak].length && <div>No combinations</div>}
-            {!!allCombos[peak].length && (
-              <ul>
-                {allCombos[peak].map((combos) => (
-                  <li key={JSON.stringify(combos)}>{JSON.stringify(combos)}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        );
-      });
+      return (
+        <section className="possible-outcomes">
+          {Object.keys(allCombos).map((peak) => (
+            <div key={peak} className="dice-combo">
+              <h4>{peak}</h4>
+              <div>Select:</div>
+              {!allCombos[peak].length && <div>No matches</div>}
+              {!!allCombos[peak].length && (
+                <>
+                  {allCombos[peak].map((combos) => (
+                    <div className="dice-combo-match" key={combos.join(",")}>
+                      {combos.join(" & ")}
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          ))}
+        </section>
+      );
     };
 
     return (
@@ -536,7 +544,6 @@ const MountainGoat = () => {
           <li>pressing enter in add player input, adds player</li>
           <li>cool animation for dice roll?</li>
           <li>goat noise when goat moves</li>
-          <li>create history log of all moves that happened in the game</li>
           <li>reset game button</li>
         </ul>
       </section> */}
