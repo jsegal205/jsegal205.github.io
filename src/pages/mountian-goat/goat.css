@@ -95,3 +95,7 @@ button {
   content: "";
   display: inherit;
 }
+
+.game-finished {
+  flex-direction: column;
+}

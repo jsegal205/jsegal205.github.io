@@ -192,7 +192,7 @@ const MountainGoat = () => {
                 const rolls = { d1: {}, d2: {}, d3: {}, d4: {} };
                 for (
                   let rollNum = 0;
-                  rollNum < defaultGameState.setup.diceRolls;
+                  rollNum < gameState.setup.diceRolls;
                   rollNum++
                 ) {
                   rolls[`d${rollNum + 1}`] = {
@@ -368,7 +368,7 @@ const MountainGoat = () => {
                         );
 
                         if (
-                          Object.keys(defaultGameState.mountainPeaks).includes(
+                          Object.keys(gameState.mountainPeaks).includes(
                             total.toString()
                           )
                         ) {
@@ -382,11 +382,14 @@ const MountainGoat = () => {
 
                           if (currentPosition === size) {
                             // add points when retaining summit
-                            workingMountains[total].points -= 1;
-                            currentPlayer.totalPoints += total;
-                            turnHistory.push(
-                              `${currentPlayer.name} scored ${total} points from staying at the summit`
-                            );
+                            if (workingMountains[total].points > 0) {
+                              workingMountains[total].points -= 1;
+                              currentPlayer.totalPoints += total;
+                              turnHistory.push(
+                                `${currentPlayer.name} scored ${total} points from staying at the summit`
+                              );
+                            }
+                            // else no more points at the top of this moutain
                           } else {
                             // remove goat from current position
                             goats[currentPosition] = goats[
@@ -426,12 +429,15 @@ const MountainGoat = () => {
                             workingMountains[total].goats = goats;
 
                             if (currentPosition + 1 === size) {
-                              // add points when moving to summit
-                              workingMountains[total].points -= 1;
-                              currentPlayer.totalPoints += total;
-                              turnHistory.push(
-                                `${currentPlayer.name} scored ${total} points from reaching the summit of peak ${total}`
-                              );
+                              if (workingMountains[total].points > 0) {
+                                // add points when moving to summit
+                                workingMountains[total].points -= 1;
+                                currentPlayer.totalPoints += total;
+                                turnHistory.push(
+                                  `${currentPlayer.name} scored ${total} points from reaching the summit of peak ${total}`
+                                );
+                              }
+                              // else no more points left to give out
                             }
                           }
                         }
@@ -463,7 +469,7 @@ const MountainGoat = () => {
                       const peaksOutOfPoints = Object.keys(
                         workingMountains
                       ).reduce((acc, curr) => {
-                        return workingMountains[curr].points === 0
+                        return workingMountains[curr].points <= 0
                           ? acc + 1
                           : acc;
                       }, 0);
@@ -471,6 +477,14 @@ const MountainGoat = () => {
                       const gameFinished =
                         peaksOutOfPoints >= gameState.winConditions.peaksEmpty;
 
+                      if (gameFinished) {
+                        const { name, totalPoints } = orderedPlayers()[0];
+                        turnHistory.push("Game Finished!");
+                        debugger;
+                        turnHistory.push(
+                          `Congrats ${name} with ${totalPoints} points!`
+                        );
+                      }
                       setGameState({
                         ...gameState,
                         players: workingPlayers,
@@ -524,6 +538,16 @@ const MountainGoat = () => {
 
   const getGoatsByPeak = (peak, position) =>
     gameState.mountainPeaks[peak].goats[position].join(", ");
+
+  const orderedPlayers = () =>
+    gameState.players.sort((curr, next) => {
+      if (curr.totalPoints > next.totalPoints) {
+        return -1;
+      } else if (curr.totalPoints <= next.totalPoints) {
+        return 1;
+      }
+      return 0;
+    });
 
   return (
     <main>
@@ -596,13 +620,22 @@ const MountainGoat = () => {
                 or when rolling that peak value while currently holding the
                 summit
               </li>
+              <li>
+                If there is an opposing goat at the summit when you are reaching
+                the summit, the opposing goat will be sent to the base of the
+                peak
+              </li>
             </ul>
             <h3>Game End</h3>
 
             <ul>
-              <li>When 3 of the peak summits have no point tokens left</li>
-              <li>When all 4 of the bonus tokens are claimed</li>
-              <li>Goat with the most points, wins!</li>
+              <li>
+                When {gameState.winConditions.peaksEmpty} of the peak summits
+                have no point tokens left
+              </li>
+              <li>When all 4 of the bonus tokens are claimed </li>
+              {/* still TODO */}
+              <li>The goat with the most points, wins!</li>
             </ul>
           </>
         )}
@@ -774,20 +807,11 @@ const MountainGoat = () => {
             <section className="game-finished">
               <h2>Game Finished</h2>
               <ol>
-                {gameState.players
-                  .sort((curr, next) => {
-                    if (curr.totalPoints > next.totalPoints) {
-                      return -1;
-                    } else if (curr.totalPoints <= next.totalPoints) {
-                      return 1;
-                    }
-                    return 0;
-                  })
-                  .map((player) => (
-                    <li key={player.number}>
-                      {player.name}: {player.totalPoints} points
-                    </li>
-                  ))}
+                {orderedPlayers().map((player) => (
+                  <li key={player.number}>
+                    {player.name}: {player.totalPoints} points
+                  </li>
+                ))}
               </ol>
               <button
                 onClick={() => {
