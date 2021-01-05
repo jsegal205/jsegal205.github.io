@@ -589,8 +589,9 @@ const MountainGoat = () => {
         <hr />
         <strong>
           This is still in active development and are likely to be issues (like
-          styling on phone, try landscape mode). If you have any feedback, find
-          any issues or have more ideas for the game, please reach out to me at{" "}
+          styling and usability on phone, try landscape mode if you run into
+          this). If you have any feedback, find any issues or have more ideas
+          for the game, please reach out to me at{" "}
           <a
             href="mailto:projects@jimsegal.com?subject=Mountain Goat Game Feedback!"
             target="_blank"
