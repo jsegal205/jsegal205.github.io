@@ -585,6 +585,16 @@ const MountainGoat = () => {
         >
           Mountain Goats by Board Game Tables
         </a>
+        . If you have any feedback, find any issues or have more ideas for the
+        game, please reach out to me at{" "}
+        <a
+          href="mailto:projects@jimsegal.com?subject=Mountain Goat Game Feedback!"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          projects@jimsegal.com
+        </a>
+        . Enjoy!
       </section>
       {/*
       <section>
