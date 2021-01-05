@@ -42,6 +42,7 @@ const defaultGameState = {
       goats: {},
     },
   },
+  bonusPoints: [15, 12, 9, 6],
   setup: {
     maxPlayers: 4,
     diceRolls: 4,
@@ -77,6 +78,7 @@ const MountainGoat = () => {
         number: gameState.players.length + 1,
         name: playerName,
         totalPoints: 0,
+        peaksSummited: { 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 },
       };
 
       if (!blankPlayerName && !dupeName) {
@@ -385,6 +387,7 @@ const MountainGoat = () => {
                             if (workingMountains[total].points > 0) {
                               workingMountains[total].points -= 1;
                               currentPlayer.totalPoints += total;
+                              currentPlayer.peaksSummited[total] += 1;
                               turnHistory.push(
                                 `${currentPlayer.name} scored ${total} points from staying at the summit`
                               );
@@ -433,6 +436,7 @@ const MountainGoat = () => {
                                 // add points when moving to summit
                                 workingMountains[total].points -= 1;
                                 currentPlayer.totalPoints += total;
+                                currentPlayer.peaksSummited[total] += 1;
                                 turnHistory.push(
                                   `${currentPlayer.name} scored ${total} points from reaching the summit of peak ${total}`
                                 );
@@ -474,8 +478,29 @@ const MountainGoat = () => {
                           : acc;
                       }, 0);
 
+                      const allBonusCheck = (currentSummit) =>
+                        currentSummit >= 1 ||
+                        currentSummit >= 2 ||
+                        currentSummit >= 3 ||
+                        currentSummit >= 4;
+
+                      const getsBonus = Object.values(
+                        currentPlayer.peaksSummited
+                      ).every(allBonusCheck);
+
+                      const workingBonusPoints = gameState.bonusPoints;
+                      if (getsBonus) {
+                        currentPlayer.totalPoints += workingBonusPoints[0];
+                        turnHistory.push(
+                          `${currentPlayer.name} just scored ${workingBonusPoints[0]} bonus points!`
+                        );
+                        workingBonusPoints.shift();
+                      }
+
                       const gameFinished =
-                        peaksOutOfPoints >= gameState.winConditions.peaksEmpty;
+                        peaksOutOfPoints >=
+                          gameState.winConditions.peaksEmpty ||
+                        workingBonusPoints.length === 0;
 
                       if (gameFinished) {
                         const { name, totalPoints } = orderedPlayers()[0];
@@ -491,6 +516,7 @@ const MountainGoat = () => {
                         mountainPeaks: workingMountains,
                         currentPlayer: nextPlayer,
                         history: gameState.history.concat(turnHistory),
+                        bonusPoints: workingBonusPoints,
                         gameFinished,
                       });
                     }}
@@ -574,9 +600,6 @@ const MountainGoat = () => {
         TODO:
         <ul>
           <li>game rules: double 1 rolled (chose any number)</li>
-          <li>add player point token data store</li>
-          <li> add bonus points pointing </li>
-          <li> add end game scenarios - 3 peaks out of tokens, all 4 bonus tokens taken</li>
           <li>style the shit out of it</li>
           <li>pressing enter in add player input, adds player</li>
           <li>cool animation for dice roll?</li>
@@ -741,6 +764,17 @@ const MountainGoat = () => {
 
       {gameState.gameStarted && (
         <section>
+          <div className="bonus-points">
+            <div>
+              Bonus points can be claimed by reaching or maintaining the summit
+              of all the peaks. This can be claimed multiple times.
+            </div>
+            <div className="bonus-points-available">
+              {gameState.bonusPoints.map((bonusPoint) => (
+                <h3 key={bonusPoint}>{bonusPoint}</h3>
+              ))}
+            </div>
+          </div>
           <div className="game-board">
             <div className="peak">
               <h4>5</h4>

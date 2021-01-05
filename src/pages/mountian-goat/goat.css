@@ -11,7 +11,8 @@ button {
 .roll-the-dice,
 .possible-outcomes,
 .game-finished,
-.game-reset {
+.game-reset,
+.bonus-points-available {
   display: flex;
   margin-top: 1em;
 }
@@ -21,7 +22,8 @@ button {
 .finish-turn,
 .roll-the-dice,
 .game-finished,
-.game-reset {
+.game-reset,
+.bonus-points-available {
   justify-content: center;
 }
 
@@ -49,7 +51,8 @@ button {
 }
 
 .grouped-roll,
-.player {
+.player,
+.bonus-points-available > h3 {
   border: 2px solid black;
   padding: 1em;
   margin: 0 1em;
@@ -98,4 +101,8 @@ button {
 
 .game-finished {
   flex-direction: column;
+}
+
+.bonus-points-available > h3 {
+  border-color: lightseagreen;
 }
