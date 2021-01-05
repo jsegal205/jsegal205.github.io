@@ -167,10 +167,10 @@ const MountainGoat = () => {
           {Object.keys(allCombos).map((peak) => (
             <div key={peak} className="dice-combo">
               <h4>{peak}</h4>
-              <div>Select:</div>
               {!allCombos[peak].length && <div>No matches</div>}
               {!!allCombos[peak].length && (
                 <>
+                  <div>Select:</div>
                   {allCombos[peak].map((combos) => (
                     <div className="dice-combo-match" key={combos.join(",")}>
                       {combos.join(" & ")}
@@ -228,7 +228,7 @@ const MountainGoat = () => {
 
         {!!Object.keys(currentTurn.rolls).length && (
           <>
-            <h4>Results</h4>
+            <h3>Dice Rolls</h3>
             {Object.keys(currentTurn.rolls).map((diceKey) => {
               return (
                 <div key={diceKey}>
@@ -299,7 +299,7 @@ const MountainGoat = () => {
             </button>
             {!!currentTurn.stagedRolls.length && (
               <section className="player-turn">
-                <h4>Here are the grouped rolls</h4>
+                <h4>Here are your grouped rolls</h4>
                 <div className="current-grouped-rolls">
                   {currentTurn.stagedRolls.map((stage, idx) => {
                     const total = stage.reduce(
@@ -529,28 +529,26 @@ const MountainGoat = () => {
             {!currentTurn.showOutcomes && (
               <div>
                 <hr />
-                <span>Need some help with dice outcomes?</span>
-                <span>
-                  <button
-                    onClick={() => {
-                      setCurrentTurn({ ...currentTurn, showOutcomes: true });
-                    }}
-                  >
-                    Click here
-                  </button>
-                </span>
+
+                <button
+                  onClick={() => {
+                    setCurrentTurn({ ...currentTurn, showOutcomes: true });
+                  }}
+                >
+                  Show All Possible Combinations
+                </button>
               </div>
             )}
             {currentTurn.showOutcomes && (
               <>
                 <hr />
-                <div>Possible Outcomes</div>
+                <h3>Possible Groupings</h3>
                 <button
                   onClick={() => {
                     setCurrentTurn({ ...currentTurn, showOutcomes: false });
                   }}
                 >
-                  Hide Outcomes
+                  Hide Possibilities
                 </button>
 
                 {possiblePaths(currentTurn.rolls)}
@@ -713,14 +711,17 @@ const MountainGoat = () => {
       )}
 
       {!!gameState.players.length && (
-        <div className="players-area">
-          {gameState.players.map((player) => (
-            <div key={player.name} className="player">
-              <h4>Goat {player.name}</h4>
-              <span>Points: {player.totalPoints}</span>
-            </div>
-          ))}
-        </div>
+        <>
+          <h3 style={{ textAlign: "center" }}>Players</h3>
+          <div className="players-area">
+            {gameState.players.map((player) => (
+              <div key={player.name} className="player">
+                <h4>Goat {player.name}</h4>
+                <span>Points: {player.totalPoints}</span>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {!gameState.gameStarted && gameState.players.length > 1 && (
@@ -764,6 +765,7 @@ const MountainGoat = () => {
 
       {gameState.gameStarted && (
         <section>
+          <h3 style={{ textAlign: "center" }}>Bonus Points</h3>
           <div className="bonus-points">
             <div>
               Bonus points can be claimed by reaching or maintaining the summit
@@ -775,6 +777,7 @@ const MountainGoat = () => {
               ))}
             </div>
           </div>
+          <h3 style={{ textAlign: "center" }}>Game Board</h3>
           <div className="game-board">
             <div className="peak">
               <h4>5</h4>
