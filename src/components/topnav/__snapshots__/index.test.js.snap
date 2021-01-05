@@ -42,6 +42,16 @@ exports[`TopNav Component Renders on all other routes 1`] = `
         class="topnav-list-item"
       >
         <a
+          href="mountaingoat"
+          title="Digital game"
+        >
+          Mountain Goat Game
+        </a>
+      </li>
+      <li
+        class="topnav-list-item"
+      >
+        <a
           href="/recipes"
           title="A bunch of recipes that I frequent and wanted to show off"
         >

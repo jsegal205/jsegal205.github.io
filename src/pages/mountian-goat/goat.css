@@ -1,0 +1,108 @@
+button {
+  font-family: Consolas, monaco, monospace;
+  cursor: pointer;
+}
+
+.game-board,
+.current-grouped-rolls,
+.players-area,
+.start-game,
+.finish-turn,
+.roll-the-dice,
+.possible-outcomes,
+.game-finished,
+.game-reset,
+.bonus-points-available {
+  display: flex;
+  margin-top: 1em;
+}
+
+.players-area,
+.start-game,
+.finish-turn,
+.roll-the-dice,
+.game-finished,
+.game-reset,
+.bonus-points-available {
+  justify-content: center;
+}
+
+.player > h4,
+.peak > h4,
+.possible-outcomes > h4,
+.dice-combo > h4 {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+.peak > h4,
+.current-player-name,
+.possible-outcomes > h4,
+.dice-combo > h4 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.start-game > button,
+.finish-turn > button,
+.roll-the-dice > button,
+.game-finished > button {
+  padding: 0.25em;
+  font-size: 1.5em;
+}
+
+.grouped-roll,
+.player,
+.bonus-points-available > h3 {
+  border: 2px solid black;
+  padding: 1em;
+  margin: 0 1em;
+}
+
+.peak,
+.dice-combo {
+  border: 2px solid black;
+  padding: 1em;
+}
+
+.peak > .peak-point {
+  border: 2px solid green;
+  border-bottom: none;
+  min-height: 1em;
+  padding: 0.25em;
+}
+
+.peak > .peak-point.peak-zero {
+  border-color: red;
+  border-bottom: 2px solid red;
+}
+
+.error-text {
+  color: maroon;
+  display: block;
+}
+
+.toggle-rules,
+.add-new-player {
+  margin-left: 1em;
+}
+.toggle-rules {
+  vertical-align: text-bottom;
+}
+
+.dice-combo-match::after {
+  text-align: center;
+  content: "\a OR";
+  display: block;
+}
+.dice-combo-match:last-child::after {
+  content: "";
+  display: inherit;
+}
+
+.game-finished {
+  flex-direction: column;
+}
+
+.bonus-points-available > h3 {
+  border-color: lightseagreen;
+}

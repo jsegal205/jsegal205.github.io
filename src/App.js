@@ -14,6 +14,7 @@ import CongressMember from "./pages/congress/member";
 import TopNav from "./components/topnav";
 import Home from "./pages/home";
 import Shorts from "./pages/shorts";
+import MountainGoat from "./pages/mountian-goat";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
             />
             <Route path="/congress" component={withTracker(Congress)} />
             <Route path="/isJimWearingShorts" component={withTracker(Shorts)} />
+            <Route path="/mountaingoat" component={withTracker(MountainGoat)} />
             <Route path="/recipes" component={withTracker(Recipes)} />
             <Route path="/recipe/:recipeSlug" component={withTracker(Recipe)} />
             <Route path="/spacex" component={withTracker(SpaceX)} />
