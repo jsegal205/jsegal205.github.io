@@ -577,20 +577,13 @@ const MountainGoat = () => {
     <main>
       <h2>Mountain Goat Game</h2>
       <section>
-        <a
-          href="https://boardgamegeek.com/boardgame/305985/mountain-goats"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Board Game Geek
-        </a>
-        If you like the game support the creators by purchasing the game!
+        This is my interpretation of{" "}
         <a
           href="https://www.boardgametables.com/products/gps-sequoia-and-mountain-goats"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Mountain Goats on Board Game Tables
+          Mountain Goats by Board Game Tables
         </a>
       </section>
       {/*
@@ -851,7 +844,8 @@ const MountainGoat = () => {
                 ))}
               </ol>
               <div>
-                If you liked this game, please consider{" "}
+                If you liked this game, please consider supporting the creators
+                by{" "}
                 <a
                   href="https://www.boardgametables.com/products/gps-sequoia-and-mountain-goats"
                   target="_blank"
