@@ -15,7 +15,7 @@ describe("SpaceX Component", () => {
     it("displays `Loading...`", () => {
       useFetch.mockReturnValue({
         loading: true,
-        data: [],
+        data: {},
       });
 
       const { container } = render(
@@ -37,24 +37,14 @@ describe("SpaceX Component", () => {
       jest.useFakeTimers();
       useFetch.mockReturnValue({
         loading: false,
-        data: [
-          {
-            mission_name: "mission_name",
-            details: "details",
-            launch_date_unix: new Date("01-01-2019").valueOf() / 1000,
-            launch_date_utc: new Date("01-01-2019"),
-            rocket: { rocket_name: "rocket_name" },
-            launch_site: { site_name_long: "site_name_long" },
-          },
-          {
-            mission_name: "mission_name_future",
-            details: "future details",
-            launch_date_unix: new Date("01-01-2021").valueOf() / 1000,
-            launch_date_utc: new Date("01-01-2021"),
-            rocket: { rocket_name: "rocket_name_future" },
-            launch_site: { site_name_long: "site_name_long_future" },
-          },
-        ],
+        data: {
+          mission_name: "mission_name_future",
+          details: "future details",
+          date_unix: new Date("01-01-2021").valueOf() / 1000,
+          date_utc: new Date("01-01-2021"),
+          rocket_name: "rocket_name_future",
+          launchpad: "site_name_long_future",
+        },
       });
 
       const { container } = render(
@@ -73,7 +63,7 @@ describe("SpaceX Component", () => {
         jest.useFakeTimers();
         useFetch.mockReturnValue({
           loading: false,
-          data: [],
+          data: {},
         });
 
         const { container } = render(
