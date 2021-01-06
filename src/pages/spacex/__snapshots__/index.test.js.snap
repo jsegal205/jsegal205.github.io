@@ -20,7 +20,6 @@ exports[`SpaceX Component when \`useFetch\` is awaiting promise to resolve displ
         Loading
       </div>
     </section>
-    0
   </section>
 </div>
 `;
@@ -121,7 +120,39 @@ exports[`SpaceX Component when \`useFetch\` returns data when no data returned d
     <h2>
       Next Space X Launch
     </h2>
-    0
+    <div
+      class="spacex-mega"
+    />
+    <h3 />
+    <div
+      class="spacex-item"
+    >
+      <label>
+        When:
+      </label>
+      <span>
+        Invalid Date
+      </span>
+    </div>
+    <div
+      class="spacex-item"
+    >
+      <label>
+        Rocket:
+      </label>
+      <span />
+    </div>
+    <div
+      class="spacex-item"
+    >
+      <label>
+        Launch Site:
+      </label>
+      <span />
+    </div>
+    <div
+      class="spacex-details"
+    />
   </section>
 </div>
 `;

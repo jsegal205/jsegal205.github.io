@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment, useRef } from "react";
 
 import useFetch from "../../utils/useFetch";
 import Error from "../../components/error";
+import { apiUrlBase } from "../../utils";
 
 import "../../App.css";
 import "./spacex.css";
@@ -9,14 +10,8 @@ import Loading from "../../components/loading";
 
 const SpaceX = () => {
   const { loading, data: upcomingLaunch } = useFetch(
-    `https://api.spacexdata.com/v3/launches/upcoming?limit=2`
+    `${apiUrlBase}/spacex/next`
   );
-
-  const futureLaunchIndex = () => {
-    if (!loading && upcomingLaunch.length) {
-      return upcomingLaunch[0]["launch_date_unix"] < Date.now() / 1000 ? 1 : 0;
-    }
-  };
 
   const calcTimeToLaunch = () => {
     let timeLeft = {};
@@ -25,10 +20,8 @@ const SpaceX = () => {
         return timeLeft;
       }
 
-      if (upcomingLaunch[futureLaunchIndex()]) {
-        const difference =
-          upcomingLaunch[futureLaunchIndex()]["launch_date_unix"] -
-          Date.now() / 1000;
+      if (upcomingLaunch.date_unix) {
+        const difference = upcomingLaunch.date_unix - Date.now() / 1000;
 
         if (difference > 0) {
           timeLeft = {
@@ -74,7 +67,6 @@ const SpaceX = () => {
       return null;
     }
 
-    const launch = upcomingLaunch[futureLaunchIndex()];
     const options = {
       weekday: "long",
       year: "numeric",
@@ -84,27 +76,27 @@ const SpaceX = () => {
       minute: "numeric",
     };
 
-    const launchDate = new Date(launch["launch_date_utc"]).toLocaleString(
+    const launchDate = new Date(upcomingLaunch.date_utc).toLocaleString(
       "en-US",
       options
     );
     return (
-      <Fragment key={launch["mission_name"]}>
+      <Fragment key={upcomingLaunch.mission_name}>
         <div className="spacex-mega">{timerComponents}</div>
-        <h3>{launch["mission_name"]}</h3>
+        <h3>{upcomingLaunch.mission_name}</h3>
         <div className="spacex-item">
           <label>When:</label>
           <span>{launchDate}</span>
         </div>
         <div className="spacex-item">
           <label>Rocket:</label>
-          <span>{launch["rocket"]["rocket_name"]}</span>
+          <span>{upcomingLaunch.rocket_name}</span>
         </div>
         <div className="spacex-item">
           <label>Launch Site:</label>
-          <span>{launch["launch_site"]["site_name_long"]}</span>
+          <span>{upcomingLaunch.launchpad}</span>
         </div>
-        <div className="spacex-details">{launch["details"]}</div>
+        <div className="spacex-details">{upcomingLaunch.details}</div>
       </Fragment>
     );
   };
@@ -118,7 +110,7 @@ const SpaceX = () => {
         <Error componentName="SpaceX" />
       )}
 
-      {upcomingLaunch && upcomingLaunch.length && launchDetails()}
+      {!loading && !upcomingLaunch.error && launchDetails()}
     </section>
   );
 };
