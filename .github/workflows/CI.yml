@@ -18,4 +18,4 @@ jobs:
       - name: Run Prettier
         run: yarn check-prettier
       - name: Run Tests
-        run: yarn test
+        run: yarn ci-test
