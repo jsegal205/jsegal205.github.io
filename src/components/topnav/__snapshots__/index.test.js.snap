@@ -12,60 +12,10 @@ exports[`TopNav Component Renders on all other routes 1`] = `
         class="topnav-list-item"
       >
         <a
-          href="https://jimsegal.com"
-          title="OG site with other projects"
+          href="/"
+          title="Projects that I like to work on"
         >
-          JimSegal.com
-        </a>
-      </li>
-      <li
-        class="topnav-list-item"
-      >
-        <a
-          href="/congress"
-          title="Some fun data surrounding the current congressional sesssion"
-        >
-          Congress
-        </a>
-      </li>
-      <li
-        class="topnav-list-item"
-      >
-        <a
-          href="/isJimWearingShorts"
-          title="A site to predict if Jim is wearing shorts or not"
-        >
-          Is Jim Wearing Shorts?
-        </a>
-      </li>
-      <li
-        class="topnav-list-item"
-      >
-        <a
-          href="mountaingoat"
-          title="Digital game"
-        >
-          Mountain Goat Game
-        </a>
-      </li>
-      <li
-        class="topnav-list-item"
-      >
-        <a
-          href="/recipes"
-          title="A bunch of recipes that I frequent and wanted to show off"
-        >
-          Recipes
-        </a>
-      </li>
-      <li
-        class="topnav-list-item"
-      >
-        <a
-          href="/spacex"
-          title="A countdown timer until the next launch of a Space X rocket"
-        >
-          Space X
+          All Projects
         </a>
       </li>
     </ul>
