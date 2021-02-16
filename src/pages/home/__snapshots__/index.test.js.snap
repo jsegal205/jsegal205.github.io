@@ -25,9 +25,7 @@ exports[`Home Component renders correctly 1`] = `
               JimSegal.com
             </h2>
           </div>
-          <p>
-            OG site with other projects
-          </p>
+          <p />
         </a>
       </li>
       <li
@@ -51,6 +49,30 @@ exports[`Home Component renders correctly 1`] = `
           </div>
           <p>
             Some fun data surrounding the current congressional sesssion
+          </p>
+        </a>
+      </li>
+      <li
+        class="project-list-item"
+        style="border-color: #ffffff;"
+      >
+        <a
+          class="project-list-item-link"
+          href="https://jimsegal.com/IsChicagoColderThanAnchorage/"
+        >
+          <div
+            class="project-list-item-placeholder"
+            style="background-color: rgb(0, 0, 0);"
+          >
+            <h2
+              class="project-list-item-title"
+              style="color: rgb(68, 68, 68);"
+            >
+              Is Chicago Colder Than Anchorage?
+            </h2>
+          </div>
+          <p>
+            A way to quickly tell if Chicago, IL is colder than Anchorage, AK
           </p>
         </a>
       </li>
@@ -108,6 +130,30 @@ exports[`Home Component renders correctly 1`] = `
       >
         <a
           class="project-list-item-link"
+          href="https://jimsegal.com/readinglist/"
+        >
+          <div
+            class="project-list-item-placeholder"
+            style="background-color: rgb(0, 0, 0);"
+          >
+            <h2
+              class="project-list-item-title"
+              style="color: rgb(68, 68, 68);"
+            >
+              Reading List
+            </h2>
+          </div>
+          <p>
+            Books I have read or listened to
+          </p>
+        </a>
+      </li>
+      <li
+        class="project-list-item"
+        style="border-color: #ffffff;"
+      >
+        <a
+          class="project-list-item-link"
           href="/recipes"
         >
           <div
@@ -147,6 +193,54 @@ exports[`Home Component renders correctly 1`] = `
           </div>
           <p>
             A countdown timer until the next launch of a Space X rocket
+          </p>
+        </a>
+      </li>
+      <li
+        class="project-list-item"
+        style="border-color: #ffffff;"
+      >
+        <a
+          class="project-list-item-link"
+          href="https://jimsegal.com/tabletop/"
+        >
+          <div
+            class="project-list-item-placeholder"
+            style="background-color: rgb(0, 0, 0);"
+          >
+            <h2
+              class="project-list-item-title"
+              style="color: rgb(68, 68, 68);"
+            >
+              Tabletop Games
+            </h2>
+          </div>
+          <p>
+            My collection of table top games
+          </p>
+        </a>
+      </li>
+      <li
+        class="project-list-item"
+        style="border-color: #ffffff;"
+      >
+        <a
+          class="project-list-item-link"
+          href="https://jimsegal.com/travel/"
+        >
+          <div
+            class="project-list-item-placeholder"
+            style="background-color: rgb(0, 0, 0);"
+          >
+            <h2
+              class="project-list-item-title"
+              style="color: rgb(68, 68, 68);"
+            >
+              Travels
+            </h2>
+          </div>
+          <p>
+            Places that I have traveled since graduating college in 2008
           </p>
         </a>
       </li>
