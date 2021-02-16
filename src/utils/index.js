@@ -5,7 +5,7 @@ export const projectInfo = [
   {
     absolute: true,
     link: "https://jimsegal.com",
-    subtitle: "OG site with other projects",
+    subtitle: "",
     title: "JimSegal.com",
   },
   {
@@ -33,4 +33,43 @@ export const projectInfo = [
     subtitle: "A countdown timer until the next launch of a Space X rocket",
     title: "Space X",
   },
-];
+  {
+    absolute: true,
+    link: "https://jimsegal.com/IsChicagoColderThanAnchorage/",
+    subtitle:
+      "A way to quickly tell if Chicago, IL is colder than Anchorage, AK",
+    title: "Is Chicago Colder Than Anchorage?",
+  },
+  {
+    absolute: true,
+    link: "https://jimsegal.com/readinglist/",
+    subtitle: "Books I have read or listened to",
+    title: "Reading List",
+  },
+  {
+    absolute: true,
+    link: "https://jimsegal.com/travel/",
+    subtitle: "Places that I have traveled since graduating college in 2008",
+    title: "Travels",
+  },
+  {
+    absolute: true,
+    link: "https://jimsegal.com/tabletop/",
+    subtitle: "My collection of table top games",
+    title: "Tabletop Games",
+  },
+].sort(function (a, b) {
+  const titleA = a.title.toUpperCase();
+  const titleB = b.title.toUpperCase();
+  if (titleA === "JIMSEGAL.COM" || titleB === "JIMSEGAL.COM") {
+    return 1;
+  }
+  if (titleA < titleB) {
+    return -1;
+  }
+  if (titleA > titleB) {
+    return 1;
+  }
+
+  return 0;
+});
