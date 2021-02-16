@@ -26,7 +26,7 @@ const cardDetails = (project, color) => (
       </h2>
     </div>
 
-    <p>{project.subtitle}</p>
+    {!!project.subtitle ? <p>{project.subtitle}</p> : null}
   </>
 );
 

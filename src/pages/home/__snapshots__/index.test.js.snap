@@ -25,7 +25,6 @@ exports[`Home Component renders correctly 1`] = `
               JimSegal.com
             </h2>
           </div>
-          <p />
         </a>
       </li>
       <li
