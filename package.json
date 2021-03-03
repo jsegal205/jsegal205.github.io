@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sentry/react": "^6.1.0",
+    "@sentry/react": "^6.2.1",
     "@sentry/tracing": "^6.2.1",
     "axios": "^0.21.1",
     "minimist": "^1.2.2",
