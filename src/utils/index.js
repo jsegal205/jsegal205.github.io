@@ -1,6 +1,9 @@
 export const apiUrlBase = "https://api.jimsegal.com";
 // export const apiUrlBase = "http://localhost:8001";
 
+export const adminUrlBase = "https://admin.jimsegal.com";
+// export const adminUrlBase = "http://localhost:1337";
+
 export const projectInfo = [
   {
     absolute: true,

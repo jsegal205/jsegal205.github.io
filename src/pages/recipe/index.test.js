@@ -1,13 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { apiUrlBase } from "../../utils";
+import { adminUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import Recipe from "./index";
 
 jest.mock("../../utils/useFetch", () => jest.fn());
 
 describe("Recipe Component", () => {
+  const baseUrl = `${adminUrlBase}/recipes`;
+
   describe("when `useFetch` is awaiting promise to resolve", () => {
     it("displays `Loading...`", () => {
       const slug = "doesNotExist";
@@ -23,7 +25,7 @@ describe("Recipe Component", () => {
       });
 
       const tree = renderer.create(<Recipe {...props} />);
-      expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+      expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/${slug}`);
       expect(tree.toJSON()).toMatchSnapshot();
     });
   });
@@ -44,7 +46,7 @@ describe("Recipe Component", () => {
         });
 
         const tree = renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/${slug}`);
         expect(tree.toJSON()).toMatchSnapshot();
       });
     });
@@ -64,7 +66,7 @@ describe("Recipe Component", () => {
         });
 
         const tree = renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/${slug}`);
         expect(tree.toJSON()).toMatchSnapshot();
       });
     });
@@ -92,7 +94,7 @@ describe("Recipe Component", () => {
         });
 
         const tree = renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/${slug}`);
         expect(tree.toJSON()).toMatchSnapshot();
       });
     });
@@ -119,7 +121,7 @@ describe("Recipe Component", () => {
       });
 
       const tree = renderer.create(<Recipe {...props} />);
-      expect(useFetch).toHaveBeenCalledWith(`${apiUrlBase}/recipe/${slug}`);
+      expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/${slug}`);
       expect(tree.toJSON()).toMatchSnapshot();
     });
   });
@@ -142,9 +144,7 @@ describe("Recipe Component", () => {
         });
 
         renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(
-          `${apiUrlBase}/recipe/state-slug`
-        );
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/state-slug`);
       });
     });
     describe("when props do not contain state.slug", () => {
@@ -164,9 +164,7 @@ describe("Recipe Component", () => {
         });
 
         renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(
-          `${apiUrlBase}/recipe/pathname-slug`
-        );
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/pathname-slug`);
       });
     });
 
@@ -187,9 +185,7 @@ describe("Recipe Component", () => {
         });
 
         renderer.create(<Recipe {...props} />);
-        expect(useFetch).toHaveBeenCalledWith(
-          `${apiUrlBase}/recipe/slash-slug`
-        );
+        expect(useFetch).toHaveBeenCalledWith(`${baseUrl}/slash-slug`);
       });
     });
   });

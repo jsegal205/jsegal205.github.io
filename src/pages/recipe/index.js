@@ -1,5 +1,5 @@
 import React from "react";
-import { apiUrlBase } from "../../utils";
+import { adminUrlBase } from "../../utils";
 
 import ReactMarkdown from "react-markdown";
 
@@ -24,7 +24,7 @@ const getSlug = ({ pathname, state }) => {
 
 const Recipe = (props) => {
   const slug = getSlug(props.location);
-  const { loading, data: recipe } = useFetch(`${apiUrlBase}/recipe/${slug}`);
+  const { loading, data: recipe } = useFetch(`${adminUrlBase}/recipes/${slug}`);
 
   if (loading) {
     return <Loading />;

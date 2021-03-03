@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { apiUrlBase } from "../../utils";
+import { adminUrlBase } from "../../utils";
 import useFetch from "../../utils/useFetch";
 import Error from "../../components/error";
 
@@ -11,7 +11,7 @@ import Loading from "../../components/loading";
 import SearchFilter from "../../components/search-filter";
 
 const Recipes = () => {
-  const { loading, data: recipes } = useFetch(`${apiUrlBase}/recipes`);
+  const { loading, data: recipes } = useFetch(`${adminUrlBase}/recipes`);
 
   const [recipeSearch, setRecipeSearch] = useState("");
   const handleSearchChange = (event) => {
