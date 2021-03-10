@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DogeTracker Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+<div>
+  <section
+    class="loader"
+  >
+    <div
+      class="loader-wheel"
+    />
+    <div
+      class="loader-text"
+    >
+      Loading
+    </div>
+  </section>
+</div>
+`;
+
+exports[`DogeTracker Component when \`useFetch\` returns data displays data 1`] = `
+<div>
+  <section
+    class="doge-cointainer"
+  >
+    <h2
+      class="doge-title"
+    >
+      What is Dogecoin's current price?
+    </h2>
+    <section
+      class="doge-cointainer"
+    >
+      <img
+        alt="a spinning coin with with the official dogecoin logo on one side and a shiba inu with the word WOW embossed on the coin"
+        class="doge-image"
+        src="https://i.imgur.com/jEll6Tr.gif"
+      />
+      <h3
+        class="doge-price"
+      >
+        $ 
+        100
+         (USD)
+      </h3>
+      <h3
+        class="doge-price"
+      >
+        1
+         (Bitcoin)
+      </h3>
+    </section>
+  </section>
+</div>
+`;
+
+exports[`DogeTracker Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
+<div>
+  <section>
+    <h3>
+      Whoops! There was a problem loading
+       
+      Dogecoin price tracker data.
+    </h3>
+    <p>
+      Please reload browser to try again in a little bit.
+    </p>
+  </section>
+</div>
+`;

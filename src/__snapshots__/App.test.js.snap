@@ -65,6 +65,30 @@ exports[`renders correctly 1`] = `
         >
           <a
             class="project-list-item-link"
+            href="/dogetracker"
+          >
+            <div
+              class="project-list-item-placeholder"
+              style="background-color: rgb(0, 0, 0);"
+            >
+              <h2
+                class="project-list-item-title"
+                style="color: rgb(68, 68, 68);"
+              >
+                Dogecoin Price Tracker
+              </h2>
+            </div>
+            <p>
+              Get the current price of the hottest LEGITIMATE cryptocurrency out there
+            </p>
+          </a>
+        </li>
+        <li
+          class="project-list-item"
+          style="border-color: #ffffff;"
+        >
+          <a
+            class="project-list-item-link"
             href="https://jimsegal.com/IsChicagoColderThanAnchorage/"
           >
             <div

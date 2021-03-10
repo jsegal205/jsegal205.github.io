@@ -15,6 +15,7 @@ import TopNav from "./components/topnav";
 import Home from "./pages/home";
 import Shorts from "./pages/shorts";
 import MountainGoat from "./pages/mountian-goat";
+import DogeTracker from "./pages/dogetracker";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
               component={withTracker(CongressMember)}
             />
             <Route path="/congress" component={withTracker(Congress)} />
+            <Route path="/dogetracker" component={withTracker(DogeTracker)} />
             <Route path="/isJimWearingShorts" component={withTracker(Shorts)} />
             <Route path="/mountaingoat" component={withTracker(MountainGoat)} />
             <Route path="/recipes" component={withTracker(Recipes)} />

@@ -58,6 +58,12 @@ export const projectInfo = [
     subtitle: "My collection of table top games",
     title: "Tabletop Games",
   },
+  {
+    link: "/dogetracker",
+    subtitle:
+      "Get the current price of the hottest LEGITIMATE cryptocurrency out there",
+    title: "Dogecoin Price Tracker",
+  },
 ].sort(function (a, b) {
   const titleA = a.title.toUpperCase();
   const titleB = b.title.toUpperCase();

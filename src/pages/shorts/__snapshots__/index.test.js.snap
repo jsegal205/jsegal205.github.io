@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
+exports[`Shorts Component when \`useFetch\` is awaiting promise to resolve displays \`Loading...\` 1`] = `
 <div>
   <section
     class="loader"
@@ -17,7 +17,7 @@ exports[`Recipes Component when \`useFetch\` is awaiting promise to resolve disp
 </div>
 `;
 
-exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
+exports[`Shorts Component when \`useFetch\` returns data displays data 1`] = `
 <div>
   <section>
     <h2>
@@ -48,7 +48,7 @@ exports[`Recipes Component when \`useFetch\` returns data displays data 1`] = `
 </div>
 `;
 
-exports[`Recipes Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
+exports[`Shorts Component when \`useFetch\` returns data when 500 status returned displays error messaging 1`] = `
 <div>
   <section>
     <h3>

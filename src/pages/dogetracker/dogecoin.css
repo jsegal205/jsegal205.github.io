@@ -1,0 +1,14 @@
+.doge-cointainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.doge-title {
+  text-align: center;
+}
+.doge-image {
+  margin: 1em 0;
+}
+.doge-price {
+  margin-top: 0;
+}

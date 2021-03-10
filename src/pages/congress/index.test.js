@@ -127,7 +127,7 @@ const returnData = {
   },
 };
 
-describe("Recipes Component", () => {
+describe("Congress Component", () => {
   describe("when `useFetch` is awaiting promise to resolve", () => {
     it("displays `Loading...`", () => {
       useFetch.mockReturnValue({
