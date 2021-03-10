@@ -7,7 +7,7 @@ import { render } from "@testing-library/react";
 
 jest.mock("../../utils/useFetch", () => jest.fn());
 
-describe("Recipes Component", () => {
+describe("Shorts Component", () => {
   describe("when `useFetch` is awaiting promise to resolve", () => {
     it("displays `Loading...`", () => {
       useFetch.mockReturnValue({
